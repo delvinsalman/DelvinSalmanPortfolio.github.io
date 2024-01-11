@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+
+
+  <meta charset="UTF-8" />
+  <meta name="author" content="Prakash Ravichandran" />
+  <meta name="description" content="Developer Front-end e UI Designer." />
+  <meta name="keywords"
+    content="sites, web, desenvolvimento, frontend, prakash ravichandrann, ui designer, programmer, prakash, front-end, designer, ui, prakashr, freelancer, freela, website, portfolio" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#6610F2" />
+  <meta name="copyright" content="Prakash 2021" />
+  <meta http-equiv="content-language" content="pt-br" />
+  <meta property="og:image" />
+
+  <meta property="og:title" content="Prakash Ravichandran - Developer Front-end e UI Designer" />
+  <meta property="og:description" content="Developer Front-end e UI Designer." />
+  <title>Delvin Salman</title>
+  <link rel="stylesheet" href="assets/scss/style.css" />
+  <link rel="shortcut icon" href="assets/image/haklambaga.png" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="assets/image/icon-browser.svg" />
+  <style>
+
+
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 1000px;
+      background: #000;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+
+    #scrollPath {
+      position: fixed;
+      width: 5px;
+      height: 100%;
+      top: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    #progressbar {
+      position: fixed;
+      width: 10px;
+      top: 0;
+      right: 0;
+      background: linear-gradient(to top, #008aff, #00ffe7);
+      animation: progressbar 5s linear infinite;
+    }
+
+    @keyframes progressbar {
+
+      0%,
+      100% {
+        filter: hue-rotate(0deg);
+      }
+
+      50% {
+        filter: hue-rotate(360deg);
+      }
+    }
+
+    #progressbar::before {
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: linear-gradient(to top, #008aff, #00ffe7);
+      filter: blur(25px);
+    }
+
+    #progressbar::after {
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: linear-gradient(to top, #008aff, #00ffe7);
+      filter: blur(25px);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="progressbar"></div>
+  <div id="scrollPath"></div>
+  <section>
+    <p></p>
+  </section>
+
+  <header>
+    <div class="larguraMaxContainer">
+      <nav>
+        <img src="assets/image/Brand.png" alt="Logo iuricode" />
+
+
+
+
+
+
+        <div class="mobile-menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+        <ul class="nav-list">
+          <li><a href="#sobre">ᗩᗷOᑌT</a></li>
+          <li><a href="#projetos">ᑭᖇOᒍEᑕTᔕ</a></li>
+          <li><a href="#servicos">ᑭᒪᗩᑎ</a></li>
+          <li><a href="#conhecimentos">KᑎOᗯᒪEᗪGE</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+    <!--Home-->
+
+    <section id="apresentacaoPortfolio">
+      <div class="larguraMaxContainer">
+        <div id="apresentacaoTexto">
+          <h2 class="imagem-delay">
+            Hello, I'm<br />
+            <span id="nome">Delvin</span><br />
+            
+
+            <span class="maquina-escrever">Student Developer.</span>
+
+          </h2>
+
+          <section>
+            <ul class="icon-list">
+              <li class="icon-item">
+                <a href="mailto:delvinsalman19@gmail.com" class="icon-link" target="_blank"><i class="far fa-envelope"></i></a>
+
+              </li>
+              
+              <li class="icon-item">
+                <a href="https://www.linkedin.com/in/d-s-405218266/" class="icon-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+              </li>
+              <li class="icon-item">
+                <a href="https://delyy.itch.io/" class="icon-link" target="_blank"><i class="fab fa-itch-io"></i></a>
+              </li>
+            </ul>
+          </section>
+          
+          
+          
+        </div>
+        <div id="apresentacaoFoto">
+          <img src="assets/image/espaco.svg" alt="foto de um espaço" id="fundo" class="imagem-espaco-delay" />
+          <img src="assets/image/rain.gif" alt="personagem flutuando" class="object imagem-iuri-delay" />
+          <img src="assets/image/8737333.png" alt="personagem flutuando" class="object imagem-iuri-delay" />
+
+        </div>
+      </div>
+
+      <style>
+  
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .scroll-down-dude {
+      width: 24px; /* Adjust the width as needed */
+      height: 24px; /* Adjust the height as needed */
+      position: absolute;
+      bottom: 30px; /* Adjust the vertical position as needed */
+      left: 50%; /* Center horizontally */
+      transform: translateX(-50%); /* Center horizontally */
+    }
+
+    .scroll-down-dude:before,
+    .scroll-down-dude:after {
+      content: '';
+      display: block;
+      width: 12px;
+      height: 12px;
+      transform: rotate(45deg);
+      border-bottom: 4px solid white;
+      border-right: 4px solid white;
+    }
+
+    .scroll-down-dude:before {
+      animation: down-arrow-before 2.6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+    }
+
+    .scroll-down-dude:after {
+      animation: down-arrow-after 2.6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+    }
+
+    @keyframes down-arrow-before {
+      50% {
+        transform: rotate(45deg) translate(70%, 70%);
+      }
+      100% {
+        transform: rotate(45deg) translate(70%, 70%);
+      }
+    }
+
+    @keyframes down-arrow-after {
+      50% {
+        transform: rotate(45deg) translate(110%, 110%);
+        opacity: 0;
+      }
+      51% {
+        transform: rotate(45deg) translate(-130%, -130%);
+      }
+      100% {
+        transform: rotate(45deg) translate(-70%, -70%);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+
+
+
+
+
+
+
+
+<body>
+  <div class="scroll-down-dude"></div>
+</body>
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    <!--Quem sou-->
+    <section id="sobre">
+      <div class="larguraMaxContainer">
+        <section id="sobreMim">
+          <div id="sobreFoto">
+            <img src="assets/image/Delvin.png" width="400px" height="400px" alt="ilustração do iuricode"
+              class="imagem-delay" id="iuricode" />
+            <div id="figura1" class="icon1 descricao-delay">
+              <img src="assets/image/jssss.png" width="45px" height="45px" alt="ícone html" />
+            </div>
+            <div id="figura2" class="icon2 descricao-delay">
+              <img src="assets/image/white.png" width="45px" height="45px" alt="ícone css" />
+            </div>
+            <div id="figura3" class="icon3 descricao-delay">
+              <img src="assets/image/dddd.png" width="45px" height="45px" alt="ícone javascript" />
+            </div>
+            <div id="figura4" class="icon4 descricao-delay">
+              <img src="assets/image/unreal.png" width="45px" height="45px" alt="ícone javascript" />
+            </div>
+          </div>
+          <article id="sobreTexto">
+            <h2 class="titulo-delay">ᗩᗷOᑌT<span>.</span></h2>
+            <p class="descricao-delay">
+              Hello, my name is Delvin, I am a university student at York University pursuing a degree in digital media,
+              and specializing in game arts. I possess knowledge in a diverse range of game development tools and software, 
+              along with knowledge in the field of game development itself. Along side, programming languages, development skills, 
+              a widerange of software tools and technical design and web development to name a few.
+            </p>
+           
+            <p class="descricao-delay">
+              I continuously strive to expand and enhance my knowledge in these fields, as I am still learning. I am very goal-oriented and 
+              results-driven as I am passionate about the work I do. In the many fields listed, I take pride in those skills as I am always trying my 
+              best at it and always love trying new things that aren't quite familiar to me as it only helps me learn and grow!  
+            </p>
+
+
+        
+
+
+
+          </article>
+        </section>
+      </div>
+    </section>
+
+    <!--Projetos-->
+    
+    <section id="projetos">
+      <div class="larguraMaxContainer">
+        <h2 class="titulo-delay">ᑭᖇOᒍEᑕTᔕ<span>.</span></h2>
+        <div class="project-cards">
+        </article>
+        <article class="cards-interval">
+          <h3>Riders of Doom</h3> <h3 style="font-size: small; font-style: italic;">Game Development Project</h3>
+
+          <div class="project-image">
+            <img src="assets/image/rider.png" alt="Project 4" />
+            <p>Riders of Doom is a 2D Bullet Heaven game created by myself for a school game development course. The game 
+              seamlessly blends intense action, fast-paced shooting, challenging levels, and formidable enemies. This game
+              was created in Unity and is a single-player game that has 8 levels. This game is also a vertical slice given the period.
+              Click <a
+                href="https://delyy.itch.io/riders-of-doom">here</a> to view and download the game.
+
+            </p>
+          </div>
+        </article>
+          <article class="cards-interval">
+            <h3>Santa Runner</h3> <h3 style="font-size: small; font-style: italic;">Game Development Project</h3>
+            <div class="project-image">
+              <img src="assets/image/hahahah.gif" alt="Project 1" />
+              <p>
+              <p>Santa Runner is a winter and Christmas themed 2D endless runner game created using the Unity game
+                engine using C#. It follows the classic mechanics of a 2D runner game, offering players an immersive
+                experience in a festive setting.
+                In this game, your objective is to attain a remarkable high score by skillfully navigating over
+                obstacles through continuous jumping. I hope to one day make a 3D verison of this game, based around the
+                same ideas. Click <a href="https://delyy.itch.io/santarunner">here</a> to try it.</p>
+
+              </p>
+            </div>
+          </article>
+        
+          <article class="cards-interval">
+            <h3>Board Runner</h3> <h3 style="font-size: small; font-style: italic;">Game Development Project</h3>
+            <div class="project-image">
+              <img src="assets/image/dssd.png" alt="Project 3" />
+              <p>Board Runner is a puzzle-themed narration game that is made using GB Studio. The game follows the idea of solving
+                puzzles and missions to move on to each new level to reach the goal of talking to the master. The game uses a sprite
+                type of look and is created more using a design aspect rather than code. The game has friendly combat and clues to
+                help you on your way while using the core concept of puzzle/narration based game. Click <a
+                href="https://delyy.itch.io/board-runner">here</a> to play the game. </p>
+              </p>
+            </div>
+          </article>
+          <article class="cards-interval">
+            <h3>Colour Drops</h3> <h3 style="font-size: small; font-style: italic;">Interactive Generative Art Project</h3>
+            <div class="project-image">
+              <img src="assets/image/newone.png" alt="Project 2" />
+              <p>Color Drop is a captivating basic visual art piece crafted using Java, using the Processing software.
+                This creation showcases a plethora of innovative design techniques that are both intriguing and visually
+                appealing. The project is centered around a dynamic visual experience that comes to life through
+                interactivity, as the user moves their mouse, a figure within the artwork responds, producing
+                captivating visual effects that evolve with its motion. Click <a
+                  href="https://github.com/delvinsalman/DelvinEECS1710/tree/main/Project_1">here</a> to view the source code </p>
+            </div>
+          </article>
+
+         
+
+          
+
+          <article class="cards-interval">
+            <h3>Glowing Fiber Fantasia</h3> <h3 style="font-size: small; font-style: italic;">Interactive Web-Based Application Project</h3>
+            <img src="assets/image/LLL.png" alt="Project 5" />
+            <p>Glowing Fiber Fantasia is a web application-based tool that allows you to draw, create, and image your vision in drawing
+              in a creating one. The application has a variety of GUI features that enhance the user's expire in drawing something they 
+              want. This project was created by myself and was inspired by the idea of a silk art web application. This project was 
+              code in p5.js using javascript while also following the idea of a user interactive based project. Click <a
+              href="https://editor.p5js.org/Delvin/sketches/VAyzTXI8y">here</a> to view and try it.
+            </p>
+
+
+
+            <div class="project-image">
+              
+            </div>
+          </article>
+
+          <article class="cards-interval">
+            <h3>Discord Bot</h3> <h3 style="font-size: small; font-style: italic;">Server-Side Applications</h3>
+            <div class="project-image">
+              <img src="assets/image/botttt.png" alt="Project 6" />
+              <p>This Discord Bot project was created for a university project that required you to create a bot that had many functions on the 
+                messaging application Discord. The bot is programmed in Python and uses API calls as part of its process in working. The 
+                bot has commands such as generating an image, telling a joke, telling you the time, and as well as giving you a quote. The 
+                main functionality of the bot is to act as a home-based bot in a local server. Email me if you would like to view it and use
+                or add the bot for yourself.
+              </p>
+              </p>
+            </div>
+          </article>
+          <article class="cards-interval">
+            <h3>L-system Application</h3> <h3 style="font-size: small; font-style: italic;">Web-Based L-system Application Project </h3>
+            <div class="project-image">
+              <img src="assets/image/ksdkfl.png" alt="Project 6" />
+              <p>The L-System project is a user interface experience in which users can create an L-system design (Tree) based on their vision.
+                This project was created by me in p5.js to make a web application with many GUI features to enhance user experiences. The overall
+                the idea of this project was to create an application in following the theory of what is known as L-Systems while making it a real-life
+                application in coding it with Javascript. Click <a
+                href="https://editor.p5js.org/Delvin/sketches/VAyzTXI8y">here</a> to try it.
+              </p>
+              </p>
+            </div>
+          </article>
+          <article class="cards-interval">
+            <h3>Discouragement</h3> <h3 style="font-size: small; font-style: italic;">3D Model-Based Animation Project</h3>
+            <div class="project-image">
+              <img src="assets/image/dasfsd.png" alt="Project 6" />
+              <p>Discouragement is a 3D model-based animation that was designed by myself to display a world in which someone is lonely. 
+                It is a 20-second animation of a man trying to find a better view out of the world of sadness and darkness. This project 
+                was made using Maya and uses many basic and complex models alongside, lighting, camera effects, sound and materials. If you would like
+                to view this project please email me. 
+              </p>
+              </p>
+            </div>
+          </article>
+          <article class="cards-interval">
+            <h3>Cyberprosthetic</h3> <h3 style="font-size: small; font-style: italic;">Web Development Project</h3>
+            <div class="project-image">
+              <img src="assets/image/cyber.png" alt="Project 6" />
+              <p>Cyberprosthetic is a web development-based project completed as a group to create an exaggerated fake product
+                and use web development to create a website to promote and sell it. The idea of the project was to create the 
+                type of site you could and confinse the buyer if the product was good enough. I was the main creator of the web development part
+                alongside many of the writing and design aspects. Click <a
+                href="https://cyberprosthetic.wixsite.com/website-project">here</a> to view the source code.
+
+              </p>
+              </p>
+            </div>
+          </article>
+          <article class="cards-interval">
+            <h3>Endless Riches</h3> <h3 style="font-size: small; font-style: italic;">User Interface & AR Project</h3>
+            <div class="project-image">
+              <img src="assets/image/snapcode.png" alt="Project 6" />
+              <p>Endless Riches is a user interface project that seamlessly blends user interactivity and a 3D experience via the application 
+                Snapchat. This project is a stage-based project in which the user taps the screen to see the sculpture form. This project 
+                was created in a group where everyone had their task, using the software Lens Studio. My main contribution was being the scripter in using JavaScript, using 3D text, and 
+                developing a particle system. You can scan the image displayed above to test it on Snapchat if you'd like. As an interesting note,
+                this project received over <strong><em>146k</em></strong> views and uses on Snapchat making it more intriguing to me to share. 
+
+              </p>
+              </p>
+            </div>
+          </article>
+          <article class="cards-interval">
+            <h3>Water Life</h3> <h3 style="font-size: small; font-style: italic;">Open 3D World Project</h3>
+            <div class="project-image">
+              <img src="assets/image/under.png" alt="Project 6" />
+              <p>Water Life is a 3D view-based application that allows a user to roam free in the open world of the underground sea using basic controls to do so. The project is meant
+                to display many aspects, such as 3D models, coding, implementation, CGI implementation, and a flocking system. When users play with the project
+                they experience that open-world 3D experience. This project was created by a group and as part of my contribution, I created the skybox,
+                some 3D models, the scripting, and the flocking system. Click <a
+                href="https://github.com/delvinsalman">here</a> to view the source code.
+
+              </p>
+              </p>
+            </div>
+          </article>
+          <article class="cards-interval">
+            <h3>Walking Simulation</h3> <h3 style="font-size: small; font-style: italic;">Generative Art Application</h3>
+            <div class="project-image">
+              <img src="assets/image/dasdwd.png" alt="Project 6" />
+              <p>Walking Simulation is a project that displayed the overall concept of what is known as a walking sim. This project has three types of
+                styles a user can click and view the generative art piece form. This piece uses unique forms of art to display a walking sim which 
+                is functioning based on the code I implemented. This project was created by myself to test my ability to not only code but to code a 
+                visual art experience that the user can enjoy. Click <a
+                href="https://editor.p5js.org/Delvin/sketches/YkjOxq7q4">here</a> to view the source code.
+
+              </p>
+              </p>
+            </div>
+          </article>
+        </div>
+        <a rel="noopener" target="_blank" class="descricao-delay">
+      </div>
+    </section>
+
+    <!--Serviços-->
+    <section id="servicos">
+      <div class="larguraMaxContainer">
+        <h2 class="titulo-delay">ᑭᒪᗩᑎ<span>.</span></h2>
+
+
+        <div>
+          <article class="cards-interval draw meet">
+            <img src="assets/image/qwq.gif" width="100px" height="100px" alt="ícone computador"
+              class="image-servicos" />
+            <h3>Game Development</h3>
+            <p>
+              I am eager to enhance my understanding and knowledge within the realm of game development. My intention is
+              to achieve this by delving deeper into aspects such as machinery, coding, design, and the fundamental
+              principles that underlie game development and the challenges within.
+            </p>
+          </article>
+
+          <article class="cards-interval">
+            <img src="assets/image/dsds.gif" width="100px" height="100px" alt="ícone imagem" class="image-servicos" />
+            <h3>Programming</h3>
+            <p>
+              I am enthusiastically looking forward to advancing my programming expertise and have ambitious plans to
+              further explore various languages, including Java, JavaScript, HTML, CSS, C#, C, and Python. My goal is to delve
+              deeper into these languages, reaching an advanced level of proficiency and expanding my capabilities
+              within each of them.
+
+            </p>
+          </article>
+
+          <article class="cards-interval">
+            <img src="assets/image/323232.gif" width="100px" height="100px" alt="ícone layers" class="image-servicos" />
+            <h3>Software & UI & UX</h3>
+            <p>
+              I look to enhance my understanding of the overall idea of software, software application, de-bugging, mobile app development,
+              and more version control systems, and enhance my web development skills to name a few. I also how to enhance and learn more about what
+              I know my UI & UX skills from front to back end as it is within my passion to learn so. 
+            </p>
+          </article>
+
+          <article class="cards-interval">
+            <img src="assets/image/a8420fce155db01d21cbf2e3b5260a-unscreen.gif" width="100px" height="100px"
+              alt="ícone código" class="image-servicos" />
+            <h3>Design</h3>
+            <p>
+              The idea of design fascinates me every time. Whether it's from game-level design to Photoshop to web design, the overall idea
+              of design is something I hope to expand and get better at in several fields. From designing games to web applications
+              myself is always learning and looking to plan to create more and learn more.
+            </p>
+
+
+          </article>
+          
+
+        </div>
+      </div>
+      <p style="color: white; font-size: larger;">
+        * Please note that the four selections mentioned are just a subset of the numerous areas I intend to delve into
+        for further learning.
+        My goal is to gain extensive experience in these domains while remaining open to acquiring new skills.
+        I am always enthusiastic about learning unfamiliar subjects and actively seek opportunities to demonstrate my
+        proficiency in them. *
+      </p>
+    </section>
+
+
+    <!--Conhecimentos-->
+    <section id="conhecimentos">
+      <div class="larguraMaxContainer">
+        <div>
+          <article id="texto-conhecimentos">
+            <h2 class="titulo-delay">KᑎOᗯᒪEᗪGE<span>.</span></h2>
+            <p class="descricao-delay mudarTextoDescricao">
+              Here is a comprehensive overview of the various domains in which I possess a general understanding or have
+              some level of experience. These encompass a wide spectrum, including software tools, programming
+              languages, and game development engines. I am continually striving to expand my knowledge and learn more
+              in these areas as I am still learning new things as a student learner all the time. *Hover to see*
+            </p>
+          </article>
+
+          <div id="cards-conhecimentos">
+            <article class="html sairCaixa">
+              <span class="cards-nomes">Unity</span>
+              <img src="assets/image/unity.png" width="60px" height="60px" alt="ícone do html"
+                class="icon-conhecimentos" />
+            </article>
+            <article class="css sairCaixa">
+              <span class="cards-nomes">Programming</span>
+              <img src="assets/image/ds-removebg-preview.png" width="60px" height="60px" alt="ícone do css"
+                class="icon-conhecimentos" />
+            </article>
+            <article class="js sairCaixa">
+              <span class="cards-nomes">Unreal</span>
+              <img src="assets/image/unreal.png" width="60px" height="60px" alt="ícone do javascript"
+                class="icon-conhecimentos" />
+            </article>
+            <article class="cards-interval sass sairCaixa">
+              <span class="cards-nomes">Maya</span>
+              <img src="assets/image/maya.png" width="60px" height="60px" alt="ícone do sass"
+                class="icon-conhecimentos" />
+            </article>
+            <article class="cards-interval react sairCaixa">
+              <span class="cards-nomes-baixo">Software</span>
+              <img src="assets/image/ke.png" width="60px" height="60px" alt="ícone do react"
+                class="icon-conhecimentos" />
+            </article>
+            <article class="cards-interval next sairCaixa">
+              <span class="cards-nomes-baixo">Design</span>
+              <img src="assets/image/design.png" width="60px" height="60px" alt="ícone do next"
+                class="icon-conhecimentos" />
+            </article>
+            <article class="cards-interval styled sairCaixa">
+              <span class``` class="cards-nomes-baixo aumento-hover">Microsoft Office</span>
+              <img src="assets/image/dsadsasdad.webp" width="60px" height="60px" alt="ícone do styled"
+                class="icon-conhecimentos" />
+            </article>
+            
+            <article class="cards-interval tailwind sairCaixa">
+              <span class="cards-nomes-baixo">Courses</span>
+              <img src="assets/image/saw.png" width="60px" height="60px" alt="ícone do tailwind"
+                class="icon-conhecimentos" />
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+  </main>
+
+
+
+
+  <footer class="footer">
+
+   
+    
+    <h2>Contact & Media! 🌏</h2>
+    
+    <p>
+      For any queries or curiosity, email me or check out my media channels.</p>
+
+    <style>
+      .rainbow-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #131219;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        font-size: 15px;
+      }
+
+      .rainbow-link:hover {
+        background-image: linear-gradient(45deg, #f06, #f90, #fc0, #9f0, #0f6, #00f, #90f, #f09);
+        background-size: 800% 800%;
+        animation: rainbow 10s infinite linear;
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgb(255, 255, 255);
+      }
+
+      @keyframes rainbow {
+        0% {
+          background-position: 0% 100%;
+        }
+
+        100% {
+          background-position: 100% 0%;
+        }
+      }
+    </style>
+
+    <div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<ul class="wrapper">
+  <li class="icon email" id="email-link">
+    <span class="tooltip">Email</span>
+    <span><i class="fas fa-envelope"></i></span>
+  </li>
+</ul>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var emailLink = document.getElementById("email-link");
+    emailLink.addEventListener("click", function () {
+      window.open("mailto:delvinsalman19@gmail.com", "_blank");
+    });
+  });
+</script>
+
+<ul class="wrapper">
+  <li class="icon github" id="github-link">
+    <span class="tooltip">Github</span>
+    <span><i class="fab fa-github"></i></span>
+  </li>
+</ul>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var githubLink = document.getElementById("github-link");
+    githubLink.addEventListener("click", function () {
+      window.open("https://github.com/delvinsalman", "_blank");
+    });
+  });
+</script>
+
+<ul class="wrapper">
+  <li class="icon itch" id="itch-link">
+    <span class="tooltip">itch.io</span>
+    <span><i class="fab fa-itch-io"></i></span>
+  </li>
+</ul>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var itchLink = document.getElementById("itch-link");
+    itchLink.addEventListener("click", function () {
+      window.open("https://delyy.itch.io/", "_blank");
+    });
+  });
+</script>
+
+
+
+
+
+<ul class="wrapper">
+  <li class="icon linkedin" id="linkedin-link">
+    <span class="tooltip">LinkedIn</span>
+    <span><i class="fab fa-linkedin"></i></span>
+  </li>
+</ul>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var linkedinLink = document.getElementById("linkedin-link");
+    linkedinLink.addEventListener("click", function () {
+      window.open("https://www.linkedin.com/in/d-s-405218266/", "_blank");
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>Made by - This was a portfolio template provided by Prakash Ravichandran on Github, which I enhanced and edited to my preference using my skills to create a portfolio. </p> 
+   
+      
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </footer>
+  
+  
+
+
+
+
+
+
+  <!--Script da animação de Scroll-->
+  <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+  <!--Scripts-->
+  <script src="assets/js/main.js"></script>
+  <script type="text/javascript">
+    let progress = document.getElementById("progressbar");
+    let totalHeight =
+      document.body.scrollHeight - window.innerHeight;
+    window.onscroll = function () {
+      let progressHeight =
+        (window.pageYOffset / totalHeight) * 100;
+      progress.style.height = progressHeight + "%";
+    };
+
+  </script>
+</body>
+
+</html>
