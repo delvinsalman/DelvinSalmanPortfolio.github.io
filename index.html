@@ -455,11 +455,8 @@ What are you doing here?! you sneaky developer...
                   Ash
                   <p style="font-size: small;">
                       <em>Game Development Project</em>
-                      <span class="info-icon" onmouseover="showInfo()" onmouseout="hideInfo()">ℹ️</span>
                   </p>
-<div id="info" style="display: none; position: absolute; background-color: #f9f9f9; border: 1px solid #181818; padding: 10px; z-index: 1; font-size: 10px; color: rgb(0, 0, 0); border-radius: 10px;">
-                    This was a group project. Took 4 months to make the game as a group.  My Role, environment art, mechanics, level design, web, and graphics.
-                  </div>
+
               </article>
               
               <script>
@@ -500,37 +497,6 @@ What are you doing here?! you sneaky developer...
   </button>
 </div>
 
-<script>
-  const images = [
-      "src/png/Cover8.png",
-      "src/png/qD1ReC.png",
-      "src/png/DDFFAu.png",
-      "src/png/3txxPY.png"
-  ];
-
-  let index = 0;
-
-  function changeImage() {
-      document.getElementById('carouselImage').src = images[index];
-      index = (index + 1) % images.length;
-  }
-
-  setInterval(changeImage, 5000);
-
-  function toggleFullScreen(imageId) {
-      const elem = document.getElementById(imageId);
-      if (!document.fullscreenElement) {
-          elem.requestFullscreen().catch(err => {
-              alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-          });
-      } else {
-          if (document.exitFullscreen) {
-              document.exitFullscreen();
-          }
-      }
-  }
-</script>
-
 <style>
   .image-div {
       position: relative;
@@ -570,176 +536,30 @@ What are you doing here?! you sneaky developer...
 
 
 
-
-
-
-
-
-
-
-
-
-
-          <div class="project-box-wrapper" data-aos="fade-up">
-            <div class="project-box project-box5" id="project-box5">
-              <div class="info-div">
-
-                <article class="ProjectHeading" onmouseover="showInfoEmbellished()" onmouseout="hideInfoEmbellished()">
-                  Rove
-                  <p style="font-size: small;">
-                      <em>Game Development Project</em>
-                      <span class="info-icon" style="margin-left: 1px;">ℹ️</span>
-                  </p>
-                  <div id="infoEmbellished" style="display: none; position: absolute; background-color: #f9f9f9; border: 1px solid #181818; padding: 10px; z-index: 1; font-size: 10px; color: rgb(0, 0, 0); border-radius: 10px;">
-                    Project was entirely made by me. The roles where, doing the environment art, blueprints, asset packs, mechanics, sound and much more. 
-                  </div>
-              </article>
-              
-              <script>
-                  function showInfoEmbellished() {
-                      var infoEmbellished = document.getElementById("infoEmbellished");
-                      infoEmbellished.style.display = "block";
-                  }
-              
-                  function hideInfoEmbellished() {
-                      var infoEmbellished = document.getElementById("infoEmbellished");
-                      infoEmbellished.style.display = "none";
-                  }
-              </script>
-              
-                                <p class="ProjectDescription">
-                                  Rove is a stylized 3D open world map made in Unreal, offering players a relaxing journey of exploration. 
-                  Created with asset packs and blueprints, the focus is on immersive exploration. This exploration-focused game features limited mechanics, encouraging players to delve into the world around them.
-
-                </p>
-                <div class="project-buttons">
-                  <a href="https://delyy.itch.io/" target="_blank" class="cta" aria-label="Visit Comickaze live">
-                    <span>Live View</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                      <path d="M1,5 L11,5"></path>
-                      <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              <div class="image-div">
-                <img id="rotating-image" src="src/png/hfd.png" alt="comickaze website preview image" />
-                <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image')">
-                    <i class="fas fa-expand"></i>
-                </button>
-            </div>
-            
-            <script>
-                const imageSources = [
-                    "src/png/hfd.png",
-                    "src/svg/g.png",
-                    "src/svg/fs.png",
-                    "src/svg/f.png"
-                ];
-            
-                let currentIndex = 0;
-                const rotatingImage = document.getElementById("rotating-image");
-            
-                function rotateImages() {
-                    rotatingImage.src = imageSources[currentIndex];
-                    currentIndex = (currentIndex + 1) % imageSources.length;
-                }
-            
-                setInterval(rotateImages, 5000);
-            
-                function toggleFullScreen(imageId) {
-                    const elem = document.getElementById(imageId);
-                    if (!document.fullscreenElement) {
-                        elem.requestFullscreen().catch(err => {
-                            alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-                        });
-                    } else {
-                        if (document.exitFullscreen) {
-                            document.exitFullscreen();
-                        }
-                    }
-                }
-            </script>
-            
-            <style>
-                .image-div {
-                    position: relative;
-                }
-            
-                .fullscreen-button {
-                    position: absolute;
-                    bottom: 10px;
-                    right: 10px;
-                    padding: 8px;
-                    background-color: transparent;
-                    color: #000000;
-                    border: none;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    transition: background-color 0.3s ease;
-                }
-            
-                .fullscreen-button:hover {
-                    background-color: rgba(0, 123, 255, 0.1);
-                }
-            
-                .fullscreen-button:focus {
-                    outline: none;
-                }
-            </style>
-            
-            
-            </div>
-          </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <!-- ---------------------- -->
           <div class="project-box-wrapper" data-aos="fade-up">
             <div class="project-box project-box2" id="project-box2">
               <div class="info-div">
-
-                <article class="ProjectHeading" onmouseover="showInfoSpaceToast()" onmouseout="hideInfoSpaceToast()">
+                <article class="ProjectHeading">
                   Space Toast
                   <p style="font-size: small;">
                       <em>Game Development Project</em>
-                      <span class="info-icon" style="margin-left: 1px;">ℹ️</span>
                   </p>
-                  <div id="infoSpaceToast" style="display: none; position: absolute; background-color: #f9f9f9; border: 1px solid #181818; padding: 10px; z-index: 1; font-size: 10px; color: rgb(0, 0, 0); border-radius: 10px;">
-                    Project was entirely made by me. Some roles where, 2d sprite, score/player/projectile/mechanics systems, particles, animation and sound. 
-                  </div>
-              </article>
-              
-              <script>
-                  function showInfoSpaceToast() {
-                      var infoSpaceToast = document.getElementById("infoSpaceToast");
-                      infoSpaceToast.style.display = "block";
-                  }
-              
-                  function hideInfoSpaceToast() {
-                      var infoSpaceToast = document.getElementById("infoSpaceToast");
-                      infoSpaceToast.style.display = "none";
-                  }
-              </script>
-              
+                </article>
+                
                 <p class="ProjectDescription">
-                  A 2D top down shooter game created in unity, the game challenges players to survive on coming waves of enemies. 
-                  The game is centered around a toast in space and must fight 4 types of enemies to obtain score. The game is also a more 
-                  score based game rather then completion of your typical level. 
+                  A 2D top-down shooter game created in Unity, the game challenges players to survive waves of enemies. 
+                  The game is centered around a toast in space and must fight 4 types of enemies to obtain a score. The game is also more 
+                  score-based rather than completion of your typical level. Developed using numerous C# scripts alongside other development concepts.
+
+
+
+
+
+
+
+
                 </p>
                 <div class="project-buttons">
-
                   <a href="https://delyy.itch.io/space-toast" target="_blank" class="cta"
                     aria-label="Visit Aquaregia Live">
                     <span>Live View</span>
@@ -755,200 +575,133 @@ What are you doing here?! you sneaky developer...
                 <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-toastpost')">
                     <i class="fas fa-expand"></i>
                 </button>
-            </div>
-            
-            <script>
-                const imageSourcesToastpost = [
-                    "src/png/toastpost3.png",
-                    "src/png/g2Dl02.png",
-                    "src/png/4wy2BL.png",
-                    "src/png/CpgxEr.png"
-                ];
-            
-                let currentIndexToastpost = 0;
-                const rotatingImageToastpost = document.getElementById("rotating-image-toastpost");
-            
-                function rotateImagesToastpost() {
-                    rotatingImageToastpost.src = imageSourcesToastpost[currentIndexToastpost];
-                    currentIndexToastpost = (currentIndexToastpost + 1) % imageSourcesToastpost.length;
-                }
-            
-                setInterval(rotateImagesToastpost, 5000);
-            
-                function toggleFullScreen(imageId) {
-                    const elem = document.getElementById(imageId);
-                    if (!document.fullscreenElement) {
-                        elem.requestFullscreen().catch(err => {
-                            alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-                        });
-                    } else {
-                        if (document.exitFullscreen) {
-                            document.exitFullscreen();
-                        }
-                    }
-                }
-            </script>
-            
-            <style>
-                .image-div {
-                    position: relative;
-                }
-            
-                .fullscreen-button {
-                    position: absolute;
-                    bottom: 10px;
-                    right: 10px;
-                    padding: 8px;
-                    background-color: transparent;
-                    color: #000000;
-                    border: none;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    transition: background-color 0.3s ease;
-                }
-            
-                .fullscreen-button:hover {
-                    background-color: rgba(0, 123, 255, 0.1);
-                }
-            
-                .fullscreen-button:focus {
-                    outline: none;
-                }
-            </style>
-            
-            
-            </div>
-          </div>
-
-
-
-
-
-
-
-
-
-
-          <!-- ---------------------- -->
-          <div class="project-box-wrapper" data-aos="fade-up">
-            <div class="project-box project-box4" id="project-box4">
-              <div class="info-div">
-                <article class="ProjectHeading" onmouseover="showInfoRidersOfDoom()" onmouseout="hideInfoRidersOfDoom()">
-                  Riders of Doom
-                  <p style="font-size: small;">
-                      <em>Game Development Project</em>
-                      <span class="info-icon" style="margin-left: 1px;">ℹ️</span>
-                  </p>
-                  <div id="infoRidersOfDoom" style="display: none; position: absolute; background-color: #f9f9f9; border: 1px solid #181818; padding: 10px; z-index: 1; font-size: 10px; color: rgb(0, 0, 0); border-radius: 10px;">
-                    Project was entirely made by me. The roles contributed, player movement, score, enemy and projectile systems. Also, UI, sound, lighting, etc. 
-                  </div>
-              </article>
-              
-              <script>
-                  function showInfoRidersOfDoom() {
-                      var infoRidersOfDoom = document.getElementById("infoRidersOfDoom");
-                      infoRidersOfDoom.style.display = "block";
-                  }
-              
-                  function hideInfoRidersOfDoom() {
-                      var infoRidersOfDoom = document.getElementById("infoRidersOfDoom");
-                      infoRidersOfDoom.style.display = "none";
-                  }
-              </script>
-              
-                <p class="ProjectDescription">
-                  Rider of Doom is a linear bullet-hell game that seamlessly blends intense action shooting with dodging enemies. 
-                  The game was developed in Unity and is presented in 2D format. 
-                  It follows a level-based structure where players must complete one level before progressing to the next, all while aiming to obtain a high score.
-                </p>
-                <div class="project-buttons">
-
-                  <a href="https://delyy.itch.io/riders-of-doom" target="_blank" class="cta"
-                    aria-label="Visit qr generator live">
-                    <span>Live View</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                      <path d="M1,5 L11,5"></path>
-                      <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                  </a>
-                </div>
               </div>
-
-
-              
-              <div class="image-div">
-                <img id="rotating-image-qr" src="src/png/rider copy.png" alt="QR generator website preview image" />
-                <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-qr')">
-                    <i class="fas fa-expand"></i>
-                </button>
-            </div>
-            
-            <script>
-                const imageSourcesQR = [
-                    "src/png/rider copy.png",
-                    "src/png/PIQmRc.png",
-                    "src/png/oewrb2.png",
-                    "src/png/mikzyq.png"
-                ];
-            
-                let currentIndexQR = 0;
-                const rotatingImageQR = document.getElementById("rotating-image-qr");
-            
-                function rotateImagesQR() {
-                    rotatingImageQR.src = imageSourcesQR[currentIndexQR];
-                    currentIndexQR = (currentIndexQR + 1) % imageSourcesQR.length;
-                }
-            
-                setInterval(rotateImagesQR, 5000);
-            
-                function toggleFullScreen(imageId) {
-                    const elem = document.getElementById(imageId);
-                    if (!document.fullscreenElement) {
-                        elem.requestFullscreen().catch(err => {
-                            alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-                        });
-                    } else {
-                        if (document.exitFullscreen) {
-                            document.exitFullscreen();
-                        }
-                    }
-                }
-            </script>
-            
-            <style>
-                .image-div {
-                    position: relative;
-                }
-            
-                .fullscreen-button {
-                    position: absolute;
-                    bottom: 10px;
-                    right: 10px;
-                    padding: 8px;
-                    background-color: transparent;
-                    color: #000000;
-                    border: none;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    transition: background-color 0.3s ease;
-                }
-            
-                .fullscreen-button:hover {
-                    background-color: rgba(0, 123, 255, 0.1);
-                }
-            
-                .fullscreen-button:focus {
-                    outline: none;
-                }
-            </style>
-            
-            
-            
-            
-            
-            
             </div>
           </div>
+          
+         
+          
+          <style>
+            .image-div {
+                position: relative;
+            }
+          
+            .fullscreen-button {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                padding: 8px;
+                background-color: transparent;
+                color: #000000;
+                border: none;
+                border-radius: 50%;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+          
+            .fullscreen-button:hover {
+                background-color: rgba(0, 123, 255, 0.1);
+            }
+          
+            .fullscreen-button:focus {
+                outline: none;
+            }
+          </style>
+          
+          
+
+
+
+
+<!-- ---------------------- -->
+<div class="project-box-wrapper" data-aos="fade-up">
+  <div class="project-box project-box4" id="project-box4">
+    <div class="info-div">
+      <article class="ProjectHeading" onmouseover="showInfoRidersOfDoom()" onmouseout="hideInfoRidersOfDoom()">
+        Search Engine
+        <p style="font-size: small;">
+          <em>Programming & Design Project </em>
+          
+        </p>
+        
+      </article>
+      
+      <p class="ProjectDescription">
+        An image and video search engine that provides users thousands of photos and videos to explore within seconds of searching. This engine is powered by an API in which hosts the images and videos. Developed using Javascript and designed using HTML and CSS for its UI. Hosted on a local server which provides users the ability to use it anytime, open source!
+
+      </p>
+      <div class="project-buttons">
+        <a href="https://delvinsalman.github.io/SearchEngine/" target="_blank" class="cta"
+          aria-label="Visit qr generator live">
+          <span>Live View</span>
+          <svg viewBox="0 0 13 10" height="10px" width="15px">
+            <path d="M1,5 L11,5"></path>
+            <polyline points="8 1 12 5 8 9"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+    
+    <div class="image-div">
+      <img id="rotating-image-qr" src="src/png/real.png" alt="QR generator website preview image" />
+      <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-qr')">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showInfoRidersOfDoom() {
+    var infoRidersOfDoom = document.getElementById("infoRidersOfDoom");
+    infoRidersOfDoom.style.display = "block";
+  }
+
+  function hideInfoRidersOfDoom() {
+    var infoRidersOfDoom = document.getElementById("infoRidersOfDoom");
+    infoRidersOfDoom.style.display = "none";
+  }
+
+  function toggleFullScreen(imageId) {
+    const elem = document.getElementById(imageId);
+    if (!document.fullscreenElement) {
+      elem.requestFullscreen().catch(err => {
+        alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+      });
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  }
+</script>
+
+<style>
+  .image-div {
+    position: relative;
+  }
+
+  .fullscreen-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 8px;
+    background-color: transparent;
+    color: #000000;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .fullscreen-button:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+  }
+
+  .fullscreen-button:focus {
+    outline: none;
+  }
+</style>
 
 
 
@@ -961,141 +714,95 @@ What are you doing here?! you sneaky developer...
 
 
 
+<div class="project-box-wrapper" data-aos="fade-up">
+  <div class="project-box project-box3" id="project-box3">
+    <div class="info-div">
+      <article class="ProjectHeading" onmouseover="showInfoChatBot()" onmouseout="hideInfoChatBot()">
+        Chat Bot
+        <p style="font-size: small;">
+          <em>Software Development Project</em>
+      
+        </p>
+        
+      </article>
 
+      <script>
+        function showInfoChatBot() {
+          var infoChatBot = document.getElementById("infoChatBot");
+          infoChatBot.style.display = "block";
+        }
 
+        function hideInfoChatBot() {
+          var infoChatBot = document.getElementById("infoChatBot");
+          infoChatBot.style.display = "none";
+        }
+      </script>
 
+      <p class="ProjectDescription">
+        The chat bot, created using Flask framework, Python, HTML, CSS, and JavaScript, interacts with users through commands and basic conversational features. It offers live weather updates for any location, generates images, shares jokes, and provides quotes. These functionalities are largely powered by APIs, supplemented by the DiabloGPT.
+      </p>
+      <div class="project-buttons">
+        <a href="https://github.com/delvinsalman/Bot" target="_blank" class="cta"
+          aria-label="Visit netflix clone live">
+          <span>Live View</span>
+          <svg viewBox="0 0 13 10" height="10px" width="15px">
+            <path d="M1,5 L11,5"></path>
+            <polyline points="8 1 12 5 8 9"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
 
+    <div class="image-div">
+      <img id="rotating-image-bot" src="src/png/blog-featured-what-is-chatbot.svg" alt="netflix clone website preview image" />
+      <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-bot')">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+</div>
 
+<script>
+  function toggleFullScreen(imageId) {
+    const elem = document.getElementById(imageId);
+    if (!document.fullscreenElement) {
+      elem.requestFullscreen().catch(err => {
+        alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+      });
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  }
+</script>
 
+<style>
+  .image-div {
+    position: relative;
+  }
 
+  .fullscreen-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 8px;
+    background-color: transparent;
+    color: #000000;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
 
+  .fullscreen-button:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+  }
 
-
-
-          <!-- ---------------------- -->
-          <div class="project-box-wrapper" data-aos="fade-up">
-            <div class="project-box project-box3" id="project-box3">
-              <div class="info-div">
-                <article class="ProjectHeading" onmouseover="showInfoSantaRunner()" onmouseout="hideInfoSantaRunner()">
-                  Santa Runner
-                  <p style="font-size: small;">
-                      <em>Game Development Project</em>
-                      <span class="info-icon" style="margin-left: 1px;">ℹ️</span>
-                  </p>
-                  <div id="infoSantaRunner" style="display: none; position: absolute; background-color: #f9f9f9; border: 1px solid #181818; padding: 10px; z-index: 1; font-size: 10px; color: rgb(0, 0, 0); border-radius: 10px;">
-                    Project was entirely made by me. Roles where, parallax system, animation, C# scripting, particles, UI and physics simulation to name a few. 
-                  </div>
-              </article>
-              
-              <script>
-                  function showInfoSantaRunner() {
-                      var infoSantaRunner = document.getElementById("infoSantaRunner");
-                      infoSantaRunner.style.display = "block";
-                  }
-              
-                  function hideInfoSantaRunner() {
-                      var infoSantaRunner = document.getElementById("infoSantaRunner");
-                      infoSantaRunner.style.display = "none";
-                  }
-              </script>
-              
-                <p class="ProjectDescription">
-                  Santa Runner is a classic 2D endless runner game that blends both fast past endless running and obstacles as you play. The game is centered around a christmas themed game and makes uses of animation, 2D player movement, scoring system, projectile and particles systems to name a few.  The game was created in Unity, using C# by myself. 
-                </p>
-                <div class="project-buttons">
-
-                  <a href="https://delyy.itch.io/santarunner" target="_blank" class="cta"
-                    aria-label="Visit netflix clone live">
-                    <span>Live View</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                      <path d="M1,5 L11,5"></path>
-                      <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-
-
-              <div class="image-div">
-                <img id="rotating-image-netflix" src="src/png/ggg.png" alt="Netflix clone website preview image" />
-                <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-netflix')">
-                    <i class="fas fa-expand"></i>
-                </button>
-            </div>
-            
-            <script>
-                const imageSourcesNetflix = [
-                    "src/png/ggg.png",
-                    "src/png/6A5yai.png",
-                    "src/png/vY3v2f.png",
-                    "src/png/lae.png"
-                ];
-            
-                let currentIndexNetflix = 0;
-                const rotatingImageNetflix = document.getElementById("rotating-image-netflix");
-            
-                function rotateImagesNetflix() {
-                    rotatingImageNetflix.src = imageSourcesNetflix[currentIndexNetflix];
-                    currentIndexNetflix = (currentIndexNetflix + 1) % imageSourcesNetflix.length;
-                }
-            
-                setInterval(rotateImagesNetflix, 5000);
-            
-                function toggleFullScreen(imageId) {
-                    const elem = document.getElementById(imageId);
-                    if (!document.fullscreenElement) {
-                        elem.requestFullscreen().catch(err => {
-                            alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-                        });
-                    } else {
-                        if (document.exitFullscreen) {
-                            document.exitFullscreen();
-                        }
-                    }
-                }
-            </script>
-            
-            <style>
-                .image-div {
-                    position: relative;
-                }
-            
-                .fullscreen-button {
-                    position: absolute;
-                    bottom: 10px;
-                    right: 10px;
-                    padding: 8px;
-                    background-color: transparent;
-                    color: #000000;
-                    border: none;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    transition: background-color 0.3s ease;
-                }
-            
-                .fullscreen-button:hover {
-                    background-color: rgba(0, 123, 255, 0.1);
-                }
-            
-                .fullscreen-button:focus {
-                    outline: none;
-                }
-            </style>
-            
-            
-
-
-
-
-
-
-            </div>
-          </div>
-
-
-
-
+  .fullscreen-button:focus {
+    outline: none;
+  }
+</style>
 
 
 
@@ -1113,32 +820,29 @@ What are you doing here?! you sneaky developer...
                 <article class="ProjectHeading" onmouseover="showInfoGlowingFiber()" onmouseout="hideInfoGlowingFiber()">
                   Glowing Fiber
                   <p style="font-size: small;">
-                      <em>Interactive Web Application Project</em>
-                      <span class="info-icon" style="margin-left: 1px;">ℹ️</span>
+                    <em>Drawing Web Application Project</em>
+                    
                   </p>
-                  <div id="infoGlowingFiber" style="display: none; position: absolute; background-color: #f9f9f9; border: 1px solid #181818; padding: 10px; z-index: 1; font-size: 10px; color: rgb(0, 0, 0); border-radius: 10px;">
-                    Project was entirely made by me. Developed using p5.js library, using Javascript. Many coding techniques like OOP, classes, variables, etc. 
-                  </div>
-              </article>
-              
-              <script>
+                  
+                </article>
+          
+                <script>
                   function showInfoGlowingFiber() {
-                      var infoGlowingFiber = document.getElementById("infoGlowingFiber");
-                      infoGlowingFiber.style.display = "block";
+                    var infoGlowingFiber = document.getElementById("infoGlowingFiber");
+                    infoGlowingFiber.style.display = "block";
                   }
-              
+          
                   function hideInfoGlowingFiber() {
-                      var infoGlowingFiber = document.getElementById("infoGlowingFiber");
-                      infoGlowingFiber.style.display = "none";
+                    var infoGlowingFiber = document.getElementById("infoGlowingFiber");
+                    infoGlowingFiber.style.display = "none";
                   }
-              </script>
-              
+                </script>
+          
                 <p class="ProjectDescription">
-                  Glowing Fiber better known as Glowing Fiber Fantasia, is a generative interactive web application tool, that allows for users and creators to draw/design based on certain inputs programmed. The application has a variety of GUI features that allow for different ways to design and generate, in which are unique in nature. 
-                  This Project was programmed in Javascript on a local p5.js library.
+                  Glowing Fiber, also known as Glowing Fiber Fantasia, is a generative interactive web application tool that allows users and creators to draw/design based on certain programmed inputs. The application offers various GUI features that enable different ways to design and generate unique creations.
+                  This project was programmed in JavaScript using the local p5.js library.
                 </p>
                 <div class="project-buttons">
-
                   <a href="https://editor.p5js.org/Delvin/sketches/ke35sh8R4" target="_blank" class="cta"
                     aria-label="Visit axocean live">
                     <span>Live View</span>
@@ -1149,90 +853,58 @@ What are you doing here?! you sneaky developer...
                   </a>
                 </div>
               </div>
-
-
-
-
-
+          
               <div class="image-div">
-                <img id="rotating-image-axocean" src="src/png/LLL copy.png" alt="Axocean website preview image" />
-                <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-axocean')">
-                    <i class="fas fa-expand"></i>
+                <img id="rotating-image-glowing-fiber" src="src/png/LLL copy.png" alt="Glowing Fiber website preview image" />
+                <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-glowing-fiber')">
+                  <i class="fas fa-expand"></i>
                 </button>
-            </div>
-            
-            <script>
-                const imageSourcesAxocean = [
-                    "src/png/LLL copy.png",
-                    "src/png/deww.png",
-                    "src/png/defr.png",
-                    "src/png/kds.png"
-                ];
-            
-                let currentIndexAxocean = 0;
-                const rotatingImageAxocean = document.getElementById("rotating-image-axocean");
-            
-                function rotateImagesAxocean() {
-                    rotatingImageAxocean.src = imageSourcesAxocean[currentIndexAxocean];
-                    currentIndexAxocean = (currentIndexAxocean + 1) % imageSourcesAxocean.length;
-                }
-            
-                setInterval(rotateImagesAxocean, 5000);
-            
-                function toggleFullScreen(imageId) {
-                    const elem = document.getElementById(imageId);
-                    if (!document.fullscreenElement) {
-                        elem.requestFullscreen().catch(err => {
-                            alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-                        });
-                    } else {
-                        if (document.exitFullscreen) {
-                            document.exitFullscreen();
-                        }
-                    }
-                }
-            </script>
-            
-            <style>
-                .image-div {
-                    position: relative;
-                }
-            
-                .fullscreen-button {
-                    position: absolute;
-                    bottom: 10px;
-                    right: 10px;
-                    padding: 8px;
-                    background-color: transparent;
-                    color: #000000;
-                    border: none;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    transition: background-color 0.3s ease;
-                }
-            
-                .fullscreen-button:hover {
-                    background-color: rgba(0, 123, 255, 0.1);
-                }
-            
-                .fullscreen-button:focus {
-                    outline: none;
-                }
-            </style>
-            
-            
-
-
-
-
-
-
+              </div>
             </div>
           </div>
-
-
-
-
+          
+          <script>
+            function toggleFullScreen(imageId) {
+              const elem = document.getElementById(imageId);
+              if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                  alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+              } else {
+                if (document.exitFullscreen) {
+                  document.exitFullscreen();
+                }
+              }
+            }
+          </script>
+          
+          <style>
+            .image-div {
+              position: relative;
+            }
+          
+            .fullscreen-button {
+              position: absolute;
+              bottom: 10px;
+              right: 10px;
+              padding: 8px;
+              background-color: transparent;
+              color: #000000;
+              border: none;
+              border-radius: 50%;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+            }
+          
+            .fullscreen-button:hover {
+              background-color: rgba(0, 123, 255, 0.1);
+            }
+          
+            .fullscreen-button:focus {
+              outline: none;
+            }
+          </style>
+          
 
 
 
@@ -1248,31 +920,28 @@ What are you doing here?! you sneaky developer...
                 <article class="ProjectHeading" onmouseover="showInfoLSystemsApp()" onmouseout="hideInfoLSystemsApp()">
                   L-Systems App
                   <p style="font-size: small;">
-                      <em>Interactive Web Application Project</em>
-                      <span class="info-icon" style="margin-left: 1px;">ℹ️</span>
+                    <em>Interactive Web Application Project</em>
+                   
                   </p>
-                  <div id="infoLSystemsApp" style="display: none; position: absolute; background-color: #f9f9f9; border: 1px solid #181818; padding: 10px; z-index: 1; font-size: 10px; color: rgb(0, 0, 0); border-radius: 10px;">
-                    Project was entirely made by me. Made in p5.js library in Javascript. Code makes use of the mathematical L-system alp,  strings and symbols. 
-                  </div>
-              </article>
-              
-              <script>
+                  
+                </article>
+          
+                <script>
                   function showInfoLSystemsApp() {
-                      var infoLSystemsApp = document.getElementById("infoLSystemsApp");
-                      infoLSystemsApp.style.display = "block";
+                    var infoLSystemsApp = document.getElementById("infoLSystemsApp");
+                    infoLSystemsApp.style.display = "block";
                   }
-              
+          
                   function hideInfoLSystemsApp() {
-                      var infoLSystemsApp = document.getElementById("infoLSystemsApp");
-                      infoLSystemsApp.style.display = "none";
+                    var infoLSystemsApp = document.getElementById("infoLSystemsApp");
+                    infoLSystemsApp.style.display = "none";
                   }
-              </script>
-              
+                </script>
+          
                 <p class="ProjectDescription">
-                  An application tool in which teaches you about L-System trees. It uses the idea of the Lindenmayer systems that takes certain key values to create a custom tree. The application provides users with a variety of ways on how they can learn and create trees using mathematical formalism programmed by me in Javascript. 
+                  An application tool that teaches you about L-System trees. It uses the concept of Lindenmayer systems to create custom trees based on certain key values. The application provides users with various ways to learn and create trees using mathematical formalism programmed by me in JavaScript.
                 </p>
                 <div class="project-buttons">
-
                   <a href="https://editor.p5js.org/Delvin/sketches/VAyzTXI8y" target="_blank" class="cta"
                     aria-label="Visit netflix clone live">
                     <span>Live View</span>
@@ -1283,311 +952,67 @@ What are you doing here?! you sneaky developer...
                   </a>
                 </div>
               </div>
+          
               <div class="image-div">
-                <img id="rotating-image-netflix-clone" src="src/png/Tree.png" alt="Netflix clone website preview image" />
-                <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-netflix-clone')">
-                    <i class="fas fa-expand"></i>
+                <img id="rotating-image-lsystems" src="src/png/Tree.png" alt="L-Systems App website preview image" />
+                <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-lsystems')">
+                  <i class="fas fa-expand"></i>
                 </button>
-            </div>
-            
-            <script>
-                const imageSourcesNetflixClone = [
-                    "src/png/Tree.png",
-                    "src/png/14 copy.png",
-                    "src/png/10 copy.png",
-                    "src/png/15 copy.png"
-                ];
-            
-                let currentIndexNetflixClone = 0;
-                const rotatingImageNetflixClone = document.getElementById("rotating-image-netflix-clone");
-            
-                function rotateImagesNetflixClone() {
-                    rotatingImageNetflixClone.src = imageSourcesNetflixClone[currentIndexNetflixClone];
-                    currentIndexNetflixClone = (currentIndexNetflixClone + 1) % imageSourcesNetflixClone.length;
-                }
-            
-                setInterval(rotateImagesNetflixClone, 5000);
-            
-                function toggleFullScreen(imageId) {
-                    const elem = document.getElementById(imageId);
-                    if (!document.fullscreenElement) {
-                        elem.requestFullscreen().catch(err => {
-                            alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-                        });
-                    } else {
-                        if (document.exitFullscreen) {
-                            document.exitFullscreen();
-                        }
-                    }
-                }
-            </script>
-            
-            <style>
-                .image-div {
-                    position: relative;
-                }
-            
-                .fullscreen-button {
-                    position: absolute;
-                    bottom: 10px;
-                    right: 10px;
-                    padding: 8px;
-                    background-color: transparent;
-                    color: #000000;
-                    border: none;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    transition: background-color 0.3s ease;
-                }
-            
-                .fullscreen-button:hover {
-                    background-color: rgba(0, 123, 255, 0.1);
-                }
-            
-                .fullscreen-button:focus {
-                    outline: none;
-                }
-            </style>
-            
-            
-            </div>
-          </div>
-          <!-- ---------------------- -->
-          <div class="project-box-wrapper" data-aos="fade-up">
-            <div class="project-box project-box3" id="project-box3">
-              <div class="info-div">
-                <article class="ProjectHeading" onmouseover="showInfoChatBot()" onmouseout="hideInfoChatBot()">
-                  Chat Bot
-                  <p style="font-size: small;">
-                      <em>Software Development Project</em>
-                      <span class="info-icon" style="margin-left: 1px;">ℹ️</span>
-                  </p>
-                  <div id="infoChatBot" style="display: none; position: absolute; background-color: #f9f9f9; border: 1px solid #181818; padding: 10px; z-index: 1; font-size: 10px; color: rgb(0, 0, 0); border-radius: 10px;">
-                    Project was entirely made by me. Developed in python, some roles where, programming, api calls, terminal launch & using discord and twitter. 
-                  </div>
-              </article>
-              
-              <script>
-                  function showInfoChatBot() {
-                      var infoChatBot = document.getElementById("infoChatBot");
-                      infoChatBot.style.display = "block";
-                  }
-              
-                  function hideInfoChatBot() {
-                      var infoChatBot = document.getElementById("infoChatBot");
-                      infoChatBot.style.display = "none";
-                  }
-              </script>
-              
-                <p class="ProjectDescription">
-                  A chat bot software project, in which allows for users to request commands and communicate with a programmed application. Created using Python the bot can be accessed both in a discord application setting, along side twitter.  The bot has functions such as receiving API calls, simple chat commands, telling you the weather and much more. 
-                </p>
-                <div class="project-buttons">
-
-                  <a href="https://github.com/delvinsalman/DelvinEECS1720" target="_blank" class="cta"
-                    aria-label="Visit netflix clone live">
-                    <span>Live View</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                      <path d="M1,5 L11,5"></path>
-                      <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                  </a>
-                </div>
               </div>
-              <div class="image-div">
-                <img id="rotating-image-bot" src="src/png/bot.png" alt="netflix clone website preview image" />
-                <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-bot')">
-                    <i class="fas fa-expand"></i>
-                </button>
-            </div>
-            
-            <script>
-                const imageSourcesBot = [
-                    "src/png/bot.png",
-                    "src/png/kop.png",
-                    "src/png/dop.png",
-                    "src/png/lop.png"
-                ];
-            
-                let currentIndexBot = 0;
-                const rotatingImageBot = document.getElementById("rotating-image-bot");
-            
-                function rotateImagesBot() {
-                    rotatingImageBot.src = imageSourcesBot[currentIndexBot];
-                    currentIndexBot = (currentIndexBot + 1) % imageSourcesBot.length;
-                }
-            
-                setInterval(rotateImagesBot, 5000);
-            
-                function toggleFullScreen(imageId) {
-                    const elem = document.getElementById(imageId);
-                    if (!document.fullscreenElement) {
-                        elem.requestFullscreen().catch(err => {
-                            alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-                        });
-                    } else {
-                        if (document.exitFullscreen) {
-                            document.exitFullscreen();
-                        }
-                    }
-                }
-            </script>
-            
-            <style>
-                .image-div {
-                    position: relative;
-                }
-            
-                .fullscreen-button {
-                    position: absolute;
-                    bottom: 10px;
-                    right: 10px;
-                    padding: 8px;
-                    background-color: transparent;
-                    color: #000000;
-                    border: none;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    transition: background-color 0.3s ease;
-                }
-            
-                .fullscreen-button:hover {
-                    background-color: rgba(0, 123, 255, 0.1);
-                }
-            
-                .fullscreen-button:focus {
-                    outline: none;
-                }
-            </style>
-            
-              
-              <style>
-                .image-div {
-                  position: relative;
-                }
-              </style>
-              
             </div>
           </div>
+          
+          <script>
+            function toggleFullScreen(imageId) {
+              const elem = document.getElementById(imageId);
+              if (!document.fullscreenElement) {
+                elem.requestFullscreen().catch(err => {
+                  alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+              } else {
+                if (document.exitFullscreen) {
+                  document.exitFullscreen();
+                }
+              }
+            }
+          </script>
+          
+          <style>
+            .image-div {
+              position: relative;
+            }
+          
+            .fullscreen-button {
+              position: absolute;
+              bottom: 10px;
+              right: 10px;
+              padding: 8px;
+              background-color: transparent;
+              color: #000000;
+              border: none;
+              border-radius: 50%;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+            }
+          
+            .fullscreen-button:hover {
+              background-color: rgba(0, 123, 255, 0.1);
+            }
+          
+            .fullscreen-button:focus {
+              outline: none;
+            }
+          </style>
+          
 
+
+
+
+          
           <!-- ---------------------- -->
 
 
-
-
-          <div class="project-box-wrapper" data-aos="fade-up">
-            <div class="project-box project-box3" id="project-box3">
-              <div class="info-div">
-                <article class="ProjectHeading" onmouseover="showInfoDiscouragement()" onmouseout="hideInfoDiscouragement()">
-                  Discouragement
-                  <p style="font-size: small;">
-                      <em>Animation & 3D Modeling Project</em>
-                      <span class="info-icon" style="margin-left: 1px;">ℹ️</span>
-                  </p>
-                  <div id="infoDiscouragement" style="display: none; position: absolute; background-color: #f9f9f9; border: 1px solid #181818; padding: 10px; z-index: 1; font-size: 10px; color: rgb(0, 0, 0);border-radius: 10px;">
-                    Project was entirely made by me.  Involved modeling and rigging a character, animation, camera transitions, rendering, storyline, and more. 
-                  </div>
-              </article>
-              
-              <script>
-                  function showInfoDiscouragement() {
-                      var infoDiscouragement = document.getElementById("infoDiscouragement");
-                      infoDiscouragement.style.display = "block";
-                  }
-              
-                  function hideInfoDiscouragement() {
-                      var infoDiscouragement = document.getElementById("infoDiscouragement");
-                      infoDiscouragement.style.display = "none";
-                  }
-              </script>
-              
-                <p class="ProjectDescription">
-                  Discouragement is a 3D animated project that tells the story of a person who is trying to escape loneliness, yet can't. The project contains many model and animation techniques known the the practice and was created by myself in Maya. The story of the project is in relation to an emotion and while trying to use modeling/animation as a way to present it.                 </p>
-                <div class="project-buttons">
-
-
-                </div>
-              </div>
-              <div class="image-div">
-                <img id="rotating-image-model" src="src/png/Model.png" alt="netflix clone website preview image" />
-                <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-model')">
-                    <i class="fas fa-expand"></i>
-                </button>
-            </div>
-            
-            <script>
-                const imageSourcesModel = [
-                    "src/png/Model.png",
-                    "src/png/looop.png",
-                    "src/png/dooop.png"
-                ];
-            
-                let currentIndexModel = 0;
-                const rotatingImageModel = document.getElementById("rotating-image-model");
-            
-                function rotateImagesModel() {
-                    rotatingImageModel.src = imageSourcesModel[currentIndexModel];
-                    currentIndexModel = (currentIndexModel + 1) % imageSourcesModel.length;
-                }
-            
-                setInterval(rotateImagesModel, 5000);
-            
-                function toggleFullScreen(imageId) {
-                    const elem = document.getElementById(imageId);
-                    if (!document.fullscreenElement) {
-                        elem.requestFullscreen().catch(err => {
-                            alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-                        });
-                    } else {
-                        if (document.exitFullscreen) {
-                            document.exitFullscreen();
-                        }
-                    }
-                }
-            </script>
-            
-            <style>
-                .image-div {
-                    position: relative;
-                }
-            
-                .fullscreen-button {
-                    position: absolute;
-                    bottom: 10px;
-                    right: 10px;
-                    padding: 8px;
-                    background-color: transparent;
-                    color: #000000;
-                    border: none;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    transition: background-color 0.3s ease;
-                }
-            
-                .fullscreen-button:hover {
-                    background-color: rgba(0, 123, 255, 0.1);
-                }
-            
-                .fullscreen-button:focus {
-                    outline: none;
-                }
-            </style>
-            
-              
-              <style>
-                .image-div {
-                  position: relative;
-                }
-              </style>
-              
-            </div>
-          </div>
-
           <!-- ---------------------- -->
-
-
-
-
 
           <div class="project-box-wrapper" data-aos="fade-up">
             <div class="project-box project-box3" id="project-box3">
@@ -1595,29 +1020,26 @@ What are you doing here?! you sneaky developer...
                 <article class="ProjectHeading" onmouseover="showInfoEndlessRiches()" onmouseout="hideInfoEndlessRiches()">
                   Endless Riches
                   <p style="font-size: small;">
-                      <em>User Interface & AR Project</em>
-                      <span class="info-icon" style="margin-left: 1px;">ℹ️</span>
+                      <em>User Interface, 3D & AR Project</em>
                   </p>
-                  <div id="infoEndlessRiches" style="display: none; position: absolute; background-color: #f9f9f9; border: 1px solid #181818; padding: 10px; z-index: 1; font-size: 10px; color: rgb(0, 0, 0);border-radius: 10px;">
-                    This was a group project. My role was, lead scripter, particles creation, sound, 3D modeling & user experience when users interact with it. 
-                  </div>
-              </article>
-              
-              <script>
-                  function showInfoEndlessRiches() {
-                      var infoEndlessRiches = document.getElementById("infoEndlessRiches");
-                      infoEndlessRiches.style.display = "block";
-                  }
-              
-                  function hideInfoEndlessRiches() {
-                      var infoEndlessRiches = document.getElementById("infoEndlessRiches");
-                      infoEndlessRiches.style.display = "none";
-                  }
-              </script>
-              
+                </article>
+                
+                <script>
+                    function showInfoEndlessRiches() {
+                        var infoEndlessRiches = document.getElementById("infoEndlessRiches");
+                        infoEndlessRiches.style.display = "block";
+                    }
+                
+                    function hideInfoEndlessRiches() {
+                        var infoEndlessRiches = document.getElementById("infoEndlessRiches");
+                        infoEndlessRiches.style.display = "none";
+                    }
+                </script>
+                
                 <p class="ProjectDescription">
-                  Endless Riches is a user interface and AR project, in which was created to display a interactive way in how user can evolve a sculpture. The sculpture evolves as a user interacts with it by tapping, in which different states, forms, and visual effect appear. The project was developed in lens studio and uses multiple scripts, models and particles effect to work.                 </p>                 <div class="project-buttons">
-
+                  Endless Riches is a user interface and AR project, in which was created to display a interactive way in how user can evolve a sculpture. The sculpture evolves as a user interacts with it by tapping, in which different states, forms, and visual effect appear. The project was developed in lens studio and uses multiple scripts, models and particles effect to work.
+                </p>
+                <div class="project-buttons">
                   <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=d124d14ada61493cad3ab86fc218d3fe&metadata=01" target="_blank" class="cta"
                     aria-label="Visit netflix clone live">
                     <span>Live View</span>
@@ -1628,49 +1050,22 @@ What are you doing here?! you sneaky developer...
                   </a>
                 </div>
               </div>
+              
               <div class="image-div">
                 <img id="rotating-image-lens" src="src/png/Lens.png" alt="Netflix clone website preview image" />
                 <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-lens')">
                     <i class="fas fa-expand"></i>
                 </button>
+              </div>
             </div>
-            
-            <script>
-                const imageSourcesLens = [
-                    "src/png/Lens.png",
-                    "src/png/ls1.png",
-                    "src/png/ls2.png"
-                ];
-            
-                let currentIndexLens = 0;
-                const rotatingImageLens = document.getElementById("rotating-image-lens");
-            
-                function rotateImagesLens() {
-                    rotatingImageLens.src = imageSourcesLens[currentIndexLens];
-                    currentIndexLens = (currentIndexLens + 1) % imageSourcesLens.length;
-                }
-            
-                setInterval(rotateImagesLens, 5000);
-            
-                function toggleFullScreen(imageId) {
-                    const elem = document.getElementById(imageId);
-                    if (!document.fullscreenElement) {
-                        elem.requestFullscreen().catch(err => {
-                            alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-                        });
-                    } else {
-                        if (document.exitFullscreen) {
-                            document.exitFullscreen();
-                        }
-                    }
-                }
-            </script>
-            
+          
+           
+          
             <style>
                 .image-div {
                     position: relative;
                 }
-            
+          
                 .fullscreen-button {
                     position: absolute;
                     bottom: 10px;
@@ -1683,20 +1078,20 @@ What are you doing here?! you sneaky developer...
                     cursor: pointer;
                     transition: background-color 0.3s ease;
                 }
-            
+          
                 .fullscreen-button:hover {
                     background-color: rgba(0, 123, 255, 0.1);
                 }
-            
+          
                 .fullscreen-button:focus {
                     outline: none;
                 }
             </style>
-            
-            
-            </div>
+          
+          
           </div>
-
+          
+          
           <!-- ---------------------- -->
 
 
@@ -1708,11 +1103,8 @@ What are you doing here?! you sneaky developer...
                 QR Code Generator
                 <p style="font-size: small;">
                     <em>Programming Project</em>
-                    <span class="info-icon" style="margin-left: 1px;">ℹ️</span>
                 </p>
-                <div id="infoColourDrops" style="display: none; position: absolute; background-color: #f9f9f9; border: 1px solid #181818; padding: 10px; z-index: 1; font-size: 10px; color: rgb(0, 0, 0);border-radius: 10px;">
-                  Project was entirely made by me. Using HTML, CSS & Javascript to make and develope, and hosting it through github pages. 
-                </div>
+                
             </article>
             
             <script>
@@ -1728,7 +1120,7 @@ What are you doing here?! you sneaky developer...
             </script>
             
               <p class="ProjectDescription">
-                This project displays the use of generating a custom Qr code made using html, css and Javascript code. The application operates as a user enters a url or text and get output with a QR code in which they can customize with a few GUI features. This projects overall end goal was to test my ability to code a useful application used in the world of programming.                   </p>
+                This project displays the use of generating a custom QR code made using HTML, CSS and JavaScript code. The application operates as a user enters a url or text and get output with a QR code in which they can customize with a few GUI features. This projects overall end goal was to test my ability to code a useful application used in the world of programming.                   </p>
               <div class="project-buttons">
 
                 <a href="https://github.com/delvinsalman/QR-Code-Generator?tab=readme-ov-file" target="_blank" class="cta"
@@ -1798,227 +1190,12 @@ What are you doing here?! you sneaky developer...
 
 
 
-        <div class="project-box-wrapper" data-aos="fade-up">
-          <div class="project-box project-box3" id="project-box3">
-            <div class="info-div">
-              <article class="ProjectHeading" onmouseover="showInfoWaterLife()" onmouseout="hideInfoWaterLife()">
-                Water Life
-                <p style="font-size: small;">
-                    <em>Open 3D World Project</em>
-                    <span class="info-icon" style="margin-left: 1px;">ℹ️</span>
-                </p>
-                <div id="infoWaterLife" style="display: none; position: absolute; background-color: #f9f9f9; border: 1px solid #181818; padding: 10px; z-index: 1; font-size: 10px; color: rgb(0, 0, 0);border-radius: 10px;">
-                  This was a group project. My role was, making 3D models, scripting in Max, integrating skyboxes, player movement and creating a storyline. 
-                </div>
-            </article>
-            
-            <script>
-                function showInfoWaterLife() {
-                    var infoWaterLife = document.getElementById("infoWaterLife");
-                    infoWaterLife.style.display = "block";
-                }
-            
-                function hideInfoWaterLife() {
-                    var infoWaterLife = document.getElementById("infoWaterLife");
-                    infoWaterLife.style.display = "none";
-                }
-            </script>
-            
-              <p class="ProjectDescription">
-                Water life is a open 3D skybox world that displays the theme of exploring a sea like world. This project was developed in Max using many unique coding ways in which display the project. The project uses many 3D models, flocking systems for fish and player movement for exploring to name a few.               <div class="project-buttons">
-
-                <a href="https://github.com/delvinsalman/Final-Project-DATT-1020" target="_blank" class="cta"
-                  aria-label="Visit netflix clone live">
-                  <span>Live View</span>
-                  <svg viewBox="0 0 13 10" height="10px" width="15px">
-                    <path d="M1,5 L11,5"></path>
-                    <polyline points="8 1 12 5 8 9"></polyline>
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div class="image-div">
-              <img id="rotating-image-dsada" src="src/png/dsada.png" alt="netflix clone website preview image" />
-              <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-dsada')">
-                  <i class="fas fa-expand"></i>
-              </button>
-          </div>
-          
-          <script>
-              const imageSourcesDsada = [
-                  "src/png/dsada.png",
-                  "src/png/wozan.png",
-                  "src/png/wowow.png"
-              ];
-          
-              let currentIndexDsada = 0;
-              const rotatingImageDsada = document.getElementById("rotating-image-dsada");
-          
-              function rotateImagesDsada() {
-                  rotatingImageDsada.src = imageSourcesDsada[currentIndexDsada];
-                  currentIndexDsada = (currentIndexDsada + 1) % imageSourcesDsada.length;
-              }
-          
-              setInterval(rotateImagesDsada, 5000);
-          
-              function toggleFullScreen(imageId) {
-                  const elem = document.getElementById(imageId);
-                  if (!document.fullscreenElement) {
-                      elem.requestFullscreen().catch(err => {
-                          alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-                      });
-                  } else {
-                      if (document.exitFullscreen) {
-                          document.exitFullscreen();
-                      }
-                  }
-              }
-          </script>
-          
-          <style>
-              .image-div {
-                  position: relative;
-              }
-          
-              .fullscreen-button {
-                  position: absolute;
-                  bottom: 10px;
-                  right: 10px;
-                  padding: 8px;
-                  background-color: transparent;
-                  color: #ffffff;
-                  border: none;
-                  border-radius: 50%;
-                  cursor: pointer;
-                  transition: background-color 0.3s ease;
-              }
-          
-              .fullscreen-button:hover {
-                  background-color: rgba(0, 123, 255, 0.1);
-              }
-          
-              .fullscreen-button:focus {
-                  outline: none;
-              }
-          </style>
-          
-            <style>
-              .image-div {
-                position: relative;
-              }
-            </style>
-            
-          </div>
-        </div>
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-        <div class="project-box-wrapper" data-aos="fade-up">
-          <div class="project-box project-box3" id="project-box3">
-            <div class="info-div">
-              <article class="ProjectHeading" onmouseover="showInfoExtraCodeProjects()" onmouseout="hideInfoExtraCodeProjects()">
-                Extra Code Projects
-                <p style="font-size: small;">
-                    <em>Programming, Software, Art & Games Projects</em>
-                    <span class="info-icon" style="margin-left: 1px;">ℹ️</span>
-                </p>
-                <div id="infoExtraCodeProjects" style="display: none; position: absolute; background-color: #f9f9f9; border: 1px solid #181818; padding: 10px; z-index: 1; font-size: 10px; color: rgb(0, 0, 0);border-radius: 10px;">
-                  All these project where made by me alone. They show a variety of aspects in roles like coding, software, web game, art and so much more.
-                </div>
-            </article>
-            
-            <script>
-                function showInfoExtraCodeProjects() {
-                    var infoExtraCodeProjects = document.getElementById("infoExtraCodeProjects");
-                    infoExtraCodeProjects.style.display = "block";
-                }
-            
-                function hideInfoExtraCodeProjects() {
-                    var infoExtraCodeProjects = document.getElementById("infoExtraCodeProjects");
-                    infoExtraCodeProjects.style.display = "none";
-                }
-            </script>
-            
-              <p class="ProjectDescription">
-            These project fall under the idea that some are art based code projects, live server implementation created in python, particlization, and web games created with languages like Java, Javascript and so much more. Please view the live view github to see some of the source code for these project. See how the projects was coded, developed and implemented. <div class="project-buttons">
-
-                <a href="https://github.com/delvinsalman?tab=repositories" target="_blank" class="cta"
-                  aria-label="Visit netflix clone live">
-                  <span>Live View</span>
-                  <svg viewBox="0 0 13 10" height="10px" width="15px">
-                    <path d="M1,5 L11,5"></path>
-                    <polyline points="8 1 12 5 8 9"></polyline>
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div class="image-div">
-              <img src="src/png/allalal.png" alt="netflix clone website preview image" id="fullscreen-image-allalal" />
-              <button class="fullscreen-button" id="fullscreen-button-allalal" onclick="toggleFullScreen('fullscreen-image-allalal')">
-                  <i class="fas fa-expand"></i>
-              </button>
-          </div>
-          
-          <script>
-              function toggleFullScreen(imageId) {
-                  const elem = document.getElementById(imageId);
-                  if (!document.fullscreenElement) {
-                      elem.requestFullscreen().catch(err => {
-                          alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
-                      });
-                  } else {
-                      if (document.exitFullscreen) {
-                          document.exitFullscreen();
-                      }
-                  }
-              }
-          </script>
-          
-          <style>
-              .image-div {
-                  position: relative;
-                  display: inline-block; /* Ensure the div only takes the space it needs */
-              }
-          
-              .fullscreen-button {
-                  position: absolute;
-                  bottom: 10px;
-                  right: 10px;
-                  padding: 8px;
-                  background-color: transparent;
-                  color: #ffffff;
-                  border: none;
-                  border-radius: 50%;
-                  cursor: pointer;
-                  transition: background-color 0.3s ease;
-              }
-          
-              .fullscreen-button:hover {
-                  background-color: rgba(0, 123, 255, 0.1);
-              }
-          
-              .fullscreen-button:focus {
-                  outline: none;
-              }
-          </style>
-          
-          
-        
-          
-          </div>
-        </div>
 
 
 
@@ -2088,7 +1265,7 @@ What are you doing here?! you sneaky developer...
           </svg></a>
 
 
-        <a href="https://www.linkedin.com/in/d-s-405218266/" target="_blank"
+        <a href="https://www.linkedin.com/in/delvin-salman-405218266/" target="_blank"
               aria-label="My Linkdin"><svg class="SocialHandle" viewBox="0 0 448 512">
                 <path
                   d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
