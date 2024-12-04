@@ -433,7 +433,22 @@ What are you doing here?! you sneaky developer...
               <img src="./src/png/opengl_logo.png" alt="canva skill" class="tech-stack-logo" />
               <span class="tooltip">OpenGL</span>
             </li>
-            
+            <li class="tech-stack-box" data-aos="fade-up">
+              <img src="./src/png/DaVinci_Resolve_Studio.png" alt="canva skill" class="tech-stack-logo" />
+              <span class="tooltip">DaVinci Resolve</span>
+            </li>
+            <li class="tech-stack-box" data-aos="fade-up">
+              <img src="./src/png/gitgitgit.png" alt="canva skill" class="tech-stack-logo" />
+              <span class="tooltip">Github Desktop</span>
+            </li>
+            <li class="tech-stack-box" data-aos="fade-up">
+              <img src="./src/png/xcode-2020-11-11.avif" alt="canva skill" class="tech-stack-logo" />
+              <span class="tooltip">Xcode</span>
+            </li>
+            <li class="tech-stack-box" data-aos="fade-up">
+              <img src="./src/png/Audacity_Logo.svg.png" alt="canva skill" class="tech-stack-logo" />
+              <span class="tooltip">Audacity</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -609,6 +624,181 @@ What are you doing here?! you sneaky developer...
           </style>
           
           
+
+
+<!-- ---------------------- -->
+<div class="project-box-wrapper" data-aos="fade-up">
+  <div class="project-box project-box4" id="project-box4">
+    <div class="info-div">
+      <article class="ProjectHeading" onmouseover="showInfoRidersOfDoom()" onmouseout="hideInfoRidersOfDoom()">
+        Weather Application
+        <p style="font-size: small;">
+          <em>Software Project </em>
+          
+        </p>
+        
+      </article>
+      
+      <p class="ProjectDescription">
+        This innovative weather app delivers real-time updates on the weather conditions of any city. Created using JavaScript, it integrates the concept of using a live API to fetch its content based on the user's selected location. The program was designed using HTML and CSS for the user interface and follows a system-based design that leverages programming, APIs, and data integration.
+      </p>
+      <div class="project-buttons">
+        <a href="https://delvinsalman.github.io/Weather-App/" target="_blank" class="cta" aria-label="Visit search engine live">
+          <span>Live View</span>
+          <svg viewBox="0 0 13 10" height="10px" width="15px">
+            <path d="M1,5 L11,5"></path>
+            <polyline points="8 1 12 5 8 9"></polyline>
+          </svg>
+        </a>
+        <a href="https://github.com/delvinsalman/Weather-App?tab=readme-ov-file" target="_blank" class="cta" aria-label="View on GitHub" style="margin-left: -12px;">
+          <span>GitHub →</span>
+        </a>
+      </div>
+      
+    </div>
+    
+    <div class="image-div">
+      <img id="rotating-image-qr" src="src/png/outside.png" alt="QR generator website preview image" />
+      <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-qr')">
+        <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showInfoRidersOfDoom() {
+    var infoRidersOfDoom = document.getElementById("infoRidersOfDoom");
+    infoRidersOfDoom.style.display = "block";
+  }
+
+  function hideInfoRidersOfDoom() {
+    var infoRidersOfDoom = document.getElementById("infoRidersOfDoom");
+    infoRidersOfDoom.style.display = "none";
+  }
+
+  function toggleFullScreen(imageId) {
+    const elem = document.getElementById(imageId);
+    if (!document.fullscreenElement) {
+      elem.requestFullscreen().catch(err => {
+        alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+      });
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  }
+</script>
+
+<style>
+  .image-div {
+    position: relative;
+  }
+
+  .fullscreen-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 8px;
+    background-color: transparent;
+    color: #000000;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .fullscreen-button:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+  }
+
+  .fullscreen-button:focus {
+    outline: none;
+  }
+</style>
+
+
+
+
+
+
+
+
+<div class="project-box-wrapper" data-aos="fade-up">
+  <div class="project-box project-box2" id="project-box2">
+    <div class="info-div">
+      <article class="ProjectHeading">
+       Grave Runner
+        <p style="font-size: small;">
+            <em>Game Development Project</em>
+        </p>
+      </article>
+      
+      <p class="ProjectDescription">
+        A first-person boss rush, that gets simpler over time.
+         Lose your speed, health, and abilities as you try to fulfill your tasks before your time is up. A game
+         developed using unreal, using heavy bp scripting, assets, 3d components, level design, and other game practices. My 
+         role was developing the whole map, while adhering to other bp scripting, sound and UI needed in the games development.
+
+
+
+
+
+
+
+      </p>
+      <div class="project-buttons">
+        <a href="https://delyy.itch.io/graverunner" target="_blank" class="cta"
+          aria-label="Visit Aquaregia Live">
+          <span>Live View</span>
+          <svg viewBox="0 0 13 10" height="10px" width="15px">
+            <path d="M1,5 L11,5"></path>
+            <polyline points="8 1 12 5 8 9"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="image-div">
+      <img id="rotating-image-toastpostgg" src="src/png/grave.png" alt="Aquaregia website preview image" />
+      <button class="fullscreen-button" onclick="toggleFullScreen('rotating-image-toastpostgg')">
+          <i class="fas fa-expand"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+  .image-div {
+      position: relative;
+  }
+
+  .fullscreen-button {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      padding: 8px;
+      background-color: transparent;
+      color: #000000;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  }
+
+  .fullscreen-button:hover {
+      background-color: rgba(0, 123, 255, 0.1);
+  }
+
+  .fullscreen-button:focus {
+      outline: none;
+  }
+</style>
+
+
+
 
 
 
@@ -1264,7 +1454,7 @@ What are you doing here?! you sneaky developer...
         </div>
         <div class="social-media-container">
           <div class="getintouch-heading">
-            <article>GetInContact()</article>
+            <article>GetInTouch()</article>
           </div>
           <div class="logos">
 
