@@ -1,7 +1,7 @@
 # Portfolio
 
 ## Introduction
-Welcome to my portfolio! This repository showcases a collection of my projects, skills, and creative works. Each project highlights my growth, technical abilities, and passion for design, development, and interactive media.
+Welcome to my portfolio! This repository showcases a collection of my projects, skills, and creative works. Each project highlights my growth, technical abilities, and passion for my studies.
 
 ## Contents
 - **Projects**: A diverse range of projects, from game development and interactive media to web applications and creative animations.
