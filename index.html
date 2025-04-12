@@ -1,0 +1,2364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delvin Salman┃Portfolio</title>
+    <link rel="icon" href="Images/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        
+        /* Enhanced CSS Variables */
+        :root {
+            --bg-color: #0a0a0a;
+            --second-bg-color: #121212;
+            --text-color: #e0e0e0;
+            --text-light: #b0b0b0;
+            --main-color: #7a3bff;
+            --main-color-light: #9a63ff;
+            --main-color-dark: #5a1aff;
+            --accent-color: #ff3bf0;
+            --card-bg: #1e1e1e;
+            --card-bg-light: #2a2a2a;
+            --border-color: #2a2a2a;
+            --section-padding: 10rem 10%;
+            --header-height: 8rem;
+            --border-radius: 1.6rem;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* Light Mode Variables */
+        [data-theme="light"] {
+            --bg-color: #f5f5f5;
+            --second-bg-color: #e0e0e0;
+            --text-color: #333333;
+            --text-light: #666666;
+            --main-color: #5a1aff;
+            --main-color-light: #7a3bff;
+            --main-color-dark: #3d00e0;
+            --accent-color: #ff1493;
+            --card-bg: #ffffff;
+            --card-bg-light: #f0f0f0;
+            --border-color: #d0d0d0;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: var(--section-padding);
+            position: relative;
+        }
+
+        /* Enhanced Header Styles */
+        .header {
+            position: fixed;
+            top: 2rem;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 5%;
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
+            border-radius: 50px;
+            backdrop-filter: blur(12px);
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(122, 59, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        [data-theme="light"] .header-container {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 240, 240, 0.98) 100%);
+            border: 1px solid rgba(122, 59, 255, 0.1);
+        }
+
+        .header.scrolled {
+            top: 0;
+            border-radius: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .header.scrolled .header-container {
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
+        }
+
+        .logo-container {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .navbar {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            
+        }
+
+        .navbar a {
+            font-size: 1.6rem;
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+            padding: 0.8rem 1.2rem;
+            border-radius: 2rem;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .nav-link-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .navbar a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(122, 59, 255, 0.2) 0%, rgba(255, 59, 240, 0.1) 100%);
+            border-radius: 2rem;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 1;
+        }
+
+        .navbar a:hover::before,
+        .navbar a.active::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .navbar a.active {
+            color: white;
+            font-weight: 600;
+        }
+
+        [data-theme="light"] .navbar a.active {
+            color: var(--text-color);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: transparent;
+            color: var(--text-color);
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: rgba(122, 59, 255, 0.1);
+        }
+
+        #menu-icon {
+            font-size: 3.6rem;
+            color: var(--text-color);
+            display: none;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        #menu-icon:hover {
+            color: var(--main-color);
+        }
+
+        /* Enhanced Home Section */
+        .home {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom right, var(--bg-color), var(--second-bg-color));
+            padding: 15rem 10% 10rem;
+            overflow: hidden;
+        }
+
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                rgba(122, 59, 255, 0.1) 0%, 
+                rgba(0, 212, 255, 0.1) 50%, 
+                rgba(122, 59, 255, 0.1) 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            z-index: -1;
+        }
+
+        .dynamic-gradient {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                rgba(122, 59, 255, 0.1), 
+                rgba(255, 59, 240, 0.1), 
+                rgba(59, 141, 255, 0.1));
+            background-size: 300% 300%;
+            animation: gradientShift 8s ease infinite;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .home-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            z-index: 1;
+        }
+
+        .home-text {
+            flex: 1;
+            max-width: 700px;
+            padding-right: 5rem;
+        }
+
+        .home-subtitle {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            color: var(--text-light);
+        }
+
+        .name-gradient {
+            font-size: 6.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, 
+                #7a3bff, 
+                #ff3bf0, 
+                #3b8dff, 
+                #7a3bff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards, gradientShift 8s ease infinite;
+            font-family: 'Inter', sans-serif;
+
+        }
+
+        .role-intro {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+       /* Typing Animation */
+       .typing-text {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    /* Using a linear gradient for a purple and pink mix */
+    background: linear-gradient(to right, #FF69B4, #800080); /* Pink to Purple */
+    background-clip: text;
+    color: transparent;
+    height: 3.5rem;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+        .typing-text span {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--main-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding-right: 0.3em;
+            border-right: 3px solid var(--main-color);
+            animation: blinkCursor 0.75s step-end infinite;
+        }
+
+        .home-description {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 4rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        .social-media {
+            display: flex;
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .social-link {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 5.5rem;
+            height: 5.5rem;
+            background: var(--card-bg);
+            border: .2rem solid var(--border-color);
+            border-radius: 50%;
+            font-size: 2.2rem;
+            color: var(--text-color);
+            transition: var(--transition);
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.2s forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--main-color), var(--accent-color));
+            transform: scale(0);
+            border-radius: 50%;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .social-link:hover {
+            color: var(--bg-color);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(122, 59, 255, 0.4);
+        }
+
+        .social-link:hover::before {
+            transform: scale(1);
+        }
+
+        .social-link:nth-child(1) { animation-delay: 1.2s; }
+        .social-link:nth-child(2) { animation-delay: 1.3s; }
+        .social-link:nth-child(3) { animation-delay: 1.4s; }
+        .social-link:nth-child(4) { animation-delay: 1.5s; }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-light);
+            font-size: 1.4rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 2s forwards;
+        }
+
+        .mouse {
+            width: 2.5rem;
+            height: 4.5rem;
+            border: 2px solid var(--text-light);
+            border-radius: 2rem;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            padding-top: 0.5rem;
+        }
+
+        .wheel {
+            width: 0.5rem;
+            height: 0.8rem;
+            background-color: var(--text-light);
+            border-radius: 0.5rem;
+            animation: scroll 2s ease infinite;
+        }
+
+        /* About Section Enhancements */
+        .about {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8rem;
+            background: var(--second-bg-color);
+            padding: 10rem 10% 8rem;
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -10rem;
+            left: 0;
+            width: 100%;
+            height: 10rem;
+            background: linear-gradient(to bottom, transparent, var(--second-bg-color));
+        }
+
+        .about-content {
+            flex: 1;
+            padding-right: 5rem;
+        }
+
+        .heading {
+            text-align: left;
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 5rem;
+            position: relative;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .heading span {
+            background: linear-gradient(to right, var(--main-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1.5rem;
+            width: 8rem;
+            height: 0.4rem;
+            background: linear-gradient(to right, var(--main-color), var(--accent-color));
+            border-radius: 0.2rem;
+        }
+
+        .about-content p {
+            font-size: 1.8rem;
+            margin: 2.5rem 0;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .about-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .about-tech span {
+            background: rgba(122, 59, 255, 0.1);
+            color: var(--main-color-light);
+            padding: 1rem 2rem;
+            border-radius: 3rem;
+            font-size: 1.4rem;
+            font-weight: 500;
+            border: 1px solid rgba(122, 59, 255, 0.3);
+            transition: var(--transition);
+        }
+
+        .about-tech span:hover {
+            background: rgba(122, 59, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .about-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .about-img img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 2rem;
+            box-shadow: 0 0 3rem rgba(122, 59, 255, 0.3);
+            position: relative;
+            z-index: 1;
+            top: 45px;
+        }
+
+        .about-img::before {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background: linear-gradient(45deg, var(--main-color), var(--accent-color));
+            border-radius: 2rem;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(5deg);
+            filter: blur(50px);
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        /* Skills Section Enhancements */
+        .skills {
+            background: var(--bg-color);
+            padding: 10rem 10% 8rem;
+            position: relative;
+        }
+
+        .skills::before {
+            content: '';
+            position: absolute;
+            top: -10rem;
+            left: 0;
+            width: 100%;
+            height: 10rem;
+            background: linear-gradient(to bottom, transparent, var(--bg-color));
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap: 4rem;
+            padding: 0 5%;
+        }
+
+        .skills-box {
+            background: var(--card-bg);
+            padding: 4rem 3rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: .1rem solid var(--border-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .skills-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(122, 59, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.8s ease;
+            z-index: -1;
+        }
+
+        .skills-box:hover::before {
+            transform: translateX(100%);
+        }
+
+        .skills-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--main-color);
+        }
+
+        .skills-box i {
+            font-size: 5.5rem;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .skills-box:hover i {
+            transform: scale(1.1);
+        }
+
+        .skills-box h3 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .skills-box p {
+            font-size: 1.6rem;
+            margin: 2rem 0 3rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Skill Progress Bars (ONLY ADDITION I KEPT) */
+        .skill-progress {
+            width: 100%;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .skill-percent {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--main-color-light);
+        }
+
+        .progress-bar {
+            height: 0.8rem;
+            background: var(--card-bg-light);
+            border-radius: 0.4rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--main-color), var(--accent-color));
+            border-radius: 0.4rem;
+            transition: width 1.5s ease-out;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+        }
+
+        .skill-tags span {
+            background: rgba(122, 59, 255, 0.1);
+            color: var(--main-color-light);
+            padding: 0.8rem 1.8rem;
+            border-radius: 3rem;
+            font-size: 1.3rem;
+            font-weight: 500;
+            border: 1px solid rgba(122, 59, 255, 0.3);
+            transition: var(--transition);
+        }
+
+        .skill-tags span:hover {
+            background: rgba(122, 59, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* New Projects Section Design */
+        .projects {
+            background: var(--second-bg-color);
+            padding: 10rem 10% 8rem;
+            position: relative;
+        }
+
+        .projects::before {
+            content: '';
+            position: absolute;
+            top: -10rem;
+            left: 0;
+            width: 100%;
+            height: 10rem;
+            background: linear-gradient(to bottom, transparent, var(--second-bg-color));
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+            gap: 5rem;
+            padding: 0 5%;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(122, 59, 255, 0.2);
+            border-color: var(--main-color);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(122, 59, 255, 0.1) 0%, rgba(255, 59, 240, 0.05) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-header {
+            position: relative;
+            height: 25rem;
+            overflow: hidden;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(30, 30, 30, 0.8);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+        }
+
+        .project-content {
+            padding: 3rem;
+        }
+
+        .project-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(to right, var(--main-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .project-description {
+            font-size: 1.6rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .project-tech span {
+            background: rgba(122, 59, 255, 0.1);
+            color: var(--main-color-light);
+            padding: 0.6rem 1.2rem;
+            border-radius: 3rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            border: 1px solid rgba(122, 59, 255, 0.2);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            background: rgba(122, 59, 255, 0.1);
+            border-radius: 50%;
+            color: var(--main-color-light);
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            background: rgba(122, 59, 255, 0.2);
+            color: var(--main-color);
+            transform: translateY(-3px);
+        }
+/* Footer Enhancements */
+.footer {
+    background: var(--bg-color);
+    padding: 5rem 10% 3rem; /* Reduced top padding */
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center; /* Center the content */
+    align-items: center; /* Vertically align items */
+    max-width: 800px; /* Adjust max width as needed */
+    margin: 0 auto;
+    gap: 3rem; /* Reduced gap */
+    text-align: center; /* Center text within the container */
+}
+
+.footer-connect {
+    flex: 0 1 auto; /* Adjust flex properties as needed */
+}
+
+.footer-connect h3 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem; /* Reduced margin */
+    font-family: 'Space Grotesk', sans-serif;
+    background: linear-gradient(to right, var(--main-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.footer-connect p {
+    font-size: 1.6rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 2rem; /* Reduced margin */
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center; /* Center the icons */
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    font-size: 2rem;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    color: var(--main-color);
+}
+
+.footer-bottom {
+    margin-top: 4rem; /* Added top margin to separate */
+    text-align: center;
+}
+
+.footer-line {
+    width: 80%;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 0 auto 1.5rem;
+}
+
+.footer-bottom p {
+    font-size: 1.4rem;
+    color: var(--text-light);
+}
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4.5rem;
+            height: 4.5rem;
+            background: var(--card-bg);
+            border-radius: 50%;
+            font-size: 1.8rem;
+            color: var(--text-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icons a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--main-color), var(--accent-color));
+            transform: scale(0);
+            border-radius: 50%;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .social-icons a:hover {
+            color: var(--bg-color);
+            transform: translateY(-5px);
+        }
+
+        .social-icons a:hover::before {
+            transform: scale(1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 5rem;
+            margin-top: 5rem;
+            position: relative;
+        }
+
+        .footer-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .footer-bottom p {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            position: relative;
+            z-index: 1;
+            background: var(--bg-color);
+            padding: 0 2rem;
+            display: inline-block;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 3rem;
+            right: 3rem;
+            width: 5rem;
+            height: 5rem;
+            background: var(--main-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(122, 59, 255, 0.3);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-color);
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* Custom Cursor Enhancements */
+        .cursor {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--main-color);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            mix-blend-mode: difference;
+            z-index: 9999;
+            transition: transform 0.1s, width 0.3s, height 0.3s;
+        }
+
+        .cursor-follower {
+            position: fixed;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(122, 59, 255, 0.3);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.4s, width 0.4s, height 0.4s, background 0.4s;
+            backdrop-filter: blur(2px);
+        }
+
+        /* Animations */
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(1.5rem);
+                opacity: 0;
+            }
+        }
+
+        @keyframes blinkCursor {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--main-color); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            html {
+                font-size: 58%;
+            }
+            
+            .header-container {
+                padding: 1.5rem 5%;
+            }
+            
+            .home-content {
+                padding: 0 5%;
+            }
+            
+            .name-gradient {
+                font-size: 5.5rem;
+            }
+        }
+
+        @media (max-width: 991px) {
+            html {
+                font-size: 55%;
+            }
+            
+            .about {
+                flex-direction: column;
+                gap: 5rem;
+            }
+            
+            .about-content {
+                padding-right: 0;
+                text-align: center;
+            }
+            
+            .heading {
+                text-align: center;
+            }
+            
+            .heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .skills-container,
+            .projects-container {
+                padding: 0;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+                gap: 5rem;
+            }
+            
+            .footer-about,
+            .footer-links,
+            .footer-social {
+                max-width: 100%;
+                text-align: center;
+                
+            }
+            
+            .footer-links ul {
+                align-items: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #menu-icon {
+                display: block;
+            }
+            
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-color);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+                z-index: 1000;
+            }
+            
+            .navbar.active {
+                left: 0;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 4rem;
+            }
+            
+            .navbar a {
+                font-size: 2.4rem;
+            }
+            
+            .home-content {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 10rem;
+            }
+            
+            .home-text {
+                padding-right: 0;
+                margin-bottom: 5rem;
+            }
+            
+            .social-media {
+                justify-content: center;
+            }
+            
+            .name-gradient {
+                font-size: 4.8rem;
+            }
+            
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 450px) {
+            html {
+                font-size: 50%;
+            }
+            
+            .home {
+                padding: 15rem 5% 10rem;
+            }
+            
+            .name-gradient {
+                font-size: 4.2rem;
+            }
+            
+            .project-header {
+                height: 20rem;
+            }
+            
+            .header-container {
+                border-radius: 30px;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="Images/Logo.png" alt="Logo" class="logo-img">
+            </div>
+            
+            <nav class="navbar">
+                <div class="nav-links">
+                    <a href="#home" class="active">&lt;/<span class="nav-link-text"> Home</span>&gt;</a>
+                    <a href="#about">&lt;/<span class="nav-link-text"> About</span>&gt;</a>
+                    <a href="#skills">&lt;/<span class="nav-link-text"> Skills</span>&gt;</a>
+                    <a href="#projects">&lt;/<span class="nav-link-text"> Projects</span>&gt;</a>                    
+                </div>
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+            
+            <i class="fas fa-bars" id="menu-icon"></i>
+        </div>
+    </header>
+    
+    <section class="home" id="home">
+        <div class="animated-bg"></div>
+        <div class="dynamic-gradient"></div>
+        <div class="home-content">
+            <div class="home-text">
+                <h3 class="home-subtitle">Hello, I'm</h3>
+                <h1 class="name-gradient">Delvin Salman.</h1>
+                <div class="role-intro">
+                    And I'm passionate about <span class="typing-text" id="typing"></span>
+                </div>
+                
+                <p class="home-description">I am a Student Developer, eager to expand my knowledge across various domains and ventures through my studies and experiences. Driven by a strong determination, I thrive on challenges and stay motivated to continuously learn and grow as a person.
+                </p>
+                <div class="social-media">
+                    <a href="https://github.com/delvinsalman" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/delvin-salman-405218266/" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:delvinsalman19@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://delyy.itch.io/" class="social-link" aria-label="itch.io"><i class="fab fa-itch-io"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="heading">&lt;/ About <span>Me</span>&gt;</h2>
+
+            <p>My name is Delvin, and I am currently pursuing a <strong>Digital Media</strong> degree with a Specialization in Game Development at York University. I possess a diverse skill set across game development, computer science, software, and design. Driven by a strong passion for my field, I am goal-oriented and continuously seek opportunities to expand my knowledge.</p>
+            <p>I love working on projects in these realms, discovering new ways to create, develop, and explore concepts and ideas, even if those realms are new to me! I embrace new challenges as valuable avenues for personal and professional growth.</p>
+            <div class="about-tech">
+                <span>Unreal Engine</span>
+                <span>JavaScript</span>
+                <span>Python</span>
+                <span>Unity</span>
+                <span>C#</span>
+            </div>
+        </div>
+        <div class="about-img">
+            <img src="https://i.redd.it/1d11s820dgm91.gif" alt="About Me">
+        </div>
+    </section>
+    
+    <section class="skills" id="skills">
+        <h2 class="heading">&lt;/ My <span>Skills</span>&gt;</h2>
+         <div class="skills-container">
+            <div class="skills-box">
+                <i class="fas fa-gamepad"></i>
+                <h3>Game Development</h3>
+                <p>Possess a strong expertise in 3D and 2D game development.</p>
+                <!-- Added progress bars -->
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Unreal Engine</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Unity</span>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Level & Game Design</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Blueprint</span>
+                        <span class="skill-percent">80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Gadot</span>
+                        <span class="skill-percent">65%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">C#</span>
+                        <span class="skill-percent">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">C++</span>
+                        <span class="skill-percent">65%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 65%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-box">
+                <i class="fas fa-code"></i>
+                <h3>Programming</h3>
+                <p>Utilizing coding and development across a variety of applications.</p>
+                
+                <!-- Added progress bars -->
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">JavaScript</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Python</span>
+                        <span class="skill-percent">80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">HTML/CSS</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Java</span>
+                        <span class="skill-percent">70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">C#</span>
+                        <span class="skill-percent">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">C++</span>
+                        <span class="skill-percent">65%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Blueprint Scripting</span>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-box">
+                <i class="fas fa-laptop"></i>
+                <h3>Software Application</h3>
+                <p>Completed numerous projects using various software tools & apps. </p>
+                
+                <!-- Added progress bars -->
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">VS Code</span>
+                        <span class="skill-percent">95%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 95%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Git/GitHub</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Eclipse</span>
+                        <span class="skill-percent">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">p5.js</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">OpenGL</span>
+                        <span class="skill-percent">70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Sublime</span>
+                        <span class="skill-percent">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Heroku</span>
+                        <span class="skill-percent">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-box">
+                <i class="fas fa-layer-group"></i>
+                <h3>UI/UX Design</h3>
+                <p>Creating intuitive and visually appealing UI & UX experiences.</p>
+                
+                <!-- Added progress bars -->
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Figma</span>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Wireframing</span>
+                        <span class="skill-percent">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Prototyping</span>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Adobe Technology's</span>
+                        <span class="skill-percent">80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Canva</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Web Development</span>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Sketch</span>
+                        <span class="skill-percent">70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-box">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Design Applications</h3>
+                <p>I have strong concepts for utilizing design practices and techniques.</p>
+                
+                <!-- Added progress bars -->
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Maya</span>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Blender</span>
+                        <span class="skill-percent">70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Photoshop</span>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Premiere Pro</span>
+                        <span class="skill-percent">80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Figma</span>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Canva</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Microsoft Office</span>
+                        <span class="skill-percent">95%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 95%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-box">
+                <i class="fas fa-users"></i>                
+                <h3>Soft Skills</h3>
+                <p>Learning has been fulfilling, with soft skills driving better outcomes.</p>
+                
+                <!-- Added progress bars -->
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Communication</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Leadership</span>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Project Management</span>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Problem-Solving</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Organization</span>
+                        <span class="skill-percent">95%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Teamwork</span>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <span class="skill-name">Time Management</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="projects" id="projects">
+        <h2 class="heading">&lt;/ Latest <span>Projects</span>&gt;</h2>
+
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-header">
+                    <img src="Images/Cattleman.png" alt="Cattleman's Crossing" class="project-image">
+                    <span class="project-badge">Game Development</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Cattleman's Crossing</h3>
+                    <p class="project-description">
+                        Led level design for Cattleman's Crossing, a 3D open-world narrative game exploring Canadian landscapes with interactive gameplay like cattle herding and environmental storytelling. Designed the map, implemented interactive scripts, and supported development. Showcased at the <span class="name-gradient" style="font-size: 1em;">2025</span> Level Up Showcase for top student games.
+                    </p>
+                                        <div class="project-footer">
+                        <div class="project-tech">
+                            <span>Unreal Engine</span>
+                            <span>C++</span>
+                            <span>Blueprint</span>
+                            <span>Blender</span>
+                            <span>Jira</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://riordan-palmer.itch.io/cattlemans-crossing" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                            </a>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <img src="Images/Chatbot.png" alt="AI Chatbot" class="project-image">
+                    <span class="project-badge">Software Development</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">AI Chatbot</h3>
+                    <p class="project-description">Developed a full-scale AI chatbot using Flask, Gemini AI, Python, JavaScript, and HTML/CSS. It supports end-to-end conversations, image/audio analysis, and complex queries. The chatbot integrates AI systems with the Gemini AI protocol to deliver a realistic user experience while ensuring 100% response accuracy.</p>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Flask</span>
+                            <span>Gemini AI</span>
+                            <span>JavaScript</span>
+                            <span>HTML</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/delvinsalman/Bot" class="project-link" aria-label="GitHub">
+                                <i class="fab fa-github" style="font-size: 25px;"></i>
+                            </a>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <img src="https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkzMjA4My5wbmc=/original/254Csk.png" alt="Ash Game" class="project-image">
+                    <span class="project-badge">Game Development</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Ash</h3>
+                    <p class="project-description">Developed a 3D open-world, stylized game centered around atmospheric exploration and engaging traversal. The experience emphasizes rich, immersive environments, with features such as gliding mechanics, open-world navigation, interaction, and a variety of character abilities. Showcased at the <span class="name-gradient" style="font-size: 1em;">2024</span> Level Up Showcase for top student games.
+                    </p>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>Unreal Engine</span>
+                            <span>C#</span>
+                            <span>Blender</span>
+                            <span>Blueprint Scripting</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://rajusivanantham.itch.io/ash" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                            </a>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <img src="Images/Weather.png" alt="Project Four" class="project-image">
+                    <span class="project-badge">Software/Web Development</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Weather Application</h3>
+                    <p class="project-description">Developed a weather app using JavaScript and Application Programming Interface that provides real-time weather updates for any location. The app integrates APIs for accurate weather data and details, offering 3-day and 7-day forecasts. It features a clean, intuitive interface for easy location search and detailed climate information.</p>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>Python</span>
+                            <span>HTML/CSS</span>
+                            <span>APIs</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/delvinsalman/Weather-App" class="project-link" aria-label="GitHub">
+                                <i class="fab fa-github" style="font-size: 25px;"></i>
+                            </a>
+                            <a href="https://delvinsalman.github.io/Weather-App/" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                            </a>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <img src="https://img.itch.zone/aW1hZ2UvMjYwOTAzMC8xNjA4MDEwOC5wbmc=/794x1000/CCJhGZ.png" alt="Project Five" class="project-image">
+                    <span class="project-badge">Game Development</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Space Toast</h3>
+                    <p class="project-description">Created a 2D top-down shooter game in Unity where players battle waves of enemies to achieve high scores. The game includes projectile mechanics, damage systems, sprite-based visuals, pickups, and unique 2D character movement. Core functionality is driven by multiple C# scripts, complemented by thoughtful design elements that enhance gameplay and realism. </p>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>Unity</span>
+                            <span>C#</span>
+                            <span>Photoshop</span>
+                            <span>Figma</span>
+                            <span>2D Animations</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://delyy.itch.io/space-toast" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                            </a>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <img src="Images/SearchEngine.png" alt="Project Six" class="project-image">
+                    <span class="project-badge">Web Development Tool</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Search Engine</h3>
+                    <p class="project-description">Developed a user-friendly image and video search engine that provides access to thousands of high-quality, real-time web images. Built with HTML, CSS, and APIs, the platform ensures efficient content hosting and seamless exploration, prioritizing high-quality visuals and a smooth user experience while finding photos and videos. The platform also allows users to download media in a optimized way.</p>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>Git</span>
+                            <span>HTML/CSS</span>
+                            <span>API System</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/delvinsalman/SearchEngine" class="project-link" aria-label="GitHub">
+                                <i class="fab fa-github" style="font-size: 25px;"></i>
+                            </a>
+                            <a href="https://delvinsalman.github.io/SearchEngine/" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                            </a>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <img src="Images/Fish.png" alt="Project Seven" class="project-image">
+                    <span class="project-badge">Programming Data</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Smells Fishy</h3>
+                    <p class="project-description">Developed an interactive data visualization project using JavaScript, featuring a boid simulation that mimics an aquatic ecosystem. Users can explore and engage with data through responsive movement, dynamic visualizations, and color-coordinated clarity. The project integrates multiple libraries to create a rich, feature-packed experience.</p>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>p5.js</span>
+                            <span>JavaScript</span>
+                            <span>Data Analysis</span>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/delvinsalman/Smells-Fishy" class="project-link" aria-label="GitHub">
+                                <i class="fab fa-github" style="font-size: 25px;"></i>
+                            </a>
+                            <a href="https://editor.p5js.org/Delvin/full/bG7XyZZw2" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                            </a>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <img src="https://img.itch.zone/aW1nLzE4NzcwNDIxLnBuZw==/original/4U1cJk.png" alt="Project Eight" class="project-image">
+                    <span class="project-badge">Game Development</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Grave Runner</h3>
+                    <p class="project-description">Developed a 3D boss rush game that simplifies as it progresses, leveraging Blueprint scripting and 3D design. My primary role included designing the level, creating the UI, and building core gameplay systems such as mechanics, controls, pickups, and physics. The game showcases unique concepts in both gameplay and development.</p>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>Unreal Engine</span>
+                            <span>Blueprint Scripting</span>
+                            <span>Maya</span>
+                            <span>C#</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://delyy.itch.io/graverunner" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                            </a>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <img src="Images/Drawing.png" alt="Project Nine" class="project-image">
+                    <span class="project-badge">Web/Software Tool</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Glowing Fiber</h3>
+                    <p class="project-description">Developed a interactive drawing web app built within the p5.js environment that lets users create stunning images and animations using a unique two-sided drawing technique. Featuring boid-based drawing, dynamic animations, and visual effects, it combines generative art with web technologies to offer an immersive digital art experience for users looking to try a new art style.</p>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>p5.js</span>
+                            <span>OOP</span>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/delvinsalman/DrawingApplication" class="project-link" aria-label="GitHub">
+                                <i class="fab fa-github" style="font-size: 25px;"></i>
+                            </a>
+                            <a href="https://editor.p5js.org/Delvin/full/ke35sh8R4" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                            </a>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <img src="https://axesslab.com/wp-content/uploads/2024/05/QR-code-guide-full-1200x675.png" alt="Project Ten" class="project-image">
+                    <span class="project-badge">Programming</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Advanced QR Code Generator</h3>
+                    <p class="project-description">Developed an advanced AR Code system enabling users to create and personalize unique QR codes. Features include logo integration, custom colors, various styling options, and support for multiple QR types like URLs, contact info, plain text, and Wi-Fi credentials. Built with JavaScript, HTML, and CSS, it utilizes JavaScript libraries for user input, data processing, and responsive design.</p>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>HTML/CSS</span>
+                            <span>Mobile Development</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/delvinsalman/QR-Code-Generator/tree/main" class="project-link" aria-label="GitHub">
+                                <i class="fab fa-github" style="font-size: 25px;"></i>
+                            </a>
+                            <a href="https://delvinsalman.github.io/QR-Code-Generator/" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                            </a>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-connect">
+                <h3>Connect With Me.</h3>
+                <p>Let's connect! Feel free to reach out with any inquiries or just to say hello. You can also find more about my work and experiences on these platforms and sites, see you there!</p>
+                <div class="social-icons">
+                    <a href="mailto:delvinsalman19@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/delvinsalman" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/delvin-salman-405218266/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://delyy.itch.io/" target="_blank" aria-label="Itch.io"><i class="fab fa-itch-io"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-line"></div>
+            <p>Copyright &copy; 2025 Delvin Salman. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Enhanced Custom Cursor Effect
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%)`;
+            
+            setTimeout(() => {
+                cursorFollower.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%)`;
+            }, 100);
+        });
+        
+        // Enhanced Interactive elements effect
+        const interactiveElements = document.querySelectorAll('a, button, .skills-box, .project-card, .project-link, .social-link, .about-tech span, .skill-tags span');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.style.width = '25px';
+                cursor.style.height = '25px';
+                cursor.style.backgroundColor = 'var(--accent-color)';
+                
+                cursorFollower.style.width = '60px';
+                cursorFollower.style.height = '60px';
+                cursorFollower.style.backgroundColor = 'rgba(122, 59, 255, 0.5)';
+                cursorFollower.style.backdropFilter = 'blur(4px)';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.style.width = '15px';
+                cursor.style.height = '15px';
+                cursor.style.backgroundColor = 'var(--main-color)';
+                
+                cursorFollower.style.width = '35px';
+                cursorFollower.style.height = '35px';
+                cursorFollower.style.backgroundColor = 'rgba(122, 59, 255, 0.3)';
+                cursorFollower.style.backdropFilter = 'blur(2px)';
+            });
+        });
+        
+        // Enhanced Sticky Header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile Menu Toggle
+        const menuIcon = document.querySelector('#menu-icon');
+        const navbar = document.querySelector('.navbar');
+        
+        menuIcon.addEventListener('click', () => {
+            menuIcon.classList.toggle('fa-times');
+            navbar.classList.toggle('active');
+            
+            // Toggle body scroll when menu is open
+            if (navbar.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.navbar a').forEach(navLink => {
+            navLink.addEventListener('click', () => {
+                menuIcon.classList.remove('fa-times');
+                navbar.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme') || 
+                          (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        
+        // Apply the saved theme
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        // Update icon based on current theme
+        if (savedTheme === 'light') {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            // Set the new theme
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon
+            if (newTheme === 'light') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+        
+        // Enhanced Active Section Highlighting
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.navbar a');
+        
+        function updateActiveNav() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= (sectionTop - 200) && 
+                    window.scrollY < (sectionTop + sectionHeight - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveNav);
+        
+        // Initialize active nav on page load
+        updateActiveNav();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Typing Animation for Roles
+        const typingElement = document.getElementById('typing');
+        const roles = [
+            "Game Development.",
+            "Software Dev.",
+            "Programming.",
+            "UI & UX.",
+            "Designing.",
+            "3D Modeling.",
+            "Animation.",
+            "Web Development.",
+            "Technology.",
+            "Systems.",
+            "AI.",
+            "Data.",
+            "Virtual Reality.",
+            "Creative Coding.",
+            "Digital Media.",
+            "Technical Art.",
+            "Learning.",
+            "Creating.",
+            "Innovation.",
+            "Developing."
+        ];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isEnd = false;
+        
+        function type() {
+            isEnd = false;
+            const currentRole = roles[roleIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === currentRole.length) {
+                isEnd = true;
+                isDeleting = true;
+                setTimeout(type, 2000); // Longer pause at end of word
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(type, 500); // Pause before typing next word
+            } else {
+                const typingSpeed = isDeleting ? 100 : 200; // Slower typing speed
+                setTimeout(type, typingSpeed);
+            }
+        }
+        
+        // Start the typing animation after a delay
+        setTimeout(type, 1500);
+
+        // Animate progress bars when skills section is in view
+        const skillsSection = document.getElementById('skills');
+        const progressBars = document.querySelectorAll('.progress-fill');
+        
+        function animateProgressBars() {
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateProgressBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        observer.observe(skillsSection);
+        
+        // Back to Top Button Functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+    
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</body>
+</html>
