@@ -2171,24 +2171,23 @@
         });
         
         // Theme Toggle Functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-        
-        // Check for saved theme preference or use preferred color scheme
-        const savedTheme = localStorage.getItem('theme') || 
-                          (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-        
-        // Apply the saved theme
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        
-        // Update icon based on current theme
-        if (savedTheme === 'light') {
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        } else {
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
-        }
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = themeToggle.querySelector('i');
+
+// Set dark theme as default (removed light theme preference check)
+const savedTheme = localStorage.getItem('theme') || 'dark';
+
+// Apply the dark theme
+document.documentElement.setAttribute('data-theme', savedTheme);
+
+// Update icon based on current theme
+if (savedTheme === 'light') {
+    themeIcon.classList.remove('fa-moon');
+    themeIcon.classList.add('fa-sun');
+} else {
+    themeIcon.classList.remove('fa-sun');
+    themeIcon.classList.add('fa-moon');
+}
         
         // Toggle theme on button click
         themeToggle.addEventListener('click', () => {
