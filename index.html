@@ -99,7 +99,7 @@
             border-radius: 50px;
             backdrop-filter: blur(12px);
             box-shadow: var(--box-shadow);
-            border: 1px solid rgba(122, 59, 255, 0.1);
+            border: 1px solid rgba(10, 10, 10, 0.3); /* Changed from purple to dark black */
             transition: var(--transition);
         }
 
@@ -109,16 +109,21 @@
         }
 
         .header.scrolled {
-            top: 0;
-            border-radius: 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
+    top: 0;
+    border-radius: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid var(--border-color); /* Matching footer color */
+    width: 100%; /* Ensure full width */
+}
 
-        .header.scrolled .header-container {
-            border-radius: 0;
-            border-left: none;
-            border-right: none;
-        }
+.header.scrolled .header-container {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    max-width: 100%; /* Full width container */
+    width: 100%; /* Full width */
+    padding: 1.5rem 5%; /* Adjust padding as needed */
+}
 
         .logo-container {
             height: 40px;
@@ -162,6 +167,8 @@
         .nav-link-text {
             position: relative;
             z-index: 2;
+            font-size: 17px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
         .navbar a::before {
@@ -535,7 +542,7 @@
             width: 100%;
             max-width: 500px;
             border-radius: 2rem;
-            box-shadow: 0 0 3rem rgba(122, 59, 255, 0.3);
+            box-shadow: 0 0 3rem rgba(121, 59, 255, 0.158);
             position: relative;
             z-index: 1;
             top: 45px;
@@ -546,7 +553,6 @@
             position: absolute;
             width: 80%;
             height: 80%;
-            background: linear-gradient(45deg, var(--main-color), var(--accent-color));
             border-radius: 2rem;
             top: 70%;
             left: 50%;
@@ -556,7 +562,7 @@
             z-index: 0;
         }
 
-        /* Skills Section Enhancements */
+        /* Enhanced Skills Section - More Compact */
         .skills {
             background: var(--bg-color);
             padding: 10rem 10% 8rem;
@@ -576,13 +582,13 @@
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-            gap: 4rem;
+            gap: 3rem;
             padding: 0 5%;
         }
 
         .skills-box {
             background: var(--card-bg);
-            padding: 4rem 3rem;
+            padding: 3rem 2.5rem;
             border-radius: var(--border-radius);
             text-align: center;
             border: .1rem solid var(--border-color);
@@ -640,33 +646,40 @@
             line-height: 1.7;
         }
 
-        /* Skill Progress Bars (ONLY ADDITION I KEPT) */
+        /* Compact Skill Progress Bars */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
         .skill-progress {
             width: 100%;
-            margin: 1.5rem 0;
+            margin: 0.5rem 0;
             text-align: left;
         }
 
         .skill-info {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
 
         .skill-name {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 500;
             color: var(--text-color);
         }
 
         .skill-percent {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--main-color-light);
         }
 
         .progress-bar {
-            height: 0.8rem;
+            height: 0.6rem;
             background: var(--card-bg-light);
             border-radius: 0.4rem;
             overflow: hidden;
@@ -677,29 +690,6 @@
             background: linear-gradient(to right, var(--main-color), var(--accent-color));
             border-radius: 0.4rem;
             transition: width 1.5s ease-out;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.2rem;
-        }
-
-        .skill-tags span {
-            background: rgba(122, 59, 255, 0.1);
-            color: var(--main-color-light);
-            padding: 0.8rem 1.8rem;
-            border-radius: 3rem;
-            font-size: 1.3rem;
-            font-weight: 500;
-            border: 1px solid rgba(122, 59, 255, 0.3);
-            transition: var(--transition);
-        }
-
-        .skill-tags span:hover {
-            background: rgba(122, 59, 255, 0.2);
-            transform: translateY(-3px);
         }
 
         /* New Projects Section Design */
@@ -750,7 +740,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(122, 59, 255, 0.1) 0%, rgba(255, 59, 240, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(121, 59, 255, 0.075) 0%, rgba(255, 59, 240, 0.05) 100%);
             opacity: 0;
             transition: var(--transition);
             z-index: -1;
@@ -806,7 +796,7 @@
         }
 
         .project-description {
-            font-size: 1.6rem;
+            font-size: 1.45rem;
             color: var(--text-light);
             line-height: 1.7;
             margin-bottom: 2rem;
@@ -1284,6 +1274,9 @@
                 grid-template-columns: 1fr;
             }
             
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1308,6 +1301,7 @@
                     <a href="#about">&lt;/<span class="nav-link-text"> About</span>&gt;</a>
                     <a href="#skills">&lt;/<span class="nav-link-text"> Skills</span>&gt;</a>
                     <a href="#projects">&lt;/<span class="nav-link-text"> Projects</span>&gt;</a>                    
+                   
                 </div>
                 <button class="theme-toggle" id="theme-toggle">
                     <i class="fas fa-moon"></i>
@@ -1351,7 +1345,7 @@
     
     <section class="about" id="about">
         <div class="about-content">
-            <h2 class="heading">&lt;/ About <span>Me</span>&gt;</h2>
+            <h2 class="heading">About <span>Me</span></h2>
 
             <p>My name is Delvin, and I am currently pursuing a <strong>Digital Media</strong> degree with a Specialization in Game Development at York University. I possess a diverse skill set across game development, computer science, software, and design. Driven by a strong passion for my field, I am goal-oriented and continuously seek opportunities to expand my knowledge.</p>
             <p>I love working on projects in these realms, discovering new ways to create, develop, and explore concepts and ideas, even if those realms are new to me! I embrace new challenges as valuable avenues for personal and professional growth.</p>
@@ -1369,76 +1363,66 @@
     </section>
     
     <section class="skills" id="skills">
-        <h2 class="heading">&lt;/ My <span>Skills</span>&gt;</h2>
-         <div class="skills-container">
+        <h2 class="heading">My <span>Skills</span></h2>
+        <div class="skills-container">
             <div class="skills-box">
                 <i class="fas fa-gamepad"></i>
                 <h3>Game Development</h3>
                 <p>Possess a strong expertise in 3D and 2D game development.</p>
-                <!-- Added progress bars -->
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Unreal Engine</span>
-                        <span class="skill-percent">90%</span>
+                <div class="skills-grid">
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Unreal Engine</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 90%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Unity</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Unity</span>
-                        <span class="skill-percent">85%</span>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Game Design</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Blueprint</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Level & Game Design</span>
-                        <span class="skill-percent">90%</span>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Godot</span>
+                            <span class="skill-percent">65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 80%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Blueprint</span>
-                        <span class="skill-percent">80%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 80%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Gadot</span>
-                        <span class="skill-percent">65%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 65%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">C#</span>
-                        <span class="skill-percent">75%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 75%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">C++</span>
-                        <span class="skill-percent">65%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 65%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">C#</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1447,144 +1431,122 @@
                 <i class="fas fa-code"></i>
                 <h3>Programming</h3>
                 <p>Utilizing coding and development across a variety of applications.</p>
-                
-                <!-- Added progress bars -->
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">JavaScript</span>
-                        <span class="skill-percent">90%</span>
+                <div class="skills-grid">
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 90%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Python</span>
-                        <span class="skill-percent">80%</span>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">HTML/CSS</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 80%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">HTML/CSS</span>
-                        <span class="skill-percent">90%</span>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">C++</span>
+                            <span class="skill-percent">65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Java</span>
-                        <span class="skill-percent">70%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 70%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">C#</span>
-                        <span class="skill-percent">75%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 75%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">C++</span>
-                        <span class="skill-percent">65%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 65%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Blueprint Scripting</span>
-                        <span class="skill-percent">85%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">OOP</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="skills-box">
                 <i class="fas fa-laptop"></i>
-                <h3>Software Application</h3>
-                <p>Completed numerous projects using various software tools & apps. </p>
-                
-                <!-- Added progress bars -->
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">VS Code</span>
-                        <span class="skill-percent">95%</span>
+                <h3>Software Tools</h3>
+                <p>Completed numerous projects using various software tools & apps.</p>
+                <div class="skills-grid">
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">VS Code</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 95%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Git/GitHub</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Git/GitHub</span>
-                        <span class="skill-percent">90%</span>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">p5.js</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 90%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">OpenGL</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Eclipse</span>
-                        <span class="skill-percent">75%</span>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Sublime</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 75%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">p5.js</span>
-                        <span class="skill-percent">90%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">OpenGL</span>
-                        <span class="skill-percent">70%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 70%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Sublime</span>
-                        <span class="skill-percent">75%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 75%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Heroku</span>
-                        <span class="skill-percent">75%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 75%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Heroku</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1593,144 +1555,122 @@
                 <i class="fas fa-layer-group"></i>
                 <h3>UI/UX Design</h3>
                 <p>Creating intuitive and visually appealing UI & UX experiences.</p>
-                
-                <!-- Added progress bars -->
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Figma</span>
-                        <span class="skill-percent">85%</span>
+                <div class="skills-grid">
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Figma</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Wireframing</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Wireframing</span>
-                        <span class="skill-percent">75%</span>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Prototyping</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 75%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Adobe Suite</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Prototyping</span>
-                        <span class="skill-percent">85%</span>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Web Design</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Adobe Technology's</span>
-                        <span class="skill-percent">80%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 80%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Canva</span>
-                        <span class="skill-percent">90%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Web Development</span>
-                        <span class="skill-percent">85%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Sketch</span>
-                        <span class="skill-percent">70%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 70%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Sketch</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="skills-box">
                 <i class="fas fa-paint-brush"></i>
-                <h3>Design Applications</h3>
+                <h3>Design Tools</h3>
                 <p>I have strong concepts for utilizing design practices and techniques.</p>
-                
-                <!-- Added progress bars -->
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Maya</span>
-                        <span class="skill-percent">85%</span>
+                <div class="skills-grid">
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Maya</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Blender</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Blender</span>
-                        <span class="skill-percent">70%</span>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Photoshop</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 70%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Premiere Pro</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Photoshop</span>
-                        <span class="skill-percent">85%</span>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Canva</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Premiere Pro</span>
-                        <span class="skill-percent">80%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 80%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Figma</span>
-                        <span class="skill-percent">85%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Canva</span>
-                        <span class="skill-percent">90%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Microsoft Office</span>
-                        <span class="skill-percent">95%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 95%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Office Suite</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1739,71 +1679,60 @@
                 <i class="fas fa-users"></i>                
                 <h3>Soft Skills</h3>
                 <p>Learning has been fulfilling, with soft skills driving better outcomes.</p>
-                
-                <!-- Added progress bars -->
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Communication</span>
-                        <span class="skill-percent">90%</span>
+                <div class="skills-grid">
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Communication</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 90%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Leadership</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Leadership</span>
-                        <span class="skill-percent">85%</span>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Project Mgmt</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Problem-Solving</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Project Management</span>
-                        <span class="skill-percent">85%</span>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Organization</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Problem-Solving</span>
-                        <span class="skill-percent">90%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Organization</span>
-                        <span class="skill-percent">95%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 95%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Teamwork</span>
-                        <span class="skill-percent">85%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="skill-progress">
-                    <div class="skill-info">
-                        <span class="skill-name">Time Management</span>
-                        <span class="skill-percent">90%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 90%"></div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Teamwork</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1811,7 +1740,7 @@
     </section>
     
     <section class="projects" id="projects">
-        <h2 class="heading">&lt;/ Latest <span>Projects</span>&gt;</h2>
+        <h2 class="heading">Latest <span>Projects</span></h2>
 
         <div class="projects-container">
             <div class="project-card">
