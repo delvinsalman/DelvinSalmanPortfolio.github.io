@@ -78,6 +78,16 @@
             position: relative;
         }
 
+        /* Particle container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
         /* Enhanced Header Styles */
         .header {
             position: fixed;
@@ -95,41 +105,48 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 1.5rem 5%;
-            background: linear-gradient(135deg, rgba(30, 30, 30, 0.95) 0%, rgba(20, 20, 20, 0.98) 100%);
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
             border-radius: 50px;
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
             box-shadow: var(--box-shadow);
-            border: 1px solid rgba(10, 10, 10, 0.3); /* Changed from purple to dark black */
+            border: 1px solid rgba(122, 59, 255, 0.1);
             transition: var(--transition);
         }
 
         [data-theme="light"] .header-container {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 240, 240, 0.98) 100%);
             border: 1px solid rgba(122, 59, 255, 0.1);
+            backdrop-filter: blur(12px);
         }
 
         .header.scrolled {
-    top: 0;
-    border-radius: 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid var(--border-color); /* Matching footer color */
-    width: 100%; /* Ensure full width */
-}
+            top: 0;
+            border-radius: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
+        }
 
-.header.scrolled .header-container {
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
-    max-width: 100%; /* Full width container */
-    width: 100%; /* Full width */
-    padding: 1.5rem 5%; /* Adjust padding as needed */
-}
+        .header.scrolled .header-container {
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
+            max-width: 100%;
+            width: 100%;
+            padding: 1.5rem 5%;
+        }
 
         .logo-container {
             height: 40px;
             display: flex;
             align-items: center;
             gap: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05);
         }
 
         .logo-img {
@@ -243,37 +260,6 @@
             background: linear-gradient(to bottom right, var(--bg-color), var(--second-bg-color));
             padding: 15rem 10% 10rem;
             overflow: hidden;
-        }
-
-        .animated-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, 
-                rgba(122, 59, 255, 0.1) 0%, 
-                rgba(0, 212, 255, 0.1) 50%, 
-                rgba(122, 59, 255, 0.1) 100%);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            z-index: -1;
-        }
-
-        .dynamic-gradient {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 40%;
-            height: 100%;
-            background: linear-gradient(45deg, 
-                rgba(122, 59, 255, 0.1), 
-                rgba(255, 59, 240, 0.1), 
-                rgba(59, 141, 255, 0.1));
-            background-size: 300% 300%;
-            animation: gradientShift 8s ease infinite;
-            z-index: -1;
-            opacity: 0.7;
         }
 
         .home-content {
@@ -427,6 +413,7 @@
             font-size: 1.4rem;
             opacity: 0;
             animation: fadeIn 1s ease 2s forwards;
+            z-index: 10;
         }
 
         .mouse {
@@ -692,163 +679,167 @@
             transition: width 1.5s ease-out;
         }
 
-        /* New Projects Section Design */
-        .projects {
-            background: var(--second-bg-color);
-            padding: 10rem 10% 8rem;
-            position: relative;
-        }
+       /* New Projects Section Design */
+.projects {
+    background: var(--second-bg-color);
+    padding: 8rem 10% 6rem;
+    position: relative;
+}
 
-        .projects::before {
-            content: '';
-            position: absolute;
-            top: -10rem;
-            left: 0;
-            width: 100%;
-            height: 10rem;
-            background: linear-gradient(to bottom, transparent, var(--second-bg-color));
-        }
+.projects::before {
+    content: '';
+    position: absolute;
+    top: -5rem;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    background: linear-gradient(to bottom, transparent, var(--second-bg-color));
+}
 
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
-            gap: 5rem;
-            padding: 0 5%;
-        }
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Slightly bigger minimum width */
+    gap: 3rem;
+    padding: 0 5%;
+}
 
-        .project-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            position: relative;
-            z-index: 1;
-            border: 1px solid var(--border-color);
-        }
+.project-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+    border: 1px solid var(--border-color);
+    transform: translateY(0);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(122, 59, 255, 0.2);
-            border-color: var(--main-color);
-        }
+.project-card:hover {
+    transform: translateY(-8px); /* Subtle hover effect */
+    box-shadow: 0 12px 24px rgba(122, 59, 255, 0.15);
+    border-color: var(--main-color);
+}
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(121, 59, 255, 0.075) 0%, rgba(255, 59, 240, 0.05) 100%);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: -1;
-        }
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(121, 59, 255, 0.05) 0%, rgba(255, 59, 240, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
 
-        .project-card:hover::before {
-            opacity: 1;
-        }
+.project-card:hover::before {
+    opacity: 0.15;
+}
 
-        .project-header {
-            position: relative;
-            height: 25rem;
-            overflow: hidden;
-        }
+.project-header {
+    position: relative;
+    height: 30rem; /* Increased the height of the image section */
+    overflow: hidden;
+}
 
-        .project-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
 
-        .project-card:hover .project-image {
-            transform: scale(1.05);
-        }
+.project-card:hover .project-image {
+    transform: scale(1.03); /* Slight zoom effect on hover */
+}
 
-        .project-badge {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background: rgba(30, 30, 30, 0.8);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 3rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            backdrop-filter: blur(5px);
-        }
+.project-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+}
 
-        .project-content {
-            padding: 3rem;
-        }
+.project-content {
+    padding: 2.5rem;
+}
 
-        .project-title {
-            font-size: 2.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            font-family: 'Space Grotesk', sans-serif;
-            background: linear-gradient(to right, var(--main-color), var(--accent-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
+.project-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+    background: linear-gradient(to right, var(--main-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.5px; /* Added subtle spacing for clarity */
+}
 
-        .project-description {
-            font-size: 1.45rem;
-            color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 2rem;
-        }
+.project-description {
+    font-size: 1.4rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
 
-        .project-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-        }
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
 
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
 
-        .project-tech span {
-            background: rgba(122, 59, 255, 0.1);
-            color: var(--main-color-light);
-            padding: 0.6rem 1.2rem;
-            border-radius: 3rem;
-            font-size: 1.2rem;
-            font-weight: 500;
-            border: 1px solid rgba(122, 59, 255, 0.2);
-        }
+.project-tech span {
+    background: rgba(122, 59, 255, 0.1);
+    color: var(--main-color-light);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: 1px solid rgba(122, 59, 255, 0.2);
+}
 
-        .project-links {
-            display: flex;
-            gap: 1.5rem;
-        }
+.project-links {
+    display: flex;
+    gap: 1.2rem;
+}
 
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 4rem;
-            height: 4rem;
-            background: rgba(122, 59, 255, 0.1);
-            border-radius: 50%;
-            color: var(--main-color-light);
-            transition: var(--transition);
-        }
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem; /* Smaller, more compact link buttons */
+    background: rgba(122, 59, 255, 0.1);
+    border-radius: 50%;
+    color: var(--main-color-light);
+    transition: var(--transition);
+}
 
-        .project-link:hover {
-            background: rgba(122, 59, 255, 0.2);
-            color: var(--main-color);
-            transform: translateY(-3px);
-        }
+.project-link:hover {
+    background: rgba(122, 59, 255, 0.2);
+    color: var(--main-color);
+    transform: translateY(-2px); /* Subtle hover effect */
+}
+
 /* Footer Enhancements */
 .footer {
     background: var(--bg-color);
@@ -1291,9 +1282,9 @@
     
     <header class="header">
         <div class="header-container">
-            <div class="logo-container">
+            <a href="#home" class="logo-container">
                 <img src="Images/Logo.png" alt="Logo" class="logo-img">
-            </div>
+            </a>
             
             <nav class="navbar">
                 <div class="nav-links">
@@ -1301,7 +1292,6 @@
                     <a href="#about">&lt;/<span class="nav-link-text"> About</span>&gt;</a>
                     <a href="#skills">&lt;/<span class="nav-link-text"> Skills</span>&gt;</a>
                     <a href="#projects">&lt;/<span class="nav-link-text"> Projects</span>&gt;</a>                    
-                   
                 </div>
                 <button class="theme-toggle" id="theme-toggle">
                     <i class="fas fa-moon"></i>
@@ -1313,8 +1303,9 @@
     </header>
     
     <section class="home" id="home">
-        <div class="animated-bg"></div>
-        <div class="dynamic-gradient"></div>
+        <!-- Particle.js container -->
+        <div id="particles-js"></div>
+        
         <div class="home-content">
             <div class="home-text">
                 <h3 class="home-subtitle">Hello, I'm</h3>
@@ -1345,7 +1336,7 @@
     
     <section class="about" id="about">
         <div class="about-content">
-            <h2 class="heading">About <span>Me</span></h2>
+            <h2 class="heading">About <span>Me.</span></h2>
 
             <p>My name is Delvin, and I am currently pursuing a <strong>Digital Media</strong> degree with a Specialization in Game Development at York University. I possess a diverse skill set across game development, computer science, software, and design. Driven by a strong passion for my field, I am goal-oriented and continuously seek opportunities to expand my knowledge.</p>
             <p>I love working on projects in these realms, discovering new ways to create, develop, and explore concepts and ideas, even if those realms are new to me! I embrace new challenges as valuable avenues for personal and professional growth.</p>
@@ -1363,7 +1354,7 @@
     </section>
     
     <section class="skills" id="skills">
-        <h2 class="heading">My <span>Skills</span></h2>
+        <h2 class="heading">My <span>Skills.</span></h2>
         <div class="skills-container">
             <div class="skills-box">
                 <i class="fas fa-gamepad"></i>
@@ -1740,7 +1731,7 @@
     </section>
     
     <section class="projects" id="projects">
-        <h2 class="heading">Latest <span>Projects</span></h2>
+        <h2 class="heading">Latest <span>Projects.</span></h2>
 
         <div class="projects-container">
             <div class="project-card">
@@ -1749,9 +1740,9 @@
                     <span class="project-badge">Game Development</span>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Cattleman's Crossing</h3>
+                    <h3 class="project-title">Cattleman's Crossing.</h3>
                     <p class="project-description">
-                        Led level design for Cattleman's Crossing, a 3D open-world narrative game exploring Canadian landscapes with interactive gameplay like cattle herding and environmental storytelling. Designed the map, implemented interactive scripts, and supported development. Showcased at the <span class="name-gradient" style="font-size: 1em;">2025</span> Level Up Showcase for top student games.
+                        Led level design for Cattleman's Crossing, a 3D open-world narrative game exploring Canadian landscapes with interactive gameplay like cattle herding and environmental storytelling, system interactions and scenery to name a few. Designed the map, implemented interactive scripts, and supported development. Showcased at the <span class="name-gradient" style="font-size: 1em;">2025</span> Level Up Showcase for top student games.
                     </p>
                                         <div class="project-footer">
                         <div class="project-tech">
@@ -1763,7 +1754,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://riordan-palmer.itch.io/cattlemans-crossing" class="project-link" aria-label="Live Demo">
-                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                                <i class="fas fa-link" style="font-size: 15px;"></i>
                             </a>                        
                         </div>
                     </div>
@@ -1776,8 +1767,8 @@
                     <span class="project-badge">Software Development</span>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">AI Chatbot</h3>
-                    <p class="project-description">Developed a full-scale AI chatbot using Flask, Gemini AI, Python, JavaScript, and HTML/CSS. It supports end-to-end conversations, image/audio analysis, and complex queries. The chatbot integrates AI systems with the Gemini AI protocol to deliver a realistic user experience while ensuring 100% response accuracy.</p>
+                    <h3 class="project-title">AI Chatbot.</h3>
+                    <p class="project-description">Developed a full-scale AI chatbot using Flask, Gemini AI, Python, JavaScript, and HTML/CSS. It supports end-to-end conversations, image/audio analysis, and complex queries. The chatbot integrates AI systems with the Gemini AI protocol to deliver a realistic user experience while ensuring 100% response accuracy, while displaying a chatbot like environment</p>
                     <div class="project-footer">
                         <div class="project-tech">
                             <span>Python</span>
@@ -1788,7 +1779,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/delvinsalman/Bot" class="project-link" aria-label="GitHub">
-                                <i class="fab fa-github" style="font-size: 25px;"></i>
+                                <i class="fab fa-github" style="font-size: 20px;"></i>
                             </a>                        
                         </div>
                     </div>
@@ -1801,7 +1792,7 @@
                     <span class="project-badge">Game Development</span>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Ash</h3>
+                    <h3 class="project-title">Ash.</h3>
                     <p class="project-description">Developed a 3D open-world, stylized game centered around atmospheric exploration and engaging traversal. The experience emphasizes rich, immersive environments, with features such as gliding mechanics, open-world navigation, interaction, and a variety of character abilities. Showcased at the <span class="name-gradient" style="font-size: 1em;">2024</span> Level Up Showcase for top student games.
                     </p>
                     <div class="project-footer">
@@ -1813,7 +1804,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://rajusivanantham.itch.io/ash" class="project-link" aria-label="Live Demo">
-                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                                <i class="fas fa-link" style="font-size: 15px;"></i>
                             </a>                        
                         </div>
                     </div>
@@ -1826,7 +1817,7 @@
                     <span class="project-badge">Software/Web Development</span>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Weather Application</h3>
+                    <h3 class="project-title">Weather Application.</h3>
                     <p class="project-description">Developed a weather app using JavaScript and Application Programming Interface that provides real-time weather updates for any location. The app integrates APIs for accurate weather data and details, offering 3-day and 7-day forecasts. It features a clean, intuitive interface for easy location search and detailed climate information.</p>
                     <div class="project-footer">
                         <div class="project-tech">
@@ -1837,10 +1828,10 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/delvinsalman/Weather-App" class="project-link" aria-label="GitHub">
-                                <i class="fab fa-github" style="font-size: 25px;"></i>
+                                <i class="fab fa-github" style="font-size: 20px;"></i>
                             </a>
                             <a href="https://delvinsalman.github.io/Weather-App/" class="project-link" aria-label="Live Demo">
-                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                                <i class="fas fa-link" style="font-size: 15px;"></i>
                             </a>                        
                         </div>
                     </div>
@@ -1853,8 +1844,8 @@
                     <span class="project-badge">Game Development</span>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Space Toast</h3>
-                    <p class="project-description">Created a 2D top-down shooter game in Unity where players battle waves of enemies to achieve high scores. The game includes projectile mechanics, damage systems, sprite-based visuals, pickups, and unique 2D character movement. Core functionality is driven by multiple C# scripts, complemented by thoughtful design elements that enhance gameplay and realism. </p>
+                    <h3 class="project-title">Space Toast.</h3>
+                    <p class="project-description">Created a 2D top-down shooter game in Unity where players battle waves of enemies to achieve high scores. The game includes projectile mechanics, damage systems, sprite-based visuals, pickups, and unique 2D character movement. Core functionality is driven by multiple C# scripts, complemented by thoughtful design elements, UI implementation and level design enhancements that make the gameplay realistic. </p>
                     <div class="project-footer">
                         <div class="project-tech">
                             <span>Unity</span>
@@ -1865,7 +1856,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://delyy.itch.io/space-toast" class="project-link" aria-label="Live Demo">
-                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                                <i class="fas fa-link" style="font-size: 15px;"></i>
                             </a>                        
                         </div>
                     </div>
@@ -1878,7 +1869,7 @@
                     <span class="project-badge">Web Development Tool</span>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Search Engine</h3>
+                    <h3 class="project-title">Search Engine.</h3>
                     <p class="project-description">Developed a user-friendly image and video search engine that provides access to thousands of high-quality, real-time web images. Built with HTML, CSS, and APIs, the platform ensures efficient content hosting and seamless exploration, prioritizing high-quality visuals and a smooth user experience while finding photos and videos. The platform also allows users to download media in a optimized way.</p>
                     <div class="project-footer">
                         <div class="project-tech">
@@ -1889,10 +1880,10 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/delvinsalman/SearchEngine" class="project-link" aria-label="GitHub">
-                                <i class="fab fa-github" style="font-size: 25px;"></i>
+                                <i class="fab fa-github" style="font-size: 20px;"></i>
                             </a>
                             <a href="https://delvinsalman.github.io/SearchEngine/" class="project-link" aria-label="Live Demo">
-                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                                <i class="fas fa-link" style="font-size: 15px;"></i>
                             </a>                        
                         </div>
                     </div>
@@ -1905,7 +1896,7 @@
                     <span class="project-badge">Programming Data</span>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Smells Fishy</h3>
+                    <h3 class="project-title">Smells Fishy.</h3>
                     <p class="project-description">Developed an interactive data visualization project using JavaScript, featuring a boid simulation that mimics an aquatic ecosystem. Users can explore and engage with data through responsive movement, dynamic visualizations, and color-coordinated clarity. The project integrates multiple libraries to create a rich, feature-packed experience.</p>
                     <div class="project-footer">
                         <div class="project-tech">
@@ -1916,10 +1907,10 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/delvinsalman/Smells-Fishy" class="project-link" aria-label="GitHub">
-                                <i class="fab fa-github" style="font-size: 25px;"></i>
+                                <i class="fab fa-github" style="font-size: 20px;"></i>
                             </a>
                             <a href="https://editor.p5js.org/Delvin/full/bG7XyZZw2" class="project-link" aria-label="Live Demo">
-                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                                <i class="fas fa-link" style="font-size: 15px;"></i>
                             </a>                        
                         </div>
                     </div>
@@ -1932,7 +1923,7 @@
                     <span class="project-badge">Game Development</span>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Grave Runner</h3>
+                    <h3 class="project-title">Grave Runner.</h3>
                     <p class="project-description">Developed a 3D boss rush game that simplifies as it progresses, leveraging Blueprint scripting and 3D design. My primary role included designing the level, creating the UI, and building core gameplay systems such as mechanics, controls, pickups, and physics. The game showcases unique concepts in both gameplay and development.</p>
                     <div class="project-footer">
                         <div class="project-tech">
@@ -1943,7 +1934,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://delyy.itch.io/graverunner" class="project-link" aria-label="Live Demo">
-                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                                <i class="fas fa-link" style="font-size: 15px;"></i>
                             </a>                        
                         </div>
                     </div>
@@ -1956,7 +1947,7 @@
                     <span class="project-badge">Web/Software Tool</span>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Glowing Fiber</h3>
+                    <h3 class="project-title">Glowing Fiber.</h3>
                     <p class="project-description">Developed a interactive drawing web app built within the p5.js environment that lets users create stunning images and animations using a unique two-sided drawing technique. Featuring boid-based drawing, dynamic animations, and visual effects, it combines generative art with web technologies to offer an immersive digital art experience for users looking to try a new art style.</p>
                     <div class="project-footer">
                         <div class="project-tech">
@@ -1967,10 +1958,10 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/delvinsalman/DrawingApplication" class="project-link" aria-label="GitHub">
-                                <i class="fab fa-github" style="font-size: 25px;"></i>
+                                <i class="fab fa-github" style="font-size: 20px;"></i>
                             </a>
                             <a href="https://editor.p5js.org/Delvin/full/ke35sh8R4" class="project-link" aria-label="Live Demo">
-                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                                <i class="fas fa-link" style="font-size: 15px;"></i>
                             </a>                        
                         </div>
                     </div>
@@ -1983,7 +1974,7 @@
                     <span class="project-badge">Programming</span>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Advanced QR Code Generator</h3>
+                    <h3 class="project-title">Advanced QR Code Generator.</h3>
                     <p class="project-description">Developed an advanced AR Code system enabling users to create and personalize unique QR codes. Features include logo integration, custom colors, various styling options, and support for multiple QR types like URLs, contact info, plain text, and Wi-Fi credentials. Built with JavaScript, HTML, and CSS, it utilizes JavaScript libraries for user input, data processing, and responsive design.</p>
                     <div class="project-footer">
                         <div class="project-tech">
@@ -1993,10 +1984,10 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/delvinsalman/QR-Code-Generator/tree/main" class="project-link" aria-label="GitHub">
-                                <i class="fab fa-github" style="font-size: 25px;"></i>
+                                <i class="fab fa-github" style="font-size: 20px;"></i>
                             </a>
                             <a href="https://delvinsalman.github.io/QR-Code-Generator/" class="project-link" aria-label="Live Demo">
-                                <i class="fas fa-link" style="font-size: 20px;"></i>
+                                <i class="fas fa-link" style="font-size: 15px;"></i>
                             </a>                        
                         </div>
                     </div>
@@ -2100,23 +2091,23 @@
         });
         
         // Theme Toggle Functionality
-const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = themeToggle.querySelector('i');
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
 
-// Set dark theme as default (removed light theme preference check)
-const savedTheme = localStorage.getItem('theme') || 'dark';
+        // Set dark theme as default (removed light theme preference check)
+        const savedTheme = localStorage.getItem('theme') || 'dark';
 
-// Apply the dark theme
-document.documentElement.setAttribute('data-theme', savedTheme);
+        // Apply the dark theme
+        document.documentElement.setAttribute('data-theme', savedTheme);
 
-// Update icon based on current theme
-if (savedTheme === 'light') {
-    themeIcon.classList.remove('fa-moon');
-    themeIcon.classList.add('fa-sun');
-} else {
-    themeIcon.classList.remove('fa-sun');
-    themeIcon.classList.add('fa-moon');
-}
+        // Update icon based on current theme
+        if (savedTheme === 'light') {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
         
         // Toggle theme on button click
         themeToggle.addEventListener('click', () => {
@@ -2286,7 +2277,102 @@ if (savedTheme === 'light') {
         });
     </script>
     
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- Particles.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles.js with floating dots configuration
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js', {
+                    "particles": {
+                        "number": {
+                            "value": 60,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": ["#7a3bff", "#ff3bf0", "#3b8dff"]
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                            "polygon": {
+                                "nb_sides": 5
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.5,
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 2,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": false // No connecting lines
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 1.5, // Slightly faster movement
+                            "direction": "none",
+                            "random": true,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": true,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "bubble" // Particles will gently move away
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push" // Click creates a small push effect
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "bubble": {
+                                "distance": 100,
+                                "size": 0,
+                                "duration": 0.3,
+                                "opacity": 1,
+                                "speed": 3
+                            },
+                            "push": {
+                                "particles_nb": 6
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+        });
+    </script>
 </body>
 </html>
