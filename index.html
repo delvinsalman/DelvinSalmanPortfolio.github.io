@@ -678,8 +678,7 @@
             border-radius: 0.4rem;
             transition: width 1.5s ease-out;
         }
-
-       /* New Projects Section Design */
+/* Projects Section with All Images on the Right */
 .projects {
     background: var(--second-bg-color);
     padding: 8rem 10% 6rem;
@@ -697,10 +696,12 @@
 }
 
 .projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Slightly bigger minimum width */
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
     padding: 0 5%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .project-card {
@@ -714,10 +715,21 @@
     border: 1px solid var(--border-color);
     transform: translateY(0);
     transition: transform 0.2s ease, box-shadow 0.3s ease;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* All images on the right */
+.project-header {
+    order: 2;
+}
+
+.project-content {
+    order: 1;
 }
 
 .project-card:hover {
-    transform: translateY(-8px); /* Subtle hover effect */
+    transform: translateY(-8px);
     box-shadow: 0 12px 24px rgba(122, 59, 255, 0.15);
     border-color: var(--main-color);
 }
@@ -741,11 +753,15 @@
 
 .project-header {
     position: relative;
-    height: 30rem; /* Increased the height of the image section */
+    height: 0;
+    padding-bottom: 80%; /* 1600/2000 = 0.8 (5:4 aspect ratio) */
     overflow: hidden;
 }
 
 .project-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -753,7 +769,7 @@
 }
 
 .project-card:hover .project-image {
-    transform: scale(1.03); /* Slight zoom effect on hover */
+    transform: scale(1.03);
 }
 
 .project-badge {
@@ -767,10 +783,14 @@
     font-size: 1.1rem;
     font-weight: 600;
     backdrop-filter: blur(4px);
+    z-index: 2;
 }
 
 .project-content {
-    padding: 2.5rem;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .project-title {
@@ -782,7 +802,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    letter-spacing: 0.5px; /* Added subtle spacing for clarity */
+    letter-spacing: 0.5px;
 }
 
 .project-description {
@@ -827,7 +847,7 @@
     align-items: center;
     justify-content: center;
     width: 3.5rem;
-    height: 3.5rem; /* Smaller, more compact link buttons */
+    height: 3.5rem;
     background: rgba(122, 59, 255, 0.1);
     border-radius: 50%;
     color: var(--main-color-light);
@@ -837,7 +857,31 @@
 .project-link:hover {
     background: rgba(122, 59, 255, 0.2);
     color: var(--main-color);
-    transform: translateY(-2px); /* Subtle hover effect */
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-header,
+    .project-content {
+        order: initial; /* Reset order on mobile */
+    }
+    
+    .project-content {
+        padding: 2.5rem;
+    }
+}
+
+/* Optional: Fixed height for larger screens */
+@media (min-width: 1200px) {
+    .project-header {
+        height: 380px;
+        padding-bottom: 0;
+    }
 }
 
 /* Footer Enhancements */
@@ -1288,10 +1332,11 @@
             
             <nav class="navbar">
                 <div class="nav-links">
-                    <a href="#home" class="active">&lt;/<span class="nav-link-text"> Home</span>&gt;</a>
-                    <a href="#about">&lt;/<span class="nav-link-text"> About</span>&gt;</a>
-                    <a href="#skills">&lt;/<span class="nav-link-text"> Skills</span>&gt;</a>
-                    <a href="#projects">&lt;/<span class="nav-link-text"> Projects</span>&gt;</a>                    
+                    <a href="#home" class="active"><span class="nav-link-text">Home</span></a>
+                    <a href="#about"><span class="nav-link-text">About</span></a>
+                    <a href="#skills"><span class="nav-link-text">Skills</span></a>
+                    <a href="#projects"><span class="nav-link-text">Projects</span></a>
+                  
                 </div>
                 <button class="theme-toggle" id="theme-toggle">
                     <i class="fas fa-moon"></i>
@@ -1415,6 +1460,24 @@
                             <div class="progress-fill" style="width: 75%"></div>
                         </div>
                     </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">C++</span>
+                            <span class="skill-percent">65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Level Design</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1475,6 +1538,24 @@
                         </div>
                         <div class="progress-bar">
                             <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Blueprints</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">C#</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
                         </div>
                     </div>
                 </div>
@@ -1539,6 +1620,24 @@
                             <div class="progress-fill" style="width: 75%"></div>
                         </div>
                     </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Xcode</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Eclipse</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -1599,6 +1698,24 @@
                         </div>
                         <div class="progress-bar">
                             <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Wix</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Backend</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
                         </div>
                     </div>
                 </div>
@@ -1663,6 +1780,24 @@
                             <div class="progress-fill" style="width: 95%"></div>
                         </div>
                     </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Gimp</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Animation</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -1725,6 +1860,24 @@
                             <div class="progress-fill" style="width: 85%"></div>
                         </div>
                     </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Decision-Making</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Time Mgmt</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1736,13 +1889,13 @@
         <div class="projects-container">
             <div class="project-card">
                 <div class="project-header">
-                    <img src="Images/Cattleman.png" alt="Cattleman's Crossing" class="project-image">
-                    <span class="project-badge">Game Development</span>
+                    <img src="https://img.itch.zone/aW1hZ2UvMzMyNDUwNi8yMDQwODIxMy5wbmc=/original/vODp15.png" alt="Cattleman's Crossing" class="project-image">
+                    <span class="project-badge">Game Development Project</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Cattleman's Crossing.</h3>
                     <p class="project-description">
-                        Led level design for Cattleman's Crossing, a 3D open-world narrative game exploring Canadian landscapes with interactive gameplay like cattle herding and environmental storytelling, system interactions and scenery to name a few. Designed the map, implemented interactive scripts, and supported development. Showcased at the <span class="name-gradient" style="font-size: 1em;">2025</span> Level Up Showcase for top student games.
+                        Led level design for Cattleman's Crossing, a 3D open-world narrative game exploring Canadian landscapes with interactive gameplay like cattle herding, environmental storytelling, system interactions and scenery to name a few. My achievements and contribution was to designed the map, implemented interactive scripts, and supported development. Cattleman's Crossing was showcased at the <span class="name-gradient" style="font-size: 1em;">2025</span> Level Up Showcase for top student games.
                     </p>
                                         <div class="project-footer">
                         <div class="project-tech">
@@ -1764,7 +1917,7 @@
             <div class="project-card">
                 <div class="project-header">
                     <img src="Images/Chatbot.png" alt="AI Chatbot" class="project-image">
-                    <span class="project-badge">Software Development</span>
+                    <span class="project-badge">Software Development Project</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">AI Chatbot.</h3>
@@ -1789,7 +1942,7 @@
             <div class="project-card">
                 <div class="project-header">
                     <img src="https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkzMjA4My5wbmc=/original/254Csk.png" alt="Ash Game" class="project-image">
-                    <span class="project-badge">Game Development</span>
+                    <span class="project-badge">Game Development Project</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Ash.</h3>
@@ -1814,7 +1967,7 @@
             <div class="project-card">
                 <div class="project-header">
                     <img src="Images/Weather.png" alt="Project Four" class="project-image">
-                    <span class="project-badge">Software/Web Development</span>
+                    <span class="project-badge">Software/Web Development Project</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Weather Application.</h3>
@@ -1841,7 +1994,7 @@
             <div class="project-card">
                 <div class="project-header">
                     <img src="https://img.itch.zone/aW1hZ2UvMjYwOTAzMC8xNjA4MDEwOC5wbmc=/794x1000/CCJhGZ.png" alt="Project Five" class="project-image">
-                    <span class="project-badge">Game Development</span>
+                    <span class="project-badge">Game Development Project</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Space Toast.</h3>
@@ -1866,7 +2019,7 @@
             <div class="project-card">
                 <div class="project-header">
                     <img src="Images/SearchEngine.png" alt="Project Six" class="project-image">
-                    <span class="project-badge">Web Development Tool</span>
+                    <span class="project-badge">Web Development Tool Project</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Search Engine.</h3>
@@ -1893,7 +2046,7 @@
             <div class="project-card">
                 <div class="project-header">
                     <img src="Images/Fish.png" alt="Project Seven" class="project-image">
-                    <span class="project-badge">Programming Data</span>
+                    <span class="project-badge">Programming Data Project</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Smells Fishy.</h3>
@@ -1920,7 +2073,7 @@
             <div class="project-card">
                 <div class="project-header">
                     <img src="https://img.itch.zone/aW1nLzE4NzcwNDIxLnBuZw==/original/4U1cJk.png" alt="Project Eight" class="project-image">
-                    <span class="project-badge">Game Development</span>
+                    <span class="project-badge">Game Development Project</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Grave Runner.</h3>
@@ -1944,7 +2097,7 @@
             <div class="project-card">
                 <div class="project-header">
                     <img src="Images/Drawing.png" alt="Project Nine" class="project-image">
-                    <span class="project-badge">Web/Software Tool</span>
+                    <span class="project-badge">Web/Software Tool Project</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Glowing Fiber.</h3>
@@ -1970,8 +2123,8 @@
 
             <div class="project-card">
                 <div class="project-header">
-                    <img src="https://axesslab.com/wp-content/uploads/2024/05/QR-code-guide-full-1200x675.png" alt="Project Ten" class="project-image">
-                    <span class="project-badge">Programming</span>
+                    <img src="https://www.billit.eu/media/n5cmyll2/blog-qr-codes.png" alt="Project Ten" class="project-image">
+                    <span class="project-badge">Programming Project</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Advanced QR Code Generator.</h3>
@@ -1999,7 +2152,7 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-connect">
-                <h3>Connect With Me.</h3>
+                <h3>Get In Touch With Me.</h3>
                 <p>Let's connect! Feel free to reach out with any inquiries or just to say hello. You can also find more about my work and experiences on these platforms and sites, see you there!</p>
                 <div class="social-icons">
                     <a href="mailto:delvinsalman19@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
@@ -2194,6 +2347,7 @@
             "Creative Coding.",
             "Digital Media.",
             "Technical Art.",
+            "Level Design.",
             "Learning.",
             "Creating.",
             "Innovation.",
