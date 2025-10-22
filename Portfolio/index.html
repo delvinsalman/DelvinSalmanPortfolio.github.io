@@ -1,0 +1,2420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delvin Salman┃Portfolio</title>
+    <link rel="icon" href="Images/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        
+        /* Enhanced CSS Variables */
+        /* * COZY NIGHT MODE (Default Theme) 
+         * Deep Midnight Blue, Starlight Gold, and Moon White for a comforting night feel.
+        */
+        :root { 
+            --bg-color: #0d121c; /* Deep Midnight Blue */
+            --second-bg-color: #1a2230; /* Slightly lighter deep blue */
+            --text-color: #e6e6fa; /* Lavendar/Moon White */
+            --text-light: #a9b5c7; /* Soft grey/blue */
+            --main-color: #fddb87; /* Soft Gold/Starlight */
+            --main-color-light: #ffe5a6;
+            --main-color-dark: #d4a962;
+            --accent-color: #87ceeb; /* Soft Sky Blue (for a cosmic feel) */
+            --card-bg: #1f2a3a; /* Darker card */
+            --card-bg-light: #2c394b;
+            --border-color: #3f516a;
+            --section-padding: 10rem 10%;
+            --header-height: 8rem;
+            --border-radius: 1.6rem;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* * DAYLIGHT WARMTH MODE (Light Mode) 
+         * Creamy Off-White, Dark Coffee Text, and Sunshine Orange for a cozy day feel.
+        */
+        [data-theme="light"] {
+            --bg-color: #fefefe; /* Warm, soft white (less stark) */
+            --second-bg-color: #f7f7f7;
+            --text-color: #402f1a; /* Dark Brown/Coffee for cozy text */
+            --text-light: #6e5f4d;
+            --main-color: #e89542; /* Soft burnt orange/sunshine */
+            --main-color-light: #ffb86c;
+            --main-color-dark: #cc7f3a;
+            --accent-color: #925c34; /* Richer accent */
+            --card-bg: #ffffff;
+            --card-bg-light: #f0f0f0;
+            --border-color: #e0e0e0;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Smoother transition for the cozy feel */
+            transition: background 0.8s ease, color 0.8s ease; 
+        }
+
+        section {
+            min-height: 100vh;
+            padding: var(--section-padding);
+            position: relative;
+        }
+
+        /* Particle container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        /* Footer Particle container */
+        #particles-js-footer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0; /* Behind footer content */
+        }
+
+        /* NEW: Light Particle container for other sections */
+        #particles-js-about,
+        #particles-js-skills,
+        #particles-js-projects {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0; /* Behind section content */
+        }
+
+        /* Enhanced Header Styles */
+        .header {
+            position: fixed;
+            top: 2rem;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 5%;
+            /* Adjusted gradient for Cozy Night */
+            background: linear-gradient(135deg, rgba(29, 39, 54, 0.9) 0%, rgba(13, 18, 28, 0.95) 100%);
+            border-radius: 50px;
+            backdrop-filter: blur(16px);
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(253, 219, 135, 0.1); /* Soft Gold border */
+            transition: var(--transition);
+        }
+
+        [data-theme="light"] .header-container {
+            /* Adjusted gradient for Daylight Warmth */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 247, 247, 0.98) 100%);
+            border: 1px solid rgba(232, 149, 66, 0.1); /* Soft Orange border */
+            backdrop-filter: blur(12px);
+        }
+
+        .header.scrolled {
+            top: 0;
+            border-radius: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .header.scrolled .header-container {
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
+            max-width: 100%;
+            width: 100%;
+            padding: 1.5rem 5%;
+        }
+
+        .logo-container {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .navbar {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            
+        }
+
+        .navbar a {
+            font-size: 1.6rem;
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+            padding: 0.8rem 1.2rem;
+            border-radius: 2rem;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .nav-link-text {
+            position: relative;
+            z-index: 2;
+            font-size: 17px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .navbar a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Use main color with some transparency */
+            background: linear-gradient(135deg, var(--main-color) 0%, var(--accent-color) 100%);
+            opacity: 0.15;
+            border-radius: 2rem;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 1;
+        }
+
+        .navbar a:hover::before,
+        .navbar a.active::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .navbar a.active {
+            font-weight: 600;
+        }
+
+        .navbar a.active .nav-link-text {
+             /* Set text color for active link over gradient background */
+            color: var(--main-color-dark);
+        }
+        [data-theme="light"] .navbar a.active .nav-link-text {
+            color: var(--main-color-dark);
+        }
+        
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+            /* Enable 3D transform for the flip animation */
+            transform-style: preserve-3d; 
+        }
+
+        /* NEW: Theme Toggle Icon Styling */
+        .theme-toggle i {
+            font-size: 2.2rem;
+            transition: var(--transition);
+        }
+
+        /* Cozy Night Icon Style (Moon) */
+        .theme-toggle i.fa-moon {
+            color: var(--main-color-light); /* Starlight color */
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4); /* Subtle white glow */
+        }
+
+        /* Daylight Warmth Icon Style (Sun) */
+        [data-theme="light"] .theme-toggle i.fa-sun {
+            color: var(--main-color); /* Sunshine orange color */
+            text-shadow: 0 0 8px rgba(255, 165, 0, 0.4); /* Subtle orange glow */
+        }
+
+        .theme-toggle:hover {
+            background: rgba(253, 219, 135, 0.1); /* Use the new main color for hover */
+        }
+        
+        /* Unique Theme Switch Animation */
+        .theme-toggle.animate-switch {
+            animation: switch-flip 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes switch-flip {
+            0% { transform: rotateY(0deg) scale(1); }
+            50% { transform: rotateY(180deg) scale(0.8); opacity: 0; }
+            100% { transform: rotateY(360deg) scale(1); opacity: 1; }
+        }
+
+
+        #menu-icon {
+            font-size: 3.6rem;
+            color: var(--text-color);
+            display: none;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        #menu-icon:hover {
+            color: var(--main-color);
+        }
+
+        /* Enhanced Home Section */
+        .home {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* UPDATED: Removed gradient for a simple, cozy night sky background */
+            background: var(--bg-color); 
+            padding: 15rem 10% 10rem;
+            overflow: hidden;
+        }
+
+        .home-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            z-index: 1;
+        }
+
+        .home-text {
+            flex: 1;
+            max-width: 700px;
+            padding-right: 5rem;
+        }
+
+        .home-subtitle {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+            color: var(--text-light);
+        }
+
+        .name-gradient {
+            font-size: 6.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            /* Updated gradient to new Cozy theme colors */
+            background: linear-gradient(45deg, 
+                var(--main-color), 
+                var(--accent-color), 
+                var(--main-color-light), 
+                var(--main-color));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards, gradientShift 8s ease infinite;
+            font-family: 'Inter', sans-serif;
+
+        }
+
+        .role-intro {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+       /* Typing Animation */
+       .typing-text {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            /* Using the new theme colors */
+            background: linear-gradient(to right, var(--main-color), var(--accent-color)); 
+            background-clip: text;
+            color: transparent;
+            height: 3.5rem;
+            overflow: hidden;
+            font-weight: bold;
+        }
+
+       
+
+        .home-description {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 4rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        .social-media {
+            display: flex;
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .social-link {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 5.5rem;
+            height: 5.5rem;
+            background: var(--card-bg);
+            border: .2rem solid var(--border-color);
+            border-radius: 50%;
+            font-size: 2.2rem;
+            color: var(--text-color);
+            transition: var(--transition);
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.2s forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--main-color), var(--accent-color));
+            transform: scale(0);
+            border-radius: 50%;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .social-link:hover {
+            color: var(--bg-color);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(253, 219, 135, 0.4); /* Use new main color for shadow */
+        }
+
+        .social-link:hover::before {
+            transform: scale(1);
+        }
+
+        .social-link:nth-child(1) { animation-delay: 1.2s; }
+        .social-link:nth-child(2) { animation-delay: 1.3s; }
+        .social-link:nth-child(3) { animation-delay: 1.4s; }
+        .social-link:nth-child(4) { animation-delay: 1.5s; }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-light);
+            font-size: 1.4rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 2s forwards;
+            z-index: 10;
+        }
+
+        .mouse {
+            width: 2.5rem;
+            height: 4.5rem;
+            border: 2px solid var(--text-light);
+            border-radius: 2rem;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            padding-top: 0.5rem;
+        }
+
+        .wheel {
+            width: 0.5rem;
+            height: 0.8rem;
+            background-color: var(--text-light);
+            border-radius: 0.5rem;
+            animation: scroll 2s ease infinite;
+        }
+
+        /* About Section Enhancements */
+        .about {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8rem;
+            background: var(--second-bg-color);
+            padding: 10rem 10% 8rem;
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -10rem;
+            left: 0;
+            width: 100%;
+            height: 10rem;
+            background: linear-gradient(to bottom, transparent, var(--second-bg-color));
+            z-index: 1; /* Sit above particles */
+        }
+
+        .about-content {
+            flex: 1;
+            padding-right: 5rem;
+            position: relative; /* Sit above particles */
+            z-index: 1;
+        }
+
+        .heading {
+            text-align: left;
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 5rem;
+            position: relative;
+            font-family: 'Space Grotesk', sans-serif;
+            z-index: 1;
+        }
+
+        .heading span {
+            background: linear-gradient(to right, var(--main-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1.5rem;
+            width: 8rem;
+            height: 0.4rem;
+            background: linear-gradient(to right, var(--main-color), var(--accent-color));
+            border-radius: 0.2rem;
+        }
+
+        .about-content p {
+            font-size: 1.8rem;
+            margin: 2.5rem 0;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .about-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .about-tech span {
+            background: rgba(253, 219, 135, 0.1); /* Use new main color for background */
+            color: var(--main-color-light);
+            padding: 1rem 2rem;
+            border-radius: 3rem;
+            font-size: 1.4rem;
+            font-weight: 500;
+            border: 1px solid rgba(253, 219, 135, 0.3);
+            transition: var(--transition);
+        }
+
+        [data-theme="light"] .about-tech span {
+             background: rgba(232, 149, 66, 0.1);
+            border: 1px solid rgba(232, 149, 66, 0.3);
+        }
+
+        .about-tech span:hover {
+            background: rgba(253, 219, 135, 0.2);
+            transform: translateY(-3px);
+        }
+
+        [data-theme="light"] .about-tech span:hover {
+            background: rgba(232, 149, 66, 0.2);
+        }
+
+        .about-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 1; /* Sit above particles */
+        }
+
+        .about-img img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 2rem;
+            /* Use new main color for image glow */
+            box-shadow: 0 0 3rem rgba(253, 219, 135, 0.158); 
+            position: relative;
+            z-index: 1;
+            top: 45px;
+        }
+        
+        [data-theme="light"] .about-img img {
+            box-shadow: 0 0 3rem rgba(232, 149, 66, 0.158);
+        }
+
+        .about-img::before {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            border-radius: 2rem;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(5deg);
+            filter: blur(50px);
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        /* Enhanced Skills Section - More Compact */
+        .skills {
+            background: var(--bg-color);
+            padding: 10rem 10% 8rem;
+            position: relative;
+        }
+
+        .skills::before {
+            content: '';
+            position: absolute;
+            top: -10rem;
+            left: 0;
+            width: 100%;
+            height: 10rem;
+            background: linear-gradient(to bottom, transparent, var(--bg-color));
+            z-index: 1; /* Sit above particles */
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap: 3rem;
+            padding: 0 5%;
+            position: relative; /* Sit above particles */
+            z-index: 1;
+        }
+
+        .skills-box {
+            background: var(--card-bg);
+            padding: 3rem 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: .1rem solid var(--border-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .skills-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Use new main color for hover effect */
+            background: linear-gradient(45deg, transparent, rgba(253, 219, 135, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.8s ease;
+            z-index: -1;
+        }
+
+        [data-theme="light"] .skills-box::before {
+             background: linear-gradient(45deg, transparent, rgba(232, 149, 66, 0.1), transparent);
+        }
+
+        .skills-box:hover::before {
+            transform: translateX(100%);
+        }
+
+        .skills-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: var(--main-color);
+        }
+
+        .skills-box i {
+            font-size: 5.5rem;
+            color: var(--main-color);
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .skills-box:hover i {
+            transform: scale(1.1);
+        }
+
+        .skills-box h3 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .skills-box p {
+            font-size: 1.6rem;
+            margin: 2rem 0 3rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Compact Skill Progress Bars */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-progress {
+            width: 100%;
+            margin: 0.5rem 0;
+            text-align: left;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+        }
+
+        .skill-name {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .skill-percent {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--main-color-light);
+        }
+
+        .progress-bar {
+            height: 0.6rem;
+            background: var(--card-bg-light);
+            border-radius: 0.4rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--main-color), var(--accent-color));
+            border-radius: 0.4rem;
+            transition: width 1.5s ease-out;
+        }
+
+/* Projects Section with All Images on the Right */
+.projects {
+    background: var(--second-bg-color);
+    padding: 8rem 10% 6rem;
+    position: relative;
+}
+
+.projects::before {
+    content: '';
+    position: absolute;
+    top: -5rem;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    background: linear-gradient(to bottom, transparent, var(--second-bg-color));
+    z-index: 1; /* Sit above particles */
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    padding: 0 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* Sit above particles */
+    z-index: 1;
+}
+
+/* NEW: Project Category Labels */
+.project-category {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    position: relative;
+    font-family: 'Space Grotesk', sans-serif;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--border-color);
+}
+
+.project-category span {
+    background: linear-gradient(to right, var(--main-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+    border: 1px solid var(--border-color);
+    transform: translateY(0);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* All images on the right */
+.project-header {
+    order: 2;
+}
+
+.project-content {
+    order: 1;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    /* Use new main color for shadow */
+    box-shadow: 0 12px 24px rgba(253, 219, 135, 0.15); 
+    border-color: var(--main-color);
+}
+
+[data-theme="light"] .project-card:hover {
+    box-shadow: 0 12px 24px rgba(232, 149, 66, 0.15);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Use new main color for overlay */
+    background: linear-gradient(135deg, rgba(253, 219, 135, 0.05) 0%, rgba(135, 206, 235, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+[data-theme="light"] .project-card::before {
+    background: linear-gradient(135deg, rgba(232, 149, 66, 0.05) 0%, rgba(146, 92, 52, 0.05) 100%);
+}
+
+.project-card:hover::before {
+    opacity: 0.15;
+}
+
+.project-header {
+    position: relative;
+    height: 0;
+    padding-bottom: 80%; /* 1600/2000 = 0.8 (5:4 aspect ratio) */
+    overflow: hidden;
+}
+
+.project-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.03);
+}
+
+.project-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+    z-index: 2;
+}
+
+.project-content {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+    background: linear-gradient(to right, var(--main-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.5px;
+}
+
+.project-description {
+    font-size: 1.4rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.project-tech span {
+    background: rgba(253, 219, 135, 0.1);
+    color: var(--main-color-light);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: 1px solid rgba(253, 219, 135, 0.2);
+}
+
+[data-theme="light"] .project-tech span {
+    background: rgba(232, 149, 66, 0.1);
+    border: 1px solid rgba(232, 149, 66, 0.2);
+}
+
+/* NEW: Styles for the Project Links (GitHub/Live View buttons) */
+.project-links {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.project-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: var(--card-bg-light); 
+    color: var(--main-color);
+    border-radius: 50%;
+    font-size: 1.8rem;
+    border: 2px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.project-link:hover {
+    background: var(--main-color);
+    color: var(--bg-color); /* Invert text color on hover */
+    border-color: var(--main-color);
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(253, 219, 135, 0.3); /* Cozy glow */
+}
+
+[data-theme="light"] .project-link:hover {
+    box-shadow: 0 5px 15px rgba(232, 149, 66, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-header,
+    .project-content {
+        order: initial; /* Reset order on mobile */
+    }
+    
+    .project-content {
+        padding: 2.5rem;
+    }
+}
+
+/* Optional: Fixed height for larger screens */
+@media (min-width: 1200px) {
+    .project-header {
+        height: 380px;
+        padding-bottom: 0;
+    }
+}
+
+/* -------------------------------------------------------------------------------------- */
+/* UPDATED FOOTER STYLES (LARGER + FADE + PARTICLES) */
+/* -------------------------------------------------------------------------------------- */
+
+.footer {
+    background: var(--bg-color);
+    padding: 8rem 10% 4rem; 
+    position: relative; /* For fade and particles */
+    /* REMOVED overflow: hidden; -- This was breaking the fade! */
+}
+
+/* This is the fade-in effect you liked */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -10rem;
+    left: 0;
+    width: 100%;
+    height: 10rem;
+    /* Fades from transparent to the footer's background color */
+    background: linear-gradient(to bottom, transparent, var(--bg-color));
+    z-index: 1; /* Sits above particles, below content */
+}
+
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px; /* Constrain the width for a clean center column */
+    margin: 0 auto;
+    text-align: center;
+    position: relative; /* To sit above particles/fade */
+    z-index: 2; /* Sits above particles and fade */
+}
+
+.footer-connect {
+    width: 100%;
+    padding-bottom: 4rem; /* Space before the social icons and divider */
+}
+
+.footer-connect h3 {
+    font-size: 3.2rem; /* The larger heading */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+    background: linear-gradient(to right, var(--main-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.footer-connect p {
+    font-size: 1.8rem; /* The larger text */
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 4rem; /* Space before social icons */
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Increased gap */
+    margin-top: 0; /* Already spaced by p margin */
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5.5rem; /* Larger icon size */
+    height: 5.5rem;
+    background: var(--second-bg-color); /* Use second bg for better contrast */
+    border-radius: 50%;
+    font-size: 2.2rem;
+    color: var(--text-color);
+    border: 2px solid var(--border-color); /* Added border for definition */
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icons a:hover {
+    color: var(--bg-color);
+    background: var(--main-color);
+    border-color: var(--main-color);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 20px rgba(253, 219, 135, 0.4); 
+}
+
+[data-theme="light"] .social-icons a:hover {
+    box-shadow: 0 5px 20px rgba(232, 149, 66, 0.4);
+}
+
+.social-icons a::before {
+    content: none !important;
+}
+
+
+.footer-bottom {
+    width: 100%;
+    padding-top: 3rem; 
+    border-top: 1px solid var(--border-color); /* Clean divider line */
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 1.4rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.footer-line {
+    display: none; 
+}
+
+
+/* -------------------------------------------------------------------------------------- */
+/* END OF NEW/UPDATED FOOTER STYLES */
+/* -------------------------------------------------------------------------------------- */
+
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 3rem;
+            right: 3rem;
+            width: 5rem;
+            height: 5rem;
+            background: var(--main-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(253, 219, 135, 0.3);
+        }
+
+        [data-theme="light"] .back-to-top {
+            box-shadow: 0 5px 20px rgba(232, 149, 66, 0.3);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-color);
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* Custom Cursor Enhancements */
+        .cursor {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--main-color);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            mix-blend-mode: difference;
+            z-index: 9999;
+            transition: transform 0.1s, width 0.3s, height 0.3s;
+        }
+
+        .cursor-follower {
+            position: fixed;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            /* Use new main color */
+            background: rgba(253, 219, 135, 0.3);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.4s, width 0.4s, height 0.4s, background 0.4s;
+            backdrop-filter: blur(2px);
+        }
+
+        [data-theme="light"] .cursor-follower {
+            background: rgba(232, 149, 66, 0.3);
+        }
+
+        /* Animations */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes scroll {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(1.5rem); opacity: 0; }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            html { font-size: 58%; }
+            .header-container { padding: 1.5rem 5%; }
+            .home-content { padding: 0 5%; }
+            .name-gradient { font-size: 5.5rem; }
+        }
+
+        @media (max-width: 991px) {
+            html { font-size: 55%; }
+            .about { flex-direction: column; gap: 5rem; }
+            .about-content { padding-right: 0; text-align: center; }
+            .heading { text-align: center; }
+            .heading::after { left: 50%; transform: translateX(-50%); }
+            .skills-container, .projects-container { padding: 0; }
+            /* Footer responsiveness */
+            .footer { padding: 6rem 5% 3rem; }
+            .footer-connect p { margin-bottom: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            #menu-icon { display: block; }
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-color);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+                z-index: 1000;
+            }
+            .navbar.active { left: 0; }
+            .nav-links { flex-direction: column; gap: 4rem; }
+            .navbar a { font-size: 2.4rem; }
+            .home-content { flex-direction: column; text-align: center; padding-top: 10rem; }
+            .home-text { padding-right: 0; margin-bottom: 5rem; }
+            .social-media { justify-content: center; }
+            .name-gradient { font-size: 4.8rem; }
+            .projects-container { grid-template-columns: 1fr; }
+            .footer-connect h3 { font-size: 2.8rem; }
+            .social-icons a { width: 5rem; height: 5rem; font-size: 2rem; }
+        }
+
+        @media (max-width: 450px) {
+            html { font-size: 50%; }
+            .home { padding: 15rem 5% 10rem; }
+            .name-gradient { font-size: 4.2rem; }
+            .project-header { height: 20rem; }
+            .header-container { border-radius: 30px; }
+            .skills-container { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <header class="header">
+        <div class="header-container">
+            <a href="#home" class="logo-container">
+                <img src="Images/Logo.png" alt="Logo" class="logo-img">
+            </a>
+    
+            <nav class="navbar">
+                <div class="nav-links">
+                    <a href="#home" class="active"><span class="nav-link-text">Home</span></a>
+                    <a href="#about"><span class="nav-link-text">About</span></a>
+                    <a href="#skills"><span class="nav-link-text">Skills</span></a>
+                    <a href="#projects"><span class="nav-link-text">Projects</span></a>
+                </div>
+                
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+            <i class="fas fa-bars" id="menu-icon"></i>
+        </div>
+    </header>
+
+    <section class="home" id="home">
+        <div id="particles-js"></div>
+        <div class="home-content">
+            <div class="home-text">
+                <h3 class="home-subtitle">Hello, I'm</h3>
+                <h1 class="name-gradient">Delvin Salman.</h1>
+                <div class="role-intro">
+                    And I'm passionate about <span class="typing-text" id="typing"></span>
+                </div>
+                <p class="home-description">I am a Student Developer passionate about exploring diverse domains and expanding my skills through hands-on experiences. Motivated by challenges, I am dedicated to continuous learning and personal growth.</p>
+                <div class="social-media">
+                    <a href="https://github.com/delvinsalman" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/delvin-salman-405218266/" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:delvinsalman19@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="httpshttps://delyy.itch.io/" class="social-link" aria-label="itch.io"><i class="fab fa-itch-io"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div id="particles-js-about"></div> <div class="about-content">
+            <h2 class="heading">About <span>Me.</span></h2>
+            <p>As a dedicated Digital Media student specializing in Game Development at York University, I have cultivated a comprehensive skill set that spans game development, computer science, and software, AI and design. My academic and project-based experiences have equipped me with robust problem-solving abilities and practical expertise in a variety of technologies.</p>
+            <p>I am a goal-driven and collaborative professional, passionate about leveraging my skills to develop innovative and impactful solutions while continuously seeking opportunities to expand my technical knowledge.</p>
+            
+        </div>
+        <div class="about-img">
+            <img src="https://i.redd.it/1d11s820dgm91.gif" alt="About Me Image">
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div id="particles-js-skills"></div> <h2 class="heading">My <span>Skills.</span></h2>
+        <div class="skills-container">
+            <div class="skills-box">
+                <i class="fas fa-gamepad"></i>
+                <h3>Game Development</h3>
+                <p>Building games with purpose.</p>
+                <div class="skills-grid">
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Unreal Engine</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Unity</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Game Design</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Blueprint</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Godot</span>
+                            <span class="skill-percent">65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">C#</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">C++</span>
+                            <span class="skill-percent">65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Level Design</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skills-box">
+                <i class="fas fa-code"></i>
+                <h3>Programming</h3>
+                <p>Designing experiences through code.</p>
+                <div class="skills-grid">
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">HTML/CSS</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">C++</span>
+                            <span class="skill-percent">65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">C#</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Blueprint</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">SQL</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skills-box">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Software Tools</h3>
+                <p>Mastering tools to build solutions.</p>
+                <div class="skills-grid">
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">VS Code</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Git/GitHub</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Eclipse</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Sublime</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">p5.js</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Processing</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">MySQL</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">IntelliJ</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skills-box">
+                <i class="fas fa-palette"></i>
+                <h3>Design & Multimedia</h3>
+                <p>Where art meets technology.</p>
+                <div class="skills-grid">
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">UI/UX Design</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Photoshop</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Sound Editing</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Video Editing</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Animation</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">3D Modeling</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">AR/VR</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Prototyping</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-box">
+<i class="fas fa-desktop"></i>                <h3>Technical Tools</h3>
+                <p>Powering projects with tools.</p>
+                <div class="skills-grid">
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Canva</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Adobe Suite</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Maya</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Blender</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Lens Studio</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Microsoft Suite</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">DaVinci Resolve</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">TouchDesigner</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-box">
+                <i class="fas fa-users"></i>               
+                <h3>Soft Skills</h3>
+                <p>Where collaboration meets creativity.</p>
+                <div class="skills-grid">
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Communication</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Leadership</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Project Mgmt</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Problem-Solving</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Organization</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Teamwork</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Decision-Making</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-info">
+                            <span class="skill-name">Time Mgmt</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div id="particles-js-projects"></div> <h2 class="heading">My <span>Projects.</span></h2>
+
+        <div class="projects-container">
+
+            <!-- Web Development Category -->
+            <div class="project-category">Game <span>Development</span></div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Cattleman's Crossing</h3>
+                    <p class="project-description">
+                        Led level design for Cattleman’s Crossing, a 3D open-world narrative game inspired by Canadian landscapes. Designed the main map, developed interactive systems, contributed to gameplay features and supported development.. Showcased at the 2025 Level Up Showcase for top student games.
+                    </p>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>Unreal</span>
+                            <span>C++</span>
+                            <span>Blueprint</span>
+                            <span>Blender</span>
+                            <span>Blender</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://riordan-palmer.itch.io/cattlemans-crossing" class="project-link" aria-label="Live Demo"><i class="fas fa-arrow-right"></i></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-badge">3D Game</span>
+                    <img src="https://img.itch.zone/aW1hZ2UvMzMyNDUwNi8yMDQwODIxMy5wbmc=/original/vODp15.png" alt="SwiftServe Project" class="project-image">
+                </div>
+            </div>
+ <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Ash</h3>
+                    <p class="project-description">
+                        Developed a 3D open-world, stylized game focused on atmospheric exploration and dynamic traversal. Features include gliding mechanics, open-world navigation, interactive environments, and diverse character abilities. Showcased at the 2024 Level Up Showcase for top student games.
+                    </p>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>Unreal Engine</span>
+                            <span>Blueprint Scripting</span>
+                            <span>Blender</span>
+                            <span>C#</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://rajusivanantham.itch.io/ash" class="project-link" aria-label="Live Demo"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-badge">3D Game</span>
+                    <img src="https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkzMjA4My5wbmc=/original/254Csk.png" alt="SwiftServe Project" class="project-image">
+                </div>
+            </div>
+
+ <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Space Toast</h3>
+                    <p class="project-description">
+                        Developed a 2D top-down shooter in Unity featuring wave-based combat, projectile and damage systems, dynamic pickups, and refined 2D character movement. Implemented core gameplay through C# scripting, complemented by cohesive UI, visual design, and level layout for an engaging player experience.
+                    </p>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>Unity</span>
+                            <span>C#</span>
+                            <span>2D Animations</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/delvinsalman/SpaceToast" class="project-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://delyy.itch.io/space-toast" class="project-link" aria-label="Live Demo"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-badge">2D Game</span>
+                    <img src="https://img.itch.zone/aW1hZ2UvMjYwOTAzMC8xNjA4MDEwOC5wbmc=/original/bA7Qzw.png" alt="SwiftServe Project" class="project-image">
+                </div>
+            </div>
+<div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Grave Digger</h3>
+                    <p class="project-description">
+                        Developed a 3D boss rush game in Unreal Engine that progressively simplifies gameplay. Led level design, UI creation, and core system development, including mechanics, controls, pickups, and physics, using Blueprint scripting. The project highlights innovative design and gameplay concepts.
+                    </p>
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>Unreal Engine</span>
+                            <span>Blueprint Scripting</span>
+                            <span>Maya</span>
+                            <span>Git</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://delyy.itch.io/graverunner" class="project-link" aria-label="Live Demo"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-badge">3D Game</span>
+                    <img src="https://img.itch.zone/aW1nLzE4NzcwNDIxLnBuZw==/original/4U1cJk.png" alt="SwiftServe Project" class="project-image">
+                </div>
+            </div>
+
+            <!-- Programming Category -->
+            <div class="project-category">Software & <span>Programming</span></div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">AI Chatbot</h3>
+                    <p class="project-description">
+                        Full-stack AI chatbot built with Flask, Python, JavaScript/HTML/CSS. Features a modern UI, persistent chat history, multi-file analysis, image generation via Hugging Face and Flux.1, deep model customization (system prompts, temperature). Designed for high accuracy, realism, and an interactive human-like experience.
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Flask</span>
+                            <span>JavaScript</span>
+                            <span>Hugging Face</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/delvinsalman/Chatbot" class="project-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-badge">Software</span>
+                    <img src="https://delvinsalman.github.io/DelvinSalmanPortfolio.github.io/Images/Chatbot.png" alt="Celestial Echo Project" class="project-image">
+                </div>
+            </div>
+  <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Weather Application</h3>
+                    <p class="project-description">
+                        ChatGPT said:
+
+Developed an interactive weather web app using HTML, CSS, and JavaScript, integrated with the OpenWeatherMap API for real-time global forecasts. Features include dynamic weather updates, an interactive Leaflet.js map, detailed climate data, and a responsive UI for an engaging user experience.
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>JavaScript</span>
+                            <span>API</span>
+                            <span>Leaflet.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://delvinsalman.github.io/WeatherApplication/" class="project-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/delvinsalman/WeatherApplication?tab=readme-ov-file" class="project-link" aria-label="Live Demo"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-badge">Web Development</span>
+                    <img src="Images/Weather.png" alt="Celestial Echo Project" class="project-image">
+                </div>
+            </div>
+             <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Captures.io</h3>
+                    <p class="project-description">
+Developed a user-friendly image and video search engine that delivers real-time access to thousands of high-quality visuals. Built with HTML, CSS, and APIs, the platform ensures seamless media exploration and optimized downloads, emphasizing performance, visual quality, and an intuitive user experience.                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>HTML/CSS</span>
+                            <span>Pexel API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/delvinsalman/SearchEngine?tab=readme-ov-file" class="project-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://delvinsalman.github.io/SearchEngine/" class="project-link" aria-label="Live Demo"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-badge">Web Development</span>
+                    <img src="Images/SearchEngine.png" alt="Celestial Echo Project" class="project-image">
+                </div>
+            </div>
+ <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">QR Code Generator</h3>
+                    <p class="project-description">
+                        Developed an advanced QR Code system allowing users to create fully customizable QR codes with logos, color themes, and unique styles. Supports multiple data types such as URLs, contact info, text, and Wi-Fi. Built with JavaScript, HTML/CSS, integrating libraries for fast processing, responsive design, and seamless user interaction.
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>HTML/CSS</span>
+                            <span>QRCode.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/delvinsalman/QRGenerator/tree/main" class="project-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://delvinsalman.github.io/QRGenerator/" class="project-link" aria-label="Live Demo"><i class="fas fa-arrow-right"></i></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-badge">Programming</span>
+                    <img src="https://www.billit.eu/media/n5cmyll2/blog-qr-codes.png" alt="Celestial Echo Project" class="project-image">
+                </div>
+            </div>
+             <!-- Programming Category -->
+            <div class="project-category">Data & <span>Creative</span></div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Smells Fishy</h3>
+                    <p class="project-description">
+                        Developed an interactive data visualization project using JavaScript, featuring a boid simulation that mimics an aquatic ecosystem. Users can explore and engage with data through responsive movement, dynamic visualizations, and color-coordinated clarity. The project integrates libraries to create a rich, feature-packed experience.
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>p5.js</span>
+                            <span>p5.sound</span>
+                            <span>Data Prog</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/delvinsalman/SmellsFishy" class="project-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://editor.p5js.org/Delvin/full/bG7XyZZw2" class="project-link" aria-label="Live Demo"><i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-badge">Creative Coding</span>
+                    <img src="https://delvinsalman.github.io/DelvinSalmanPortfolio.github.io/Images/Fish.png" alt="Celestial Echo Project" class="project-image">
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Visual Touch</h3>
+                    <p class="project-description">
+                        Visual Touch is an interactive generative art piece made with JavaScript and p5.js. It lets users create dynamic visuals through mouse and sound interaction, featuring over 25 unique patterns and customizable effects. With both interactive and auto modes, it blends art and technology to produce captivating, ever-changing visuals.
+                    <div class="project-footer">
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>p5.js</span>
+                            <span>p5.sound</span>
+                            <span>Dat.GUI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://editor.p5js.org/Delvin/full/7vD8Lushj" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-badge">Creative Coding</span>
+                    <img src="Images/VisualTouch.png" alt="Celestial Echo Project" class="project-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div id="particles-js-footer"></div> <div class="footer-container">
+            <div class="footer-connect">
+                <h3>Let's <span>Connect.</span></h3>
+                <p>
+                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of 
+                    your visions. Feel free to reach out!
+                </p>
+                <div class="social-icons">
+                    <a href="https://github.com/delvinsalman" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/delvin-salman-405218266/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<a href="mailto:delvinsalman19@gmail.com" aria-label="Email">
+    <i class="fas fa-envelope"></i>
+</a>                    <a href="https://delyy.itch.io/" aria-label="itch.io"><i class="fab fa-itch-io"></i></a>
+                </div>
+            </div>
+    
+            <div class="footer-bottom">
+                <p>&copy; 2025 Delvin Salman. All Rights Reserved.</p>
+            </div>
+            
+        </div>
+    </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Navigation & Header ---
+            const header = document.querySelector('.header');
+            const menuIcon = document.querySelector('#menu-icon');
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelectorAll('.navbar a');
+            const sections = document.querySelectorAll('section');
+
+            // Sticky Header & Active Link
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('scrolled', window.scrollY > 50);
+
+                let currentSection = '';
+                sections.forEach(sec => {
+                    const top = window.scrollY;
+                    const offset = sec.offsetTop - 150;
+                    const height = sec.offsetHeight;
+                    const id = sec.getAttribute('id');
+
+                    if (top >= offset && top < offset + height) {
+                        currentSection = id;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(currentSection)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Mobile Menu
+            menuIcon.addEventListener('click', () => {
+                menuIcon.classList.toggle('fa-times');
+                navbar.classList.toggle('active');
+            });
+
+            // Close menu when a link is clicked
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbar.classList.contains('active')) {
+                        menuIcon.classList.remove('fa-times');
+                        navbar.classList.remove('active');
+                    }
+                });
+            });
+
+            // --- Theme Toggle ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const currentTheme = localStorage.getItem('theme') || 'dark';
+            
+            if (currentTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeToggle.querySelector('i').classList.replace('fa-sun', 'fa-moon');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+
+                // Update icon and add animation
+                const icon = themeToggle.querySelector('i');
+                themeToggle.classList.add('animate-switch');
+                
+                if (newTheme === 'light') {
+                    icon.classList.replace('fa-moon', 'fa-sun');
+                } else {
+                    icon.classList.replace('fa-sun', 'fa-moon');
+                }
+
+                // Remove animation class after it finishes
+                themeToggle.addEventListener('animationend', () => {
+                    themeToggle.classList.remove('animate-switch');
+                }, { once: true });
+            });
+
+
+            // --- Typing Animation ---
+            if (document.getElementById('typing')) {
+                new Typed('#typing', {
+                    strings: ["Game Development.",
+            "Software Dev.",
+            "Programming.",
+            "UI & UX.",
+            "Designing.",
+            "3D Modeling.",
+            "Animation.",
+            "Web Development.",
+            "Technology.",
+            "Systems.",
+            "AI.",
+            "Machine Learning.",
+            "Data.",
+            "Virtual Reality.",
+            "Creative Coding.",
+            "Digital Media.",
+            "Technical Art.",
+            "Level Design.",
+            "Learning.",
+            "Creating.",
+            "Innovation.",
+            "Developing."],
+                    typeSpeed: 70,
+                    backSpeed: 50,
+                    backDelay: 1500,
+                    loop: true,
+                    smartBackspace: true
+                });
+            }
+
+            // --- Back to Top Button ---
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // --- Custom Cursor ---
+            const cursor = document.querySelector('.cursor');
+            const follower = document.querySelector('.cursor-follower');
+
+            document.addEventListener('mousemove', e => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            });
+
+            document.querySelectorAll('a, button, .project-link, .social-link').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.width = '30px';
+                    cursor.style.height = '30px';
+                    follower.style.width = '50px';
+                    follower.style.height = '50px';
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.width = '15px';
+                    cursor.style.height = '15px';
+                    follower.style.width = '35px';
+                    follower.style.height = '35px';
+                });
+            });
+
+            // --- Particles.js ---
+            if (document.getElementById('particles-js') && document.getElementById('particles-js-footer')) {
+                // THIS IS THE PARTICLE CONFIG FROM YOUR UPLOADED FILE
+                const particleConfig = {
+                    "particles": {
+                        "number": {
+                            "value": 120, // More stars
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#fddb87" // Use main theme color (Starlight Gold)
+                        },
+                        "shape": {
+                            "type": "circle"
+                        },
+                        "opacity": {
+                            "value": 0.8,
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 2.5,
+                            "random": true,
+                            "anim": {
+                                "enable": true,
+                                "speed": 3,
+                                "size_min": 0.3,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": false // No distracting lines
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 0.8, // Slow, gentle drift
+                            "direction": "none",
+                            "random": true,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": false
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "repulse" // Repulse on hover for interactive stars
+                            },
+                            "onclick": {
+                                "enable": false // No disruptive click effect
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "repulse": {
+                                "distance": 100,
+                                "duration": 0.4
+                            },
+                            "push": {
+                                "particles_nb": 6
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                };
+
+                // NEW: Light particle config for other sections
+                const lightParticleConfig = {
+                    ...particleConfig, // Start with the base config
+                    particles: {
+                        ...particleConfig.particles,
+                        number: {
+                            ...particleConfig.particles.number,
+                            value: 40 // << Fewer particles
+                        },
+                        opacity: {
+                            ...particleConfig.particles.opacity,
+                            value: 0.6, // Fainter
+                            anim: {
+                                ...particleConfig.particles.opacity.anim,
+                                speed: 0.5 // Slower fade
+                            }
+                        },
+                        size: {
+                            ...particleConfig.particles.size,
+                            value: 2 // Smaller
+                        },
+                        move: {
+                            ...particleConfig.particles.move,
+                            speed: 0.6 // Slower drift
+                        }
+                    },
+                    interactivity: {
+                        ...particleConfig.interactivity,
+                        events: {
+                            ...particleConfig.interactivity.events,
+                            onhover: {
+                                enable: false // Disable hover interactivity
+                            }
+                        }
+                    }
+                };
+
+                // Initialize particles on the Home section
+                particlesJS('particles-js', particleConfig);
+
+                // Initialize particles on the Footer section
+                particlesJS('particles-js-footer', particleConfig);
+                
+                // NEW: Initialize light particles on other sections
+                particlesJS('particles-js-about', lightParticleConfig);
+                particlesJS('particles-js-skills', lightParticleConfig);
+                particlesJS('particles-js-projects', lightParticleConfig);
+            }
+        });
+    </script>
+</body>
+</html>
