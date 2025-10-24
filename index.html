@@ -215,7 +215,7 @@
             position: relative;
             z-index: 2;
             font-size: 17px;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         .navbar a::before {
@@ -1006,101 +1006,6 @@
     box-shadow: 0 5px 15px rgba(232, 149, 66, 0.3);
 }
 
-/* NEW: Image Slider Styles for Game Development Projects */
-.game-project-slider {
-    position: relative;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 1rem;
-}
-
-.slider-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.slider-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 100%;
-}
-
-.slider-slide {
-    min-width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.slider-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.slider-nav {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 0.8rem;
-    z-index: 3;
-}
-
-.slider-dot {
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.slider-dot.active {
-    background: var(--main-color);
-    transform: scale(1.2);
-}
-
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 3;
-    transition: all 0.3s ease;
-    opacity: 0;
-}
-
-.slider-arrow:hover {
-    background: rgba(0, 0, 0, 0.7);
-}
-
-.game-project-slider:hover .slider-arrow {
-    opacity: 1;
-}
-
-.slider-arrow.prev {
-    left: 1rem;
-}
-
-.slider-arrow.next {
-    right: 1rem;
-}
-
-.slider-arrow i {
-    font-size: 1.8rem;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .project-card {
@@ -1114,12 +1019,6 @@
     
     .project-content {
         padding: 2.5rem;
-    }
-    
-    .slider-arrow {
-        opacity: 1; /* Always show arrows on mobile */
-        width: 3.5rem;
-        height: 3.5rem;
     }
 }
 
@@ -1478,9 +1377,8 @@
     <section class="about" id="about">
         <div id="particles-js-about"></div> <div class="about-content">
             <h2 class="heading">About <span>Me.</span></h2>
-            <p>As a dedicated Digital Media student specializing in Game Development at York University, I have cultivated a comprehensive skill set that spans game development, computer science, and software, AI and design. My academic and project-based experiences have equipped me with robust problem-solving abilities and practical expertise in a variety of technologies.</p>
-            <p>I am a goal-driven and collaborative professional, passionate about leveraging my skills to develop innovative and impactful solutions while continuously seeking opportunities to expand my technical knowledge.</p>
-            
+            <p>As a dedicated Digital Media student specializing in Game Development at York University, I have cultivated a comprehensive skill set that spans game development, computer science, software, AI and design. My academic and other experiences have equipped me with robust problem-solving abilities and practical expertise in a variety of technologies and different practices.</p>
+            <p>I am a goal-driven individual, passionate about developing innovative and impactful solutions while continuously expanding my technical expertise and embracing new challenges among many things.</p>            
         </div>
         <div class="about-img">
             <img src="https://i.redd.it/1d11s820dgm91.gif" alt="About Me Image">
@@ -1973,7 +1871,6 @@
 
         <div class="projects-container">
 
-            <!-- Game Development Category Section -->
             <div class="project-category-section">
                 <div class="project-category">Game <span>Development.</span></div>
 
@@ -1997,35 +1894,7 @@
                         </div>
                     </div>
                     <div class="project-header">
-                        <!-- Game Development Project with Image Slider -->
-                        <div class="game-project-slider">
-                            <div class="slider-container">
-                                <div class="slider-track">
-                                    <div class="slider-slide">
-                                        <img src="https://img.itch.zone/aW1hZ2UvMzMyNDUwNi8yMDQwODIxMy5wbmc=/original/vODp15.png" alt="Cattleman's Crossing Screenshot 1" class="project-image">
-                                    </div>
-                                    <div class="slider-slide">
-                                        <img src="https://img.itch.zone/aW1hZ2UvMzMyNDUwNi8yMDQwODIxMi5wbmc=/original/4b1UIK.png" alt="Cattleman's Crossing Screenshot 2" class="project-image">
-                                    </div>
-                                    <div class="slider-slide">
-                                        <img src="Images/CC3.png" alt="Cattleman's Crossing Screenshot 3" class="project-image">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <button class="slider-arrow prev">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="slider-arrow next">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                            
-                            <div class="slider-nav">
-                                <div class="slider-dot active"></div>
-                                <div class="slider-dot"></div>
-                                <div class="slider-dot"></div>
-                            </div>
-                        </div>
+                        <img src="https://img.itch.zone/aW1hZ2UvMzMyNDUwNi8yMDQwODIxMy5wbmc=/original/vODp15.png" alt="Cattleman's Crossing Screenshot" class="project-image">
                         <span class="project-badge">3D Game</span>
                     </div>
                 </div>
@@ -2049,35 +1918,7 @@
                         </div>
                     </div>
                     <div class="project-header">
-                        <!-- Game Development Project with Image Slider -->
-                        <div class="game-project-slider">
-                            <div class="slider-container">
-                                <div class="slider-track">
-                                    <div class="slider-slide">
-                                        <img src="https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkzMjA4My5wbmc=/original/254Csk.png" alt="Ash Screenshot 1" class="project-image">
-                                    </div>
-                                    <div class="slider-slide">
-                                        <img src="https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkyOTc2My5wbmc=/original/DDFFAu.png" alt="Ash Screenshot 2" class="project-image">
-                                    </div>
-                                    <div class="slider-slide">
-                                        <img src="https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkyOTc1Ny5wbmc=/original/3txxPY.png" alt="Ash Screenshot 3" class="project-image">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <button class="slider-arrow prev">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="slider-arrow next">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                            
-                            <div class="slider-nav">
-                                <div class="slider-dot active"></div>
-                                <div class="slider-dot"></div>
-                                <div class="slider-dot"></div>
-                            </div>
-                        </div>
+                        <img src="https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkzMjA4My5wbmc=/original/254Csk.png" alt="Ash Screenshot" class="project-image">
                         <span class="project-badge">3D Game</span>
                     </div>
                 </div>
@@ -2101,35 +1942,7 @@
                         </div>
                     </div>
                     <div class="project-header">
-                        <!-- Game Development Project with Image Slider -->
-                        <div class="game-project-slider">
-                            <div class="slider-container">
-                                <div class="slider-track">
-                                    <div class="slider-slide">
-                                        <img src="https://img.itch.zone/aW1hZ2UvMjYwOTAzMC8xNjA4MDEwOC5wbmc=/original/bA7Qzw.png" alt="Space Toast Screenshot 1" class="project-image">
-                                    </div>
-                                    <div class="slider-slide">
-                                        <img src="https://img.itch.zone/aW1hZ2UvMjYwOTAzMC8xNjE3NjQ1NC5wbmc=/original/pGw2UQ.png" alt="Space Toast Screenshot 2" class="project-image">
-                                    </div>
-                                    <div class="slider-slide">
-                                        <img src="https://img.itch.zone/aW1hZ2UvMjYwOTAzMC8xNjE3NjQ3MC5wbmc=/original/NwSHaH.png" alt="Space Toast Screenshot 3" class="project-image">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <button class="slider-arrow prev">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="slider-arrow next">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                            
-                            <div class="slider-nav">
-                                <div class="slider-dot active"></div>
-                                <div class="slider-dot"></div>
-                                <div class="slider-dot"></div>
-                            </div>
-                        </div>
+                        <img src="https://img.itch.zone/aW1hZ2UvMjYwOTAzMC8xNjA4MDEwOC5wbmc=/original/bA7Qzw.png" alt="Space Toast Screenshot" class="project-image">
                         <span class="project-badge">2D Game</span>
                     </div>
                 </div>
@@ -2153,41 +1966,13 @@
                         </div>
                     </div>
                     <div class="project-header">
-                        <!-- Game Development Project with Image Slider -->
-                        <div class="game-project-slider">
-                            <div class="slider-container">
-                                <div class="slider-track">
-                                    <div class="slider-slide">
-                                        <img src="https://img.itch.zone/aW1nLzE4NzcwNDIxLnBuZw==/original/4U1cJk.png" alt="Grave Digger Screenshot 1" class="project-image">
-                                    </div>
-                                    <div class="slider-slide">
-                                        <img src="https://img.itch.zone/aW1nLzE4NzcwNDI4LnBuZw==/original/q29p%2B3.png" alt="Grave Digger Screenshot 2" class="project-image">
-                                    </div>
-                                    <div class="slider-slide">
-                                        <img src="https://img.itch.zone/aW1nLzE4NzcwNDQ1LnBuZw==/original/eg7ZAD.png" alt="Grave Digger Screenshot 3" class="project-image">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <button class="slider-arrow prev">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="slider-arrow next">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                            
-                            <div class="slider-nav">
-                                <div class="slider-dot active"></div>
-                                <div class="slider-dot"></div>
-                                <div class="slider-dot"></div>
-                            </div>
-                        </div>
+                        <img src="https://img.itch.zone/aW1nLzE4NzcwNDIxLnBuZw==/original/4U1cJk.png" alt="Grave Digger Screenshot" class="project-image">
                         <span class="project-badge">3D Game</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Software & Programming Category Section -->
+     
             <div class="project-category-section">
                 <div class="project-category">Software & <span>Programming.</span></div>
 
@@ -2285,10 +2070,15 @@
                         <span class="project-badge">Web Development</span>
                         <img src="Images/SearchEngine.png" alt="Celestial Echo Project" class="project-image">
                     </div>
+            </div>
                 </div>
-            <!-- Data & Creative Category Section -->
+          
+          
+          
+          
+     
             <div class="project-category-section">
-                <div class="project-category">Data & <span>Creative.</span></div>
+                <div class="project-category">Data & <span>Creativity.</span></div>
 
                 <div class="project-card">
                     <div class="project-content">
@@ -2651,55 +2441,6 @@
                 particlesJS('particles-js-skills', lightParticleConfig);
                 particlesJS('particles-js-projects', lightParticleConfig);
             }
-
-            // --- Image Slider for Game Development Projects ---
-            document.querySelectorAll('.game-project-slider').forEach(slider => {
-                const track = slider.querySelector('.slider-track');
-                const slides = slider.querySelectorAll('.slider-slide');
-                const dots = slider.querySelectorAll('.slider-dot');
-                const prevBtn = slider.querySelector('.slider-arrow.prev');
-                const nextBtn = slider.querySelector('.slider-arrow.next');
-                
-                let currentSlide = 0;
-                const totalSlides = slides.length;
-                
-                // Function to update slider position
-                function updateSlider() {
-                    track.style.transform = `translateX(-${currentSlide * 100}%)`;
-                    
-                    // Update active dot
-                    dots.forEach((dot, index) => {
-                        dot.classList.toggle('active', index === currentSlide);
-                    });
-                }
-                
-                // Next slide function
-                function nextSlide() {
-                    currentSlide = (currentSlide + 1) % totalSlides;
-                    updateSlider();
-                }
-                
-                // Previous slide function
-                function prevSlide() {
-                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                    updateSlider();
-                }
-                
-                // Event listeners for buttons
-                nextBtn.addEventListener('click', nextSlide);
-                prevBtn.addEventListener('click', prevSlide);
-                
-                // Event listeners for dots
-                dots.forEach((dot, index) => {
-                    dot.addEventListener('click', () => {
-                        currentSlide = index;
-                        updateSlider();
-                    });
-                });
-                
-                // Auto-slide every 5 seconds
-                setInterval(nextSlide, 5000);
-            });
         });
     </script>
 </body>
