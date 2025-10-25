@@ -815,7 +815,7 @@
     font-family: 'Space Grotesk', sans-serif;
     padding-bottom: 1rem;
     border-bottom: 3px solid var(--border-color);
-    color: var(--text-light); /* Lighter color for sub-titles */
+    background: var(--second-bg-color);
 }
 
 .project-category span {
@@ -1052,14 +1052,13 @@
     /* REMOVED overflow: hidden; -- This was breaking the fade! */
 }
 
-/* This is the fade-in effect you liked */
 .footer::before {
     content: '';
     position: absolute;
-    top: -10rem;
+    top: -20rem;
     left: 0;
     width: 100%;
-    height: 10rem;
+    height: 20rem;
     /* Fades from transparent to the footer's background color */
     background: linear-gradient(to bottom, transparent 0%, rgba(13, 18, 28, 0.2) 30%, rgba(13, 18, 28, 0.5) 70%, var(--bg-color) 100%);
     z-index: 1; /* Sits above particles, below content */
@@ -1087,7 +1086,7 @@
 }
 
 .footer-connect h3 {
-    font-size: 3.2rem; /* The larger heading */
+    font-size: 3rem; /* The larger heading */
     font-weight: 700;
     margin-bottom: 1rem;
     font-family: 'Space Grotesk', sans-serif;
