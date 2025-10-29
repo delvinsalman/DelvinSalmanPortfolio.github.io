@@ -91,6 +91,21 @@
             display: none;
         }
 
+        /* --- NEW: On-Scroll Reveal Animation --- */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px); /* Subtle slide up */
+            transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+            /* Will be toggled by JS */
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* --- END NEW ANIMATION --- */
+
+
         /* YOUR ORIGINAL HEADER DESIGN */
         .main-header {
             padding: 0.5rem 2rem;
@@ -329,6 +344,35 @@
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
+        
+        /* --- NEW: Home Page Load-in Animation --- */
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #home .pre-title,
+        #home h1,
+        #home .subtitle,
+        #home .intro-text,
+        #home .social-links {
+            /* Set initial state for animation */
+            opacity: 0;
+            animation: fadeInSlideUp 0.6s ease-out forwards;
+        }
+
+        /* Staggered delay */
+        #home h1 { animation-delay: 0.1s; }
+        #home .subtitle { animation-delay: 0.2s; }
+        #home .intro-text { animation-delay: 0.3s; }
+        #home .social-links { animation-delay: 0.4s; }
+        /* --- END NEW ANIMATION --- */
 
         /* ORIGINAL SOCIAL LINKS STYLING */
         .social-links {
@@ -795,7 +839,7 @@
         </section>
 
         <section id="about" class="section section-alt">
-            <div class="container">
+            <div class="container reveal-on-scroll">
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
                     <div class="about-text">
@@ -822,8 +866,8 @@
         </section>
         <section id="skills" class="section">
             <div class="container">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="skill-category">
+                <h2 class="section-title reveal-on-scroll">Technical Skills</h2>
+                <div class="skill-category reveal-on-scroll">
                     <h3>Languages & Frameworks</h3>
                     <div class="skills-grid">
                         <div class="skill-card">
@@ -886,7 +930,7 @@
                             <div class="skill-card-inner">
                                 <div class="skill-item skill-front">Scripting</div>
                                 <div class="skill-item skill-back">
-                                    <img src="https://files.koenig.kodeco.com/uploads/2023/11/unreal_engine_5_blueprints_featured_banner@1.5x.png" alt="Scripting Logo">
+                                    <img src="Images/BluepringScripting.png" alt="Scripting Logo">
                                 </div>
                             </div>
                         </div>
@@ -925,7 +969,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category">
+                <div class="skill-category reveal-on-scroll">
                     <h3>Game Development</h3>
                     <div class="skills-grid">
                         <div class="skill-card">
@@ -964,7 +1008,7 @@
                             <div class="skill-card-inner">
                                 <div class="skill-item skill-front">Scripting</div>
                                 <div class="skill-item skill-back">
-                                    <img src="https://files.koenig.kodeco.com/uploads/2023/11/unreal_engine_5_blueprints_featured_banner@1.5x.png" alt="Scripting Logo">
+                                    <img src="Images/BluepringScripting.png" alt="Scripting Logo">
                                 </div>
                             </div>
                         </div>
@@ -979,7 +1023,7 @@
                     </div>
                 </div>
                 
-                <div class="skill-category">
+                <div class="skill-category reveal-on-scroll">
                     <h3>Software & Technical Tools</h3>
                     <div class="skills-grid">
                         <div class="skill-card">
@@ -1058,7 +1102,7 @@
                             <div class="skill-card-inner">
                                 <div class="skill-item skill-front">Microsoft</div>
                                 <div class="skill-item skill-back">
-                                    <img src="https://www.shareicon.net/data/512x512/2017/01/12/870442_applications_512x512.png" alt="Visual Studio Logo">
+                                    <img src="Images/Microsoft.png" alt="Visual Studio Logo">
                                 </div>
                             </div>
                         </div>
@@ -1085,8 +1129,8 @@
 
         <section id="projects" class="section section-alt">
             <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="tab-nav">
+                <h2 class="section-title reveal-on-scroll">Featured Projects</h2>
+                <div class="tab-nav reveal-on-scroll">
                     <button class="tab-btn active" data-filter="game-dev">Game Dev</button> <button class="tab-btn" data-filter="software-dev">Software</button>
                     <button class="tab-btn" data-filter="web-dev">Web Dev</button>
                     <button class="tab-btn" data-filter="data-creative">Data & Creative</button>
@@ -1095,7 +1139,7 @@
                 <div class="project-grid">
                     <h3 class="project-group-title" data-category="game-dev">Game Development</h3>
 
-                    <div class="project-card" data-category="game-dev" style="--bg-img: url('https://img.itch.zone/aW1hZ2UvMzMyNDUwNi8yMDQwODIxMy5wbmc=/794x1000/%2F610yB.png');">
+                    <div class="project-card reveal-on-scroll" data-category="game-dev" style="--bg-img: url('https://img.itch.zone/aW1hZ2UvMzMyNDUwNi8yMDQwODIxMi5wbmc=/original/4b1UIK.png');">
                         <div class="project-card-content">
                             <h3>Cattleman's Crossing</h3>
                             <div class="project-tags">
@@ -1117,7 +1161,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-category="game-dev" style="--bg-img: url('https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkyOTc2My5wbmc=/original/DDFFAu.png');">
+                    <div class="project-card reveal-on-scroll" data-category="game-dev" style="--bg-img: url('https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkyOTc2My5wbmc=/original/DDFFAu.png');">
                         <div class="project-card-content">
                             <h3>Ash</h3>
                             <div class="project-tags">
@@ -1139,7 +1183,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-category="game-dev" style="--bg-img: url('https://img.itch.zone/aW1hZ2UvMjYwOTAzMC8xNjE3NjQ2Ni5wbmc=/original/9YwVr1.png');">
+                    <div class="project-card reveal-on-scroll" data-category="game-dev" style="--bg-img: url('https://img.itch.zone/aW1hZ2UvMjYwOTAzMC8xNjE3NjQ2Ni5wbmc=/original/9YwVr1.png');">
                         <div class="project-card-content">
                             <h3>Space Toast</h3>
                             <div class="project-tags">
@@ -1159,7 +1203,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-category="game-dev" style="--bg-img: url('https://img.itch.zone/aW1nLzE4NzcwNDQ1LnBuZw==/original/eg7ZAD.png');">
+                    <div class="project-card reveal-on-scroll" data-category="game-dev" style="--bg-img: url('https://img.itch.zone/aW1nLzE4NzcwNDQ1LnBuZw==/original/eg7ZAD.png');">
                         <div class="project-card-content">
                             <h3>Grave Digger</h3>
                             <div class="project-tags">
@@ -1182,7 +1226,7 @@
 
                     <h3 class="project-group-title" data-category="software-dev">Software</h3>
 
-                    <div class="project-card" data-category="software-dev" style="--bg-img: url('https://delvinsalman.github.io/DelvinSalmanPortfolio.github.io/Images/Chatbot.png');">
+                    <div class="project-card reveal-on-scroll" data-category="software-dev" style="--bg-img: url('https://delvinsalman.github.io/DelvinSalmanPortfolio.github.io/Images/Chatbot.png');">
                         <div class="project-card-content">
                             <h3>AI Chatbot</h3>
                             <div class="project-tags">
@@ -1204,7 +1248,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-category="software-dev" style="--bg-img: url('https://www.billit.eu/media/n5cmyll2/blog-qr-codes.png');">
+                    <div class="project-card reveal-on-scroll" data-category="software-dev" style="--bg-img: url('https://www.billit.eu/media/n5cmyll2/blog-qr-codes.png');">
                         <div class="project-card-content">
                             <h3>QR Code Generator</h3>
                             <div class="project-tags">
@@ -1230,7 +1274,7 @@
 
                     <h3 class="project-group-title" data-category="web-dev">Web Development</h3>
 
-                    <div class="project-card" data-category="web-dev" style="--bg-img: url('./Images/Weather.png');">
+                    <div class="project-card reveal-on-scroll" data-category="web-dev" style="--bg-img: url('./Images/Weather.png');">
                         <div class="project-card-content">
                             <h3>Weather Application</h3>
                             <div class="project-tags">
@@ -1254,7 +1298,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-category="web-dev" style="--bg-img: url('./Images/SearchEngine.png');">
+                    <div class="project-card reveal-on-scroll" data-category="web-dev" style="--bg-img: url('./Images/SearchEngine.png');">
                         <div class="project-card-content">
                             <h3>Captures.io</h3>
                             <div class="project-tags">
@@ -1267,7 +1311,7 @@
                                 Built with HTML, CSS, and APIs, the platform ensures seamless media exploration and optimized downloads, emphasizing performance, visual quality, and an intuitive user experience.
                             </p>
                             <div class="project-links">
-                                <a href="https://delvinsalman.github.io/SearchEngine/" target="_blank" aria-label="View Live Demo">
+                                <a href="httpshttps://delvinsalman.github.io/SearchEngine/" target="_blank" aria-label="View Live Demo">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                                 </a>
                                 <a href="https://github.com/delvinsalman/SearchEngine" target="_blank" aria-label="View on GitHub">
@@ -1279,7 +1323,7 @@
 
                     <h3 class="project-group-title" data-category="data-creative">Data & Creative</h3>
 
-                    <div class="project-card" data-category="data-creative" style="--bg-img: url('./Images/Fish.png');">
+                    <div class="project-card reveal-on-scroll" data-category="data-creative" style="--bg-img: url('./Images/Fish.png');">
                         <div class="project-card-content">
                             <h3>Smells Fishy</h3>
                             <div class="project-tags">
@@ -1303,7 +1347,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-category="data-creative" style="--bg-img: url('Images/VisualTouch.png');">
+                    <div class="project-card reveal-on-scroll" data-category="data-creative" style="--bg-img: url('Images/VisualTouch.png');">
                         <div class="project-card-content">
                             <h3>Visual Touch</h3>
                             <div class="project-tags">
@@ -1318,7 +1362,7 @@
                                 The project integrates libraries to create a rich, feature-packed experience.
                             </p>
                             <div class="project-links">
-                                <a href="https://editor.p5js.org/Delvin/full/7vD8Lushj" target="_blank" aria-label="View Live Demo">
+                                <a href="httpshttps://editor.p5js.org/Delvin/full/7vD8Lushj" target="_blank" aria-label="View Live Demo">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                                 </a>
                             </div>
@@ -1329,7 +1373,7 @@
         </section>
     </main>
 
-    <footer class="main-footer">
+    <footer class="main-footer reveal-on-scroll">
         <div class="container">
             <p>&copy; 2025 Delvin Salman. All rights reserved.</p>
         </div>
@@ -1453,6 +1497,27 @@
             });
         });
         
+        // --- NEW: Intersection Observer for On-Scroll Animations ---
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once it's visible
+                }
+            });
+        }, {
+            root: null, // relative to the viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% of the element must be visible
+        });
+        
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+        // --- END NEW ANIMATION LOGIC ---
+
         // Set active nav link based on scroll position
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
