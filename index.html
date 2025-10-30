@@ -20,10 +20,6 @@
             --filter-border: #e0e0e0;
             --filter-text: #666;
             --filter-active: #007bff;
-            
-            /* --- NEW: Shadow variables --- */
-            --shadow-color-light: rgba(0, 0, 0, 0.1);
-            --shadow-color-light-hover: rgba(0, 0, 0, 0.15);
         }
 
         body.dark-mode {
@@ -39,10 +35,6 @@
             --filter-border: #444;
             --filter-text: #adb5bd;
             --filter-active: #4dabf7;
-            
-            /* --- NEW: Shadow variables --- */
-            --shadow-color-light: rgba(0, 0, 0, 0.2);
-            --shadow-color-light-hover: rgba(0, 0, 0, 0.3);
         }
 
         * {
@@ -93,14 +85,6 @@
         a:hover {
             opacity: 0.8;
             text-decoration: none;
-        }
-        
-        /* --- MODIFIED: Image helper --- */
-        img.project-image {
-            width: 100%;
-            height: 100%; /* Fill container */
-            display: block;
-            object-fit: cover; /* Crop to fit, don't stretch */
         }
 
         .hidden {
@@ -284,8 +268,8 @@
                 var(--section-bg) 85%,
                 var(--bg-color) 100%
             );
-            padding: 8rem 0;
-            margin: 4rem 0;
+            padding: 6rem 0; /* Reduced padding */
+            margin: 3rem 0; /* Reduced margin */
         }
 
         /* --- THIS IS THE MODIFIED RULE --- */
@@ -300,7 +284,7 @@
             border-bottom: 3px solid var(--primary-color); /* The underline */
             
             /* Keep original margin-bottom, but add auto left/right for centering */
-            margin-bottom: 3rem; 
+            margin-bottom: 2rem; /* Reduced margin */
             margin-left: auto;
             margin-right: auto;
             /* --- END MODIFICATIONS --- */
@@ -315,9 +299,8 @@
             /* but INHERITS the border-bottom, which is what we want. */
         }
 
-        /* --- UPDATED RULE FOR SKILLS/PROJECTS TITLE --- */
-        #skills .section-title,
-        #projects .section-title {
+        /* --- NEW RULE FOR SKILLS TITLE --- */
+        #skills .section-title {
             text-align: left;
             margin-left: 0;
             margin-right: auto; /* Overrides the centering */
@@ -492,48 +475,73 @@
         }
         
         /* --- UPDATED PROJECT FILTER BAR STYLING --- */
-        .tab-nav {
-            display: flex;
-            justify-content: center;
-            gap: 0;
-            margin-bottom: 3rem;
-            border-radius: 12px; /* <-- MODIFIED FROM 50px */
-            background-color: var(--filter-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 0.5rem;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-            border: 1px solid var(--filter-border);
-            transition: all 0.4s ease-in-out;
-            /* Removed sticky positioning */
-            z-index: 99;
-        }
+.tab-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 2rem; /* Reduced margin */
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 0.5rem;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    transition: all 0.4s ease-in-out;
+    z-index: 99;
+}
 
-        .tab-btn {
-            font-size: 1rem;
-            font-weight: 500;
-            padding: 0.75rem 1.5rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: var(--filter-text);
-            border-radius: 10px; /* <-- MODIFIED FROM 50px */
-            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
+.tab-btn {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--filter-text);
+    border-radius: 0;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    /* Removed the position: relative and ::after for underline */
+}
 
-        .tab-btn:hover {
-            color: var(--text-color);
-        }
+.tab-btn:hover {
+    color: var(--text-color);
+}
 
-        .tab-btn.active {
-            color: var(--filter-active);
-            background-color: transparent;
-            box-shadow: none;
-            font-weight: 700;
-        }
-        
+.tab-btn.active {
+    color: var(--filter-active);
+    background-color: transparent;
+    box-shadow: none;
+    font-weight: 700;
+}
+  /* --- ADD PROJECT DIVIDERS --- */
+.project-entry {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 2rem 0; /* Reduced padding */
+    position: relative; /* For centered divider */
+}
+
+/* Add centered divider between projects */
+.project-entry:not(:last-of-type)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 0 auto;
+}
+
+/* ALL PROJECTS SAME LAYOUT - TEXT LEFT, IMAGE RIGHT */
+.project-entry {
+    grid-template-areas: "text image";
+}
+      
         /* UPDATED SKILLS GRID - 6 PER ROW */
         .skills-grid {
             display: grid;
@@ -625,86 +633,94 @@
         /* --- END SKILL SECTION MODIFICATIONS --- */
 
 
-        /* --- START OF PROJECT SECTION CHANGES --- */
-
+        /* --- NEW: PROJECT LAYOUT --- */
         .project-list {
             display: flex;
             flex-direction: column;
-            gap: 4rem; /* Increased gap between projects */
-            margin-top: 2rem; /* Added space between title and first project */
+            gap: 1.5rem; /* Reduced gap between project entries */
         }
         
-        .project-row {
-            display: flex;
+        .project-entry {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 50/50 split */
+            gap: 3rem;
             align-items: center;
-            gap: 4rem; /* Increased gap between image and text */
+            padding: 2rem 0; /* Reduced padding */
         }
         
-        .project-row.hidden {
+        /* ALL PROJECTS SAME LAYOUT - TEXT LEFT, IMAGE RIGHT */
+        .project-entry {
+            grid-template-areas: "text image";
+        }
+
+
+        /* --- MODIFIED: Improved spacing between paragraph and tech tags --- */
+        .project-text {
+            grid-area: text;
+            display: flex; /* NEW: Use flexbox */
+            flex-direction: column; /* NEW: Stack children vertically */
+            height: 100%; /* NEW: Ensure text block fills grid area height */
+            color: var(--secondary-color); /* This will make the text lighter */
+
+        }
+
+        .project-text p {
+            flex-grow: 0.5; /* NEW: Makes description <p> fill available space, pushing footer down */
+            margin-bottom: 0.5rem; /* Reduced margin to bring tech tags closer */
+        }
+        /* --- END: Improved spacing --- */
+
+
+        /* --- MODIFIED: Request 2 --- */
+        .project-image {
+            grid-area: image;
+            aspect-ratio: 16 / 9; /* NEW: Enforce a 16:9 aspect ratio */
+            border-radius: 12px; /* NEW: Moved border-radius to container */
+            overflow: hidden; /* NEW: Clip the image inside */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .project-image:hover {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%; /* NEW: Make image fill container */
+            object-fit: cover; /* NEW: Fill space, crop if necessary */
+            transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .project-image:hover img {
+            transform: scale(1.05); /* Only scale the image, not the container */
+        }
+        /* --- END: Request 2 --- */
+
+        
+        .project-entry.hidden {
             display: none;
         }
-
-        /* --- MODIFIED: This is the card for the IMAGE ONLY --- */
-        .project-image-card {
-            flex: 1;
-            min-width: 0;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px var(--shadow-color-light);
-            overflow: hidden; /* Clips the img to the border-radius */
-            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-            aspect-ratio: 16 / 9; /* Sets the new 16:9 shape */
-            
-            /* --- NEW: Z-INDEX FIX --- */
-            position: relative;
-            z-index: 3;
-        }
         
-        .project-image-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 50px var(--shadow-color-light-hover);
-        }
-
-        .project-info {
-            flex: 1; 
-            min-width: 0; /* Fix for flexbox text overflow */
-            
-            /* --- NEW: Z-INDEX FIX --- */
-            position: relative;
-            z-index: 3;
-        }
-        
-        /* --- THIS IS THE CORRECTED ALTERNATING LOGIC --- */
-        /* Default (even, 2, 4) is Pic-Left, Info-Right (based on HTML order) */
-        
-        /* Swap order for odd rows (1, 3...) to be Info-Left, Pic-Right */
-        .project-row:nth-child(odd) .project-image-card {
-            order: 2; /* Move image to the right */
-        }
-        
-        .project-row:nth-child(odd) .project-info {
-            order: 1; /* Move info to the left */
-        }
-        /* --- END OF LOGIC --- */
-
-
-        .project-info h3 {
+        .project-text h3 {
             font-size: 1.6rem;
             font-weight: 600;
             color: var(--text-color);
             margin-bottom: 0.8rem;
         }
-        
-        /* --- THIS IS THE ADDED RULE --- */
-        .project-info p {
-            color: var(--secondary-color);
+
+        /* --- MODIFIED: Improved spacing --- */
+        .project-footer {
+            display: flex;
+            justify-content: space-between; /* Tags left, links right */
+            align-items: center;
+            margin-top: 0.3rem; /* Reduced space above this row */
         }
-        /* --- END OF ADDED RULE --- */
-        
-        /* --- MODIFIED: project-tags margin --- */
+
         .project-tags {
-            margin-top: 0; /* MODIFIED: Removed margin */
-            margin-bottom: 0; /* MODIFIED: Removed margin */
+            margin-bottom: 0; /* Remove old margin */
         }
+        /* --- END: Improved spacing --- */
         
         .project-tag {
             display: inline-block;
@@ -717,27 +733,13 @@
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
         }
-        
-        /* --- END OF PROJECT SECTION CHANGES --- */
 
-        
-        /* --- NEW: Wrapper for tags and links --- */
-        .project-meta-links {
-            display: flex;
-            flex-wrap: wrap; /* Allow wrapping */
-            justify-content: space-between; /* Puts tags left, links right */
-            align-items: center; /* Aligns them nicely */
-            gap: 1rem; /* Adds space between tags and links if they wrap */
-            margin-top: 1.5rem; /* This was the original margin-top on .project-tags */
-        }
-
-
-        /* ORIGINAL PROJECT LINKS STYLING (No changes) */
+        /* --- MODIFIED: Improved spacing --- */
         .project-links {
-            display: flex;
-            gap: 1.25rem;
-            flex-shrink: 0; /* Prevents link icons from shrinking */
+            margin-top: 0; /* Remove old margin */
+            flex-shrink: 0; /* Stop links from shrinking if tags wrap */
         }
+        /* --- END: Improved spacing --- */
         
         .project-links a {
             color: var(--text-color);
@@ -758,12 +760,12 @@
             stroke-width: 2;
         }
 
-        /* --- STYLE FOR PROJECT SUB-LABELS (No changes) --- */
+        /* --- STYLE FOR PROJECT SUB-LABELS --- */
         .project-group-title {
             grid-column: 1 / -1; /* Makes the title span the full grid width */
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
+            margin-top: 2rem; /* Reduced margin */
+            margin-bottom: 0.5rem; /* Reduced margin */
+            padding-bottom: 0.5rem; /* Reduced padding */
             border-bottom: 2px solid var(--border-color);
             font-size: 1.8rem;
             font-weight: 600;
@@ -774,7 +776,7 @@
         
         /* Adds a bit of space so the first title isn't jammed against the tabs */
         .project-group-title:first-of-type {
-            margin-top: 1.5rem;
+            margin-top: 1rem; /* Reduced margin */
         }
         /* --- END OF STYLES --- */
         
@@ -789,10 +791,6 @@
         }
         /* --- END OF CHANGE --- */
         
-        
-        /* --- PROJECT VINE REMOVED --- */
-
-
         @media (max-width: 768px) {
             .main-nav {
                 display: none;
@@ -839,23 +837,35 @@
                 /* Removed top positioning */
             }
             
-            /* --- PROJECT SECTION MOBILE STYLES --- */
-            .project-row {
-                flex-direction: column; /* Stack them vertically */
-                gap: 2.5rem; /* Increased gap */
-            }
-            
-            .project-image-card {
-                width: 100%;
-                /* aspect-ratio will be handled automatically */
+            /* --- Responsive Project Layout --- */
+            .project-entry,
+            .project-entry:nth-of-type(odd),
+            .project-entry:nth-of-type(even) {
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                    "image"
+                    "text"; /* Always stack on mobile */
+                gap: 1.5rem; /* Reduced gap for mobile */
+                padding: 1.5rem 0; /* Reduced padding for mobile */
             }
 
-            /* --- RESET ORDER FOR MOBILE STACKING --- */
-            .project-row:nth-child(odd) .project-image-card,
-            .project-row:nth-child(odd) .project-info {
-                order: 0; /* Resets the alternating order */
+            .project-text {
+                grid-area: text; 
+                height: auto; /* Allow height to be natural on mobile */
             }
-            /* --- END PROJECT MOBILE STYLES --- */
+
+            .project-image {
+                grid-area: image;
+            }
+            
+            /* --- MODIFIED: Improved spacing for mobile --- */
+            .project-footer {
+                flex-direction: column; /* Stack tags and links */
+                align-items: flex-start; /* Align both to the left */
+                gap: 0.8rem; /* Reduced space between tags and links */
+                margin-top: 0.8rem; /* Slightly more space on mobile */
+            }
+            /* --- END: Improved spacing for mobile --- */
 
 
             /* MOBILE RESPONSIVE FOR SKILLS GRID */
@@ -871,7 +881,7 @@
             /* MOBILE STYLE FOR PROJECT SUB-LABELS */
             .project-group-title {
                 font-size: 1.5rem;
-                margin-top: 2rem;
+                margin-top: 1.5rem;
             }
         }
 
@@ -979,8 +989,7 @@
                 </div>
             </div>
         </section>
-
-         <section id="skills" class="section">
+        <section id="skills" class="section">
             <div class="container">
                 <h2 class="section-title reveal-on-scroll">Technical Skills</h2>
                 <div class="skill-category reveal-on-scroll">
@@ -1186,7 +1195,7 @@
                             <div class="skill-card-inner">
                                 <div class="skill-item skill-front">Processing</div>
                                 <div class="skill-item skill-back">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Processing_2021_logo.svg" alt="PyCharm Logo">
+                                    <img src="httpshttps://upload.wikimedia.org/wikipedia/commons/c/cb/Processing_2021_logo.svg" alt="PyCharm Logo">
                                 </div>
                             </div>
                         </div>
@@ -1242,427 +1251,455 @@
                 </div>
             </div>
         </section>
+
         <section id="projects" class="section section-alt">
             <div class="container">
                 <h2 class="section-title reveal-on-scroll">Projects</h2>
-                
+                <div class="tab-nav reveal-on-scroll">
+                    <button class="tab-btn active" data-filter="game-dev">Game Development</button> <button class="tab-btn" data-filter="software-dev">Software</button>
+                    <button class="tab-btn" data-filter="web-dev">Web Development</button>
+                    <button class="tab-btn" data-filter="data-creative">Data & Creative</button>
+                </div>
+
                 <div class="project-list">
-                    
-                    <div class="project-row reveal-on-scroll" data-category="game">
-                        <div class="project-image-card">
-                             <img src="https://img.itch.zone/aW1hZ2UvMzMyNDUwNi8yMDQwODIxMi5wbmc=/original/4b1UIK.png" alt="Ethereal Guardians" class="project-image">
-                        </div>
-                        <div class="project-info">
-                            <h3>Cattleman’s Crossing</h3>
+                    <h3 class="project-group-title" data-category="game-dev">Game Development</h3>
+
+                    <div class="project-entry reveal-on-scroll" data-category="game-dev">
+                        <div class="project-text">
+                            <h3>Cattleman's Crossing</h3>
                             <p>
-                                Led level design and development for Cattleman’s Crossing, a 3D open-world narrative game inspired by Canadian landscapes. Built the main map, interactive systems, and supported core gameplay.
+                               Led level design and development for Cattleman's Crossing, a 3D open-world narrative game inspired by Canadian landscapes. Built the main map, interactive systems, and supported core gameplay.
                             </p>
-                            <div class="project-meta-links">
+                            <div class="project-footer">
                                 <div class="project-tags">
                                     <span class="project-tag">Unreal Engine</span>
                                     <span class="project-tag">C++</span>
-                                    <span class="project-tag">Scripting</span>
+                                    <span class="project-tag">Blueprint Scripting</span>
                                     <span class="project-tag">Blender</span>
                                 </div>
                                 <div class="project-links">
-                                <a href="https://riordan-palmer.itch.io/cattlemans-crossing" target="_blank" aria-label="View Live Demo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                </a>
+                                    <a href="https://riordan-palmer.itch.io/cattlemans-crossing" target="_blank" aria-label="View Live Demo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
+                                </div>
                             </div>
-                            </div>
+                        </div>
+                        <div class="project-image">
+                            <img src="https://img.itch.zone/aW1hZ2UvMzMyNDUwNi8yMDQwODIxMi5wbmc=/original/4b1UIK.png" alt="Cattleman's Crossing Screenshot">
                         </div>
                     </div>
 
-                    <div class="project-row reveal-on-scroll" data-category="ai">
-                        <div class="project-image-card">
-                             <img src="https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkyOTc2My5wbmc=/original/DDFFAu.png" alt="Pathfinding Visualizer" class="project-image">
-                        </div>
-                        <div class="project-info">
+                    <div class="project-entry reveal-on-scroll" data-category="game-dev">
+                        <div class="project-text">
                             <h3>Ash</h3>
                             <p>
                                Developed a stylized 3D open-world exploration game with gliding, dynamic traversal, puzzles, interactive environments and ability progression. Showcased at the 2024 Level Up Showcase as a top student project.
                             </p>
-                            <div class="project-meta-links">
+                            <div class="project-footer">
                                 <div class="project-tags">
                                     <span class="project-tag">Unreal Engine</span>
+                                    <span class="project-tag">Blueprint Scripting</span>
                                     <span class="project-tag">C++</span>
-                                    <span class="project-tag">Scripting</span>
                                     <span class="project-tag">Blender</span>
                                 </div>
                                 <div class="project-links">
-                                  <div class="project-links">
-                                <a href="https://rajusivanantham.itch.io/ash" target="_blank" aria-label="View Live Demo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                </a>
-                            </div>
+                                    <a href="https://rajusivanantham.itch.io/ash" target="_blank" aria-label="View Live Demo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
                                 </div>
                             </div>
                         </div>
+                        <div class="project-image">
+                            <img src="https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkyOTc2My5wbmc=/original/DDFFAu.png" alt="Ash Screenshot">
+                        </div>
                     </div>
 
-                    <div class="project-row reveal-on-scroll" data-category="web">
-                        <div class="project-image-card">
-                             <img src="https://img.itch.zone/aW1hZ2UvMjYwOTAzMC8xNjE3NjQ3MC5wbmc=/original/NwSHaH.png" alt="My Portfolio" class="project-image">
-                        </div>
-                        <div class="project-info">
+                    <div class="project-entry reveal-on-scroll" data-category="game-dev">
+                        <div class="project-text">
                             <h3>Space Toast</h3>
                             <p>
                                 Developed a 2D top-down shooter featuring wave-based combat, projectile + damage systems, dynamic pickups, and refined character movement. Built core gameplay with C# and polished UI, visuals, and level layout.
                             </p>
-                            <div class="project-meta-links">
-                               <div class="project-tags">
-                                <span class="project-tag">Unity</span>
-                                <span class="project-tag">C#</span>
-                                <span class="project-tag">2D Game Development</span>
-                            </div>
-                                <div class="project-links">
-                                <a href="https://example.com/space-toast" target="_blank" aria-label="View Live Demo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                </a>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-row reveal-on-scroll" data-category="other">
-                        <div class="project-image-card">
-                            <img src="https://img.itch.zone/aW1nLzE4NzcwNDQ1LnBuZw==/original/eg7ZAD.png" alt="3D Modeling Showcase" class="project-image">
-                        </div>
-                        <div class="project-info">
-                            <h3>Grave Digger</h3>
-                            <p>
-Developed a 3D boss-rush game in Unreal Engine that progressively simplifies gameplay. Led level design, UI, and core systems—including mechanics, controls, pickups, and physics—using Blueprint scripting.                            </p>
-                            <div class="project-meta-links">
+                            <div class="project-footer">
                                 <div class="project-tags">
-                                <span class="project-tag">Unreal Engine</span>
-                                <span class="project-tag">Scripting</span>
-                                <span class="project-tag">Maya</span>
-                                <span class="project-tag">Git</span>
+                                    <span class="project-tag">Unity</span>
+                                    <span class="project-tag">C#</span>
+                                    <span class="project-tag">2D Game Development</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://example.com/space-toast" target="_blank" aria-label="View Live Demo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
+                                </div>
                             </div>
-                                  <div class="project-links">
-                                <a href="https://delyy.itch.io/graverunner" target="_blank" aria-label="View Live Demo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                </a>
-                            </div>
-                            </div>
+                        </div>
+                        <div class="project-image">
+                            <img src="https://img.itch.zone/aW1hZ2UvMjYwOTAzMC8xNjE3NjQ2Ni5wbmc=/original/9YwVr1.png" alt="Space Toast Screenshot">
                         </div>
                     </div>
 
-                    <div class="project-row reveal-on-scroll" data-category="game">
-                        <div class="project-image-card">
-                             <img src="Images/Chatbot.png" alt="Pixelverse Survivor Game" class="project-image">
+                    <div class="project-entry reveal-on-scroll" data-category="game-dev">
+                        <div class="project-text">
+                            <h3>Grave Digger</h3>
+                            <p>
+                                Developed a 3D boss-rush game in Unreal Engine that progressively simplifies gameplay. Led level design, UI, and core systems—including mechanics, controls, pickups, and physics—using Blueprint scripting.
+                            </p>
+                            <div class="project-footer">
+                                <div class="project-tags">
+                                    <span class="project-tag">Unreal Engine</span>
+                                    <span class="project-tag">Blueprint Scripting</span>
+                                    <span class="project-tag">Maya</span>
+                                    <span class="project-tag">Git</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://delyy.itch.io/graverunner" target="_blank" aria-label="View Live Demo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="project-info">
+                        <div class="project-image">
+                            <img src="https://img.itch.zone/aW1nLzE4NzcwNDQ1LnBuZw==/original/eg7ZAD.png" alt="Grave Digger Screenshot">
+                        </div>
+                    </div>
+
+                    <h3 class="project-group-title" data-category="software-dev">Software</h3>
+
+                    <div class="project-entry reveal-on-scroll" data-category="software-dev">
+                        <div class="project-text">
                             <h3>AI Chatbot</h3>
                             <p>
                                 Full-stack AI chatbot with a modern UI, persistent chat history, multi-file analysis, image generation, and customizable model settings. Built for high accuracy, realism, and an engaging human-like experience.
                             </p>
-                            <div class="project-meta-links">
-                                 <div class="project-tags">
-                                <span class="project-tag">Python</span>
-                                <span class="project-tag">Flask</span>
-                                <span class="project-tag">JavaScript</span>
-                                <span class="project-tag">Hugging Face</span>
-                            </div>
+                            <div class="project-footer">
+                                <div class="project-tags">
+                                    <span class="project-tag">Python</span>
+                                    <span class="project-tag">Flask</span>
+                                    <span class="project-tag">JavaScript</span>
+                                    <span class="project-tag">Hugging Face</span>
+                                </div>
                                 <div class="project-links">
-                                <a href="https://github.com/delvinsalman/Chatbot" target="_blank" aria-label="View on GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                                </a>
+                                    <a href="https://github.com/delvinsalman/Chatbot" target="_blank" aria-label="View on GitHub">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    </a>
+                                </div>
                             </div>
-                            </div>
+                        </div>
+                        <div class="project-image">
+                            <img src="https://delvinsalman.github.io/DelvinSalmanPortfolio.github.io/Images/Chatbot.png" alt="AI Chatbot Screenshot">
                         </div>
                     </div>
 
-                    <div class="project-row reveal-on-scroll" data-category="web">
-                        <div class="project-image-card">
-                             <img src="https://www.billit.eu/media/n5cmyll2/blog-qr-codes.png" alt="E-Commerce Storefront" class="project-image">
-                        </div>
-                        <div class="project-info">
+                    <div class="project-entry reveal-on-scroll" data-category="software-dev">
+                        <div class="project-text">
                             <h3>QR Code Generator</h3>
                             <p>
-An advanced QR code generator with customizable logos, color themes, and unique styles. Supports multiple data types including URLs, contact info, text, and Wi-Fi, with fast processing and seamless interaction.                            </p>
-                            <div class="project-meta-links">
-                                 <div class="project-tags">
-                                <span class="project-tag">JavaScript</span>
-                                <span class="project-tag">HTML/CSS</span>
-                                <span class="project-tag">QRCode.js</span>
-                            </div>
+                                An advanced QR code generator with customizable logos, color themes, and unique styles. Supports multiple data types including URLs, contact info, text, and Wi-Fi, with fast processing and seamless interaction.
+                            </p>
+                            <div class="project-footer">
+                                <div class="project-tags">
+                                    <span class="project-tag">JavaScript</span>
+                                    <span class="project-tag">HTML/CSS</span>
+                                    <span class="project-tag">QRCode.js</span>
+                                </div>
                                 <div class="project-links">
-                                <a href="https://delvinsalman.github.io/QRGenerator/" target="_blank" aria-label="View Live Demo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                </a>
-                                <a href="https://github.com/delvinsalman/QRGenerator" target="_blank" aria-label="View on GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                                </a>
+                                    <a href="https://delvinsalman.github.io/QRGenerator/" target="_blank" aria-label="View Live Demo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
+                                    <a href="https://github.com/delvinsalman/QRGenerator" target="_blank" aria-label="View on GitHub">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    </a>
+                                </div>
                             </div>
-                            </div>
+                        </div>
+                        <div class="project-image">
+                            <img src="https://www.billit.eu/media/n5cmyll2/blog-qr-codes.png" alt="QR Code Generator Screenshot">
                         </div>
                     </div>
 
-                    <div class="project-row reveal-on-scroll" data-category="ai">
-                        <div class="project-image-card">
-                             <img src="Images/Weather.png" alt="Sentiment Analysis Bot" class="project-image">
-                        </div>
-                        <div class="project-info">
+                    <h3 class="project-group-title" data-category="web-dev">Web Development</h3>
+
+                    <div class="project-entry reveal-on-scroll" data-category="web-dev">
+                        <div class="project-text">
                             <h3>Weather Application</h3>
                             <p>
                                 An interactive weather app with real-time global forecasts powered by OpenWeatherMap. Includes dynamic updates, an interactive Leaflet.js map, detailed climate data, saved locations, and a responsive UI.
                             </p>
-                            <div class="project-meta-links">
+                            <div class="project-footer">
                                 <div class="project-tags">
-                                <span class="project-tag">JavaScript</span>
-                                <span class="project-tag">API</span>
-                                <span class="project-tag">Leaflet.js</span>
+                                    <span class="project-tag">JavaScript</span>
+                                    <span class="project-tag">API</span>
+                                    <span class="project-tag">Leaflet.js</span>
+                                    <span class="project-tag">HTML/CSS</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://delvinsalman.github.io/WeatherApplication/" target="_blank" aria-label="View Live Demo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
+                                    <a href="https://github.com/delvinsalman/WeatherApplication" target="_blank" aria-label="View on GitHub">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    </a>
+                                </div>
                             </div>
-                               <div class="project-links">
-                                <a href="https://delvinsalman.github.io/WeatherApplication/" target="_blank" aria-label="View Live Demo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                </a>
-                                <a href="https://github.com/delvinsalman/WeatherApplication" target="_blank" aria-label="View on GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                                </a>
-                            </div>
-                            </div>
+                        </div>
+                        <div class="project-image">
+                            <img src="./Images/Weather.png" alt="Weather Application Screenshot">
                         </div>
                     </div>
 
-                    <div class="project-row reveal-on-scroll" data-category="game">
-                        <div class="project-image-card">
-                             <img src="Images/SearchEngine.png" alt="VR Stealth Game" class="project-image">
-                        </div>
-                        <div class="project-info">
+                    <div class="project-entry reveal-on-scroll" data-category="web-dev">
+                        <div class="project-text">
                             <h3>Captures.io</h3>
                             <p>
                                 Developed a user-friendly image and video search engine with real-time access to high-quality visuals using JavaScript and the Pexels API. Designed for fast browsing, smooth downloads, and an intuitive UI.
                             </p>
-                            <div class="project-meta-links">
+                            <div class="project-footer">
                                 <div class="project-tags">
                                     <span class="project-tag">JavaScript</span>
-                                    <span class="project-tag">Vanilla JS</span>
+                                    <span class="project-tag">HTML/CSS</span>
                                     <span class="project-tag">Pexels API</span>
                                 </div>
-                                  <div class="project-links">
-                                <a href="https://delvinsalman.github.io/SearchEngine/" target="_blank" aria-label="View Live Demo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                </a>
-                                <a href="httpsg" target="_blank" aria-label="View on GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                                </a>
+                                <div class="project-links">
+                                    <a href="httpshttps://delvinsalman.github.io/SearchEngine/" target="_blank" aria-label="View Live Demo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
+                                    <a href="https://github.com/delvinsalman/SearchEngine" target="_blank" aria-label="View on GitHub">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    </a>
+                                </div>
                             </div>
-                            </div>
+                        </div>
+                        <div class="project-image">
+                            <img src="./Images/SearchEngine.png" alt="Captures.io Screenshot">
                         </div>
                     </div>
-                    
-                    <div class="project-row reveal-on-scroll" data-category="other">
-                        <div class="project-image-card">
-                             <img src="Images/Fish.png" alt="Campus Navigator App" class="project-image">
-                        </div>
-                        <div class="project-info">
+
+                    <h3 class="project-group-title" data-category="data-creative">Data & Creative</h3>
+
+                    <div class="project-entry reveal-on-scroll" data-category="data-creative">
+                        <div class="project-text">
                             <h3>Smells Fishy</h3>
                             <p>
-Developed an interactive data visualization with a boid simulation mimicking an aquatic ecosystem. Users explore responsive, dynamic visuals with color-coded clarity, enhanced by integrated JavaScript libraries.                            </p>
-                            <div class="project-meta-links">
+                                Developed an interactive data visualization with a boid simulation mimicking an aquatic ecosystem. Users explore responsive, dynamic visuals with color-coded clarity, enhanced by integrated JavaScript libraries.
+                            </p>
+                            <div class="project-footer">
                                 <div class="project-tags">
-                                <span class="project-tag">JavaScript</span>
-                                <span class="project-tag">p5.js</span>
-                                <span class="project-tag">p5.sound</span>
-                            </div>
+                                    <span class="project-tag">JavaScript</span>
+                                    <span class="project-tag">p5.js</span>
+                                    <span class="project-tag">p5.sound</span>
+                                </div>
                                 <div class="project-links">
-                                <a href="httpsg" target="_blank" aria-label="View Live Demo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                </a>
-                                <a href="httpsg" target="_blank" aria-label="View on GitHub">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                                </a>
+                                    <a href="https://editor.p5js.org/Delvin/full/bG7XyZZw2" target="_blank" aria-label="View Live Demo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
+                                    <a href="https://github.com/delvinsalman/SmellsFishy" target="_blank" aria-label="View on GitHub">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    </a>
+                                </div>
                             </div>
-                            </div>
+                        </div>
+                        <div class="project-image">
+                            <img src="./Images/Fish.png" alt="Smells Fishy Screenshot">
                         </div>
                     </div>
 
-                    <div class="project-row reveal-on-scroll" data-category="web">
-                        <div class="project-image-card">
-                             <img src="Images/VisualTouch.png" alt="Real-time Chat App" class="project-image">
-                        </div>
-                        <div class="project-info">
+                    <div class="project-entry reveal-on-scroll" data-category="data-creative">
+                        <div class="project-text">
                             <h3>Visual Touch</h3>
                             <p>
-Developed an interactive JavaScript data visualization featuring a boid simulation that mimics an aquatic ecosystem. Users explore dynamic, color-coded visuals with responsive movement, through integrated libraries.                          </p>
-                            <div class="project-meta-links">
-                               <div class="project-tags">
-                                <span class="project-tag">JavaScript</span>
-                                <span class="project-tag">p5.js</span>
-                                <span class="project-tag">p5.sound</span>
-                                <span class="project-tag">Dat.GUI</span>
-                            </div>
+                                Developed an interactive JavaScript data visualization featuring a boid simulation that mimics an aquatic ecosystem. Users explore dynamic, color-coded visuals with responsive movement, through integrated libraries.
+                            </p>
+                            <div class="project-footer">
+                                <div class="project-tags">
+                                    <span class="project-tag">JavaScript</span>
+                                    <span class="project-tag">p5.js</span>
+                                    <span class="project-tag">p5.sound</span>
+                                    <span class="project-tag">Dat.GUI</span>
+                                </div>
                                 <div class="project-links">
-                                <a href="httpshttps://editor.p5js.org/Delvin/full/7vD8Lushj" target="_blank" aria-label="View Live Demo">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                </a>
-                            </div>
+                                    <a href="httpshttps://editor.p5js.org/Delvin/full/7vD8Lushj" target="_blank" aria-label="View Live Demo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
+                        <div class="project-image">
+                            <img src="Images/VisualTouch.png" alt="Visual Touch Screenshot">
+                        </div>
                     </div>
-                    
                 </div>
-                
             </div>
         </section>
-
     </main>
-    
-    <footer class="main-footer">
-                    <p>&copy; 2025 Delvin Salman. All rights reserved.</p>
+
+    <footer class="main-footer reveal-on-scroll">
+        <div class="container">
+            <p>&copy; 2025 Delvin Salman. All rights reserved.</p>
+        </div>
     </footer>
 
-
     <script>
-        // --- THEME TOGGLE ---
+        // Theme toggle functionality
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
         
-        // Function to set theme
-        const setTheme = (theme) => {
-            if (theme === 'dark') {
-                body.classList.add('dark-mode');
-                body.classList.remove('light-mode');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                body.classList.add('light-mode');
-                body.classList.remove('dark-mode');
-                localStorage.setItem('theme', 'light');
-            }
-        };
-
-        // Check for saved theme in localStorage
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            setTheme(savedTheme);
-        } else {
-            // Default to dark mode if no theme is saved
-            setTheme('dark');
-        }
-
-        // Toggle theme on button click
         themeToggle.addEventListener('click', () => {
-            if (body.classList.contains('dark-mode')) {
-                setTheme('light');
-            } else {
-                setTheme('dark');
-            }
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
         });
-
-
-        // --- ROLE CYCLER ---
-        const roles = [
-            "Game Development",
-            "Software Engineering",
-            "Full-Stack Development",
-            "Artificial Intelligence"
-        ];
-        const roleCycler = document.getElementById('role-cycler');
-        let roleIndex = 0;
         
-        const cycleRoles = () => {
-            // Fade out
-            roleCycler.classList.add('fading');
-            
-            setTimeout(() => {
-                // Change text
-                roleIndex = (roleIndex + 1) % roles.length;
-                roleCycler.textContent = roles[roleIndex];
-                
-                // Fade in
-                roleCycler.classList.remove('fading');
-            }, 300); // This should match the CSS transition duration
-        };
-        
-        setInterval(cycleRoles, 2500); // Change role every 2.5 seconds
-
-
-        // --- STICKY HEADER SCROLL ---
+        // Header scroll effect
         const header = document.querySelector('.main-header');
         
-        const handleScroll = () => {
-            if (window.scrollY > 50) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) { 
                 header.classList.add('header-scrolled');
             } else {
                 header.classList.remove('header-scrolled');
             }
-        };
+        });
         
-        window.addEventListener('scroll', handleScroll);
-
-
-        // --- ACTIVE NAV LINK ON SCROLL ---
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.main-nav a');
-
-        const updateActiveLink = () => {
-            let currentSection = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 150) { // 150px offset
-                    currentSection = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', updateActiveLink);
-        window.addEventListener('load', updateActiveLink); // Run on page load
+        // Role cycler
+        const roleCycler = document.getElementById('role-cycler');
+        const roles = ["Game Development",
+            "Software Dev",
+            "Programming",
+            "UI/UX",
+            "Designing",
+            "3D Modeling",
+            "Animation",
+            "Web Development",
+            "Technology",
+            "Systems",
+            "AI",
+            "Machine Learning",
+            "Data",
+            "Virtual Reality",
+            "Creative Coding",
+            "Digital Media",
+            "Technical Art",
+            "Level Design",
+            "Learning",
+            "Creating",
+            "Innovation",
+            "Developing"];
+        let currentRoleIndex = 0;
         
+        function cycleRoles() {
+            roleCycler.classList.add('fading');
+            
+            setTimeout(() => {
+                currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+                roleCycler.textContent = roles[currentRoleIndex];
+                roleCycler.classList.remove('fading');
+            }, 500);
+        }
         
-        // --- PROJECT FILTERING (REMOVED) ---
-        /* const tabButtons = document.querySelectorAll('.tab-btn');
-        const projects = document.querySelectorAll('.project-row'); // Corrected from .project-card
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Update active button
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+        setInterval(cycleRoles, 3000);
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
                 
-                const category = button.getAttribute('data-category');
-
-                // Filter projects
-                projects.forEach(project => {
-                    if (category === 'all' || project.getAttribute('data-category') === category) {
-                        project.classList.remove('hidden');
-                    } else {
-                        project.classList.add('hidden');
-                    }
-                });
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
-        */
         
+        // --- UPDATED PROJECT FILTERING LOGIC ---
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const projectEntries = document.querySelectorAll('.project-entry'); // <-- This selector is still correct
+        // We no longer need to select projectTitles since they are hidden by CSS
         
-        // --- ON-SCROLL REVEAL ANIMATION ---
-        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                // Filter project entries
+                projectEntries.forEach(entry => { 
+                    // Simplified logic: show entry if its category matches the filter
+                    if (entry.getAttribute('data-category') === filter) { 
+                        entry.classList.remove('hidden'); 
+                    } else {
+                        entry.classList.add('hidden'); 
+                    }
+                });
+                
+                // The JavaScript logic for hiding/showing titles is no longer needed.
+            });
+        });
 
+        // --- NEW: Set initial filter state on page load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialFilter = 'game-dev'; // Corresponds to the 'active' button
+            
+            projectEntries.forEach(entry => { 
+                if (entry.getAttribute('data-category') === initialFilter) { 
+                    entry.classList.remove('hidden'); 
+                } else {
+                    entry.classList.add('hidden'); 
+                }
+            });
+        });
+        
+        // --- NEW: Intersection Observer for On-Scroll Animations ---
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // Stop observing
+                    observer.unobserve(entry.target); // Stop observing once it's visible
                 }
             });
         }, {
-            root: null, // viewport
-            threshold: 0.1 // 10% of element visible
+            root: null, // relative to the viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% of the element must be visible
         });
-
+        
         revealElements.forEach(element => {
             revealObserver.observe(element);
         });
+        // --- END NEW ANIMATION LOGIC ---
 
+        // Set active nav link based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
