@@ -693,21 +693,36 @@
         }
 
 
-        /* --- EDITED: Tech tags and paragraph spacing --- */
+        /* --- IMPROVED: Project text content centering --- */
         .project-text {
             grid-area: text;
-            display: flex; /* NEW: Use flexbox */
-            flex-direction: column; /* NEW: Stack children vertically */
-            height: 100%; /* NEW: Ensure text block fills grid area height */
-            color: var(--secondary-color); /* This will make the text lighter */
-
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            color: var(--secondary-color);
+            justify-content: center; /* NEW: Center content vertically */
+            padding: 1rem 0; /* NEW: Add some vertical padding */
         }
 
         .project-text p {
-            /* flex-grow: 0.5; */ /* REMOVED: This was pushing the footer down */
             margin-bottom: 1.5rem; /* CHANGED: Added space after paragraph */
         }
-        /* --- END: Improved spacing --- */
+
+        /* --- IMPROVED: Bigger project titles --- */
+        .project-text h3 {
+            font-size: 2rem; /* CHANGED: Increased from 1.6rem */
+            font-weight: 700; /* CHANGED: Made bolder */
+            color: var(--text-color);
+            margin-bottom: 1rem; /* CHANGED: Slightly increased spacing */
+        }
+
+        /* --- IMPROVED: Better alignment for project footer --- */
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem; /* CHANGED: Added space above footer */
+        }
 
 
         /* --- MODIFIED: Request 2 --- */
@@ -740,22 +755,6 @@
         .project-entry.hidden {
             display: none;
         }
-        
-        .project-text h3 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--text-color);
-            margin-bottom: 0.8rem;
-        }
-
-        /* --- EDITED: Tech tags and paragraph spacing --- */
-        .project-footer {
-            display: flex;
-            justify-content: space-between; /* Tags left, links right */
-            align-items: center;
-            margin-top: 0; /* CHANGED: Removed space above this row */
-        }
-        /* --- END EDIT --- */
 
         .project-tags {
             margin-bottom: 0; /* Remove old margin */
@@ -1068,6 +1067,9 @@
                  <div class="skill-logo-card" data-skill-name="TensorFlow">
                     <img src="https://avatars.githubusercontent.com/u/16359713?v=4" alt="Flask Logo">
                 </div>
+                <div class="skill-logo-card" data-skill-name="PyTorch">
+                    <img src="https://www.sorint.com/wp-content/uploads/2021/11/pytorch_workshop.png" alt="Flask Logo">
+                </div>
                 <div class="skill-logo-card" data-skill-name="Bootstrap">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/2560px-Bootstrap_logo.svg.png" alt="Flask Logo">
                 </div>
@@ -1096,6 +1098,9 @@
                 </div>
                 <div class="skill-logo-card" data-skill-name="Game Maker">
                     <img src="https://www.svgrepo.com/show/373617/gamemaker.svg" alt="Processing Logo">
+                </div>
+                 <div class="skill-logo-card" data-skill-name="Roblox Studio">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Roblox_Studio_logo_-_2022.svg/1200px-Roblox_Studio_logo_-_2022.svg.png" alt="Processing Logo">
                 </div>
                 
                  </div>
@@ -1142,6 +1147,15 @@
                 </div>
                 <div class="skill-logo-card" data-skill-name="Canva">
                     <img src="Images/Canva.png" alt="GitHub Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Davinci Resolve">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" alt="GitHub Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Lens Studio">
+                    <img src="https://support.lensstudio.snapchat.com/hc/theming_assets/01HZPG14DR16WSMEBFMX7GGWD6" alt="GitHub Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Intellij ">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/IntelliJ_IDEA_Icon.svg/2048px-IntelliJ_IDEA_Icon.svg.png" alt="GitHub Logo">
                 </div>
             </div>
         </div>
