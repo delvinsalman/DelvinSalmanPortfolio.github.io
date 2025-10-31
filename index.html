@@ -306,6 +306,13 @@
             margin-right: auto; /* Overrides the centering */
         }
         /* --- END NEW RULE --- */
+        
+        /* --- EDITED: Remove underline from Projects title --- */
+        #projects .section-title {
+    border-bottom: 3px solid var(--primary-color); /* ADD THIS */
+    /* border-bottom: none; */ /* REMOVE THIS */
+}
+        /* --- END EDIT --- */
 
 
         #home {
@@ -475,79 +482,81 @@
         }
         
         /* --- UPDATED PROJECT FILTER BAR STYLING --- */
-.tab-nav {
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    margin-bottom: 2rem; /* Reduced margin */
-    background-color: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    padding: 0.5rem;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    border: none;
-    transition: all 0.4s ease-in-out;
-    z-index: 99;
-}
-
-.tab-btn {
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0.75rem 1.5rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: var(--filter-text);
-    border-radius: 0;
-    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-    /* Removed the position: relative and ::after for underline */
-}
-
-.tab-btn:hover {
-    color: var(--text-color);
-}
-
-.tab-btn.active {
-    color: var(--filter-active);
-    background-color: transparent;
-    box-shadow: none;
-    font-weight: 700;
-}
-  /* --- ADD PROJECT DIVIDERS --- */
-.project-entry {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    padding: 2rem 0; /* Reduced padding */
-    position: relative; /* For centered divider */
-}
-
-/* Add centered divider between projects */
-.project-entry:not(:last-of-type)::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-    width: 80%;
-    height: 1px;
-    background-color: var(--border-color);
-    margin: 0 auto;
-}
-
-/* ALL PROJECTS SAME LAYOUT - TEXT LEFT, IMAGE RIGHT */
-.project-entry {
-    grid-template-areas: "text image";
-}
-      
-        /* UPDATED SKILLS GRID - 6 PER ROW */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 1.5rem;
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 2rem; /* Reduced margin */
+            background-color: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            padding: 0.5rem;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            border: none;
+            transition: all 0.4s ease-in-out;
+            z-index: 99;
         }
+
+        .tab-btn {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--filter-text);
+            border-radius: 0;
+            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+            /* Removed the position: relative and ::after for underline */
+        }
+
+        .tab-btn:hover {
+            color: var(--text-color);
+        }
+
+        .tab-btn.active {
+            color: var(--filter-active);
+            background-color: transparent;
+            box-shadow: none;
+            font-weight: 700;
+        }
+        /* --- ADD PROJECT DIVIDERS --- */
+        .project-entry {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 2rem 0; /* Reduced padding */
+            position: relative; /* For centered divider */
+        }
+
+        /* --- EDITED: Make divider full-width --- */
+        .project-entry:not(:last-of-type)::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0; /* CHANGED from 10% */
+            width: 100%; /* CHANGED from 80% */
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 0; /* CHANGED from 0 auto */
+        }
+        /* --- END EDIT --- */
+
+        /* ALL PROJECTS SAME LAYOUT - TEXT LEFT, IMAGE RIGHT */
+        .project-entry {
+            grid-template-areas: "text image";
+        }
+      
+       /* --- MODIFIED SKILL GRID --- */
+       .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr); /* CHANGED */
+            gap: 1rem; /* CHANGED */
+        }
+
         .skill-category {
             margin-bottom: 3rem;
         }
@@ -559,78 +568,108 @@
             padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--border-color);
         }
-        
-        /* --- MODIFIED SKILL ITEM STYLES --- */
-        .skill-item {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 1rem; /* UPDATED: Made padding smaller */
-            text-align: center;
-            border-radius: 12px;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* --- MODIFIED SKILL CARD STYLES --- */
-        .skill-card {
-            background-color: transparent;
-            min-height: 80px; /* UPDATED: Made card shorter */
-            perspective: 1000px;
-            cursor: pointer;
-            transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); /* NEW: Added for smooth scale */
-            position: relative; /* NEW: Added for z-index */
-        }
-        
-        /* --- NEW: Added hover scale effect --- */
-        .skill-card:hover {
-            transform: scale(1.05); /* NEW: Added smooth pop */
-            z-index: 10; /* NEW: Ensure it's on top of others */
-        }
-        /* --- END NEW STYLES --- */
-        
-        .skill-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-        
-        .skill-card:hover .skill-card-inner {
-            transform: rotateY(180deg);
+
+        .skill-logo-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+    /* CHANGES HERE */
+    aspect-ratio: 1 / 1;  /* ADD this line */
+    /* height: 80px; */   /* REMOVE or comment out this line */
+    
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    position: relative; /* For the tooltip */
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+        .skill-logo-card:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 10;
         }
 
-        .skill-back {
-            transform: rotateY(180deg);
-            border-color: var(--primary-color);
+       .skill-logo-card img {
+    width: 45px; /* CHANGED from 40px */
+    height: 45px; /* CHANGED from 40px */
+    object-fit: contain;
+}
+
+        /* --- NEW: Tooltip on hover --- */
+        .skill-logo-card::before {
+            content: attr(data-skill-name); /* Get text from data-attribute */
+            position: absolute;
+            bottom: 100%; /* Position above the card */
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 10px; /* Space between card and tooltip */
+            
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            
+            /* Hidden by default */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            z-index: 20;
         }
-        
-        /* --- MODIFIED SKILL ICON STYLES --- */
-        .skill-back img {
-            width: 40px; /* UPDATED: Made icon smaller */
-            height: 40px; /* UPDATED: Made icon smaller */
-            object-fit: contain;
+
+        /* Arrow for the tooltip */
+        .skill-logo-card::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 5px; /* Position it between card and text box */
+            
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--text-color) transparent transparent transparent;
+
+            /* Hidden by default */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            z-index: 19;
+        }
+
+        /* Show tooltip on hover */
+        .skill-logo-card:hover::before,
+        .skill-logo-card:hover::after {
             opacity: 1;
+            visibility: visible;
         }
-        /* --- END MODIFIED STYLES --- */
-        
-        .skill-card:hover .skill-front,
-        .skill-card:hover .skill-back {
-             border-color: var(--primary-color);
-             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
+        /* --- END NEW Tooltip --- */
+
         /* --- END SKILL SECTION MODIFICATIONS --- */
+
+        /* --- MODIFIED MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(4, 1fr); /* CHANGED */
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr); /* CHANGED */
+                gap: 1rem;
+            }
+        }
 
 
         /* --- NEW: PROJECT LAYOUT --- */
@@ -654,7 +693,7 @@
         }
 
 
-        /* --- MODIFIED: Improved spacing between paragraph and tech tags --- */
+        /* --- EDITED: Tech tags and paragraph spacing --- */
         .project-text {
             grid-area: text;
             display: flex; /* NEW: Use flexbox */
@@ -665,8 +704,8 @@
         }
 
         .project-text p {
-            flex-grow: 0.5; /* NEW: Makes description <p> fill available space, pushing footer down */
-            margin-bottom: 0.5rem; /* Reduced margin to bring tech tags closer */
+            /* flex-grow: 0.5; */ /* REMOVED: This was pushing the footer down */
+            margin-bottom: 1.5rem; /* CHANGED: Added space after paragraph */
         }
         /* --- END: Improved spacing --- */
 
@@ -709,18 +748,18 @@
             margin-bottom: 0.8rem;
         }
 
-        /* --- MODIFIED: Improved spacing --- */
+        /* --- EDITED: Tech tags and paragraph spacing --- */
         .project-footer {
             display: flex;
             justify-content: space-between; /* Tags left, links right */
             align-items: center;
-            margin-top: 0.3rem; /* Reduced space above this row */
+            margin-top: 0; /* CHANGED: Removed space above this row */
         }
+        /* --- END EDIT --- */
 
         .project-tags {
             margin-bottom: 0; /* Remove old margin */
         }
-        /* --- END: Improved spacing --- */
         
         .project-tag {
             display: inline-block;
@@ -734,12 +773,10 @@
             margin-bottom: 0.5rem;
         }
 
-        /* --- MODIFIED: Improved spacing --- */
         .project-links {
             margin-top: 0; /* Remove old margin */
             flex-shrink: 0; /* Stop links from shrinking if tags wrap */
         }
-        /* --- END: Improved spacing --- */
         
         .project-links a {
             color: var(--text-color);
@@ -760,7 +797,7 @@
             stroke-width: 2;
         }
 
-        /* --- STYLE FOR PROJECT SUB-LABELS --- */
+        /* --- EDITED: Hide category titles --- */
         .project-group-title {
             grid-column: 1 / -1; /* Makes the title span the full grid width */
             margin-top: 2rem; /* Reduced margin */
@@ -771,8 +808,9 @@
             font-weight: 600;
             color: var(--text-color);
             transition: border-color 0.3s ease;
-            display: none; /* <-- THIS HIDES THE TITLES */
+            display: none; /* <-- CHANGED from 'block' */
         }
+        /* --- END EDIT --- */
         
         /* Adds a bit of space so the first title isn't jammed against the tabs */
         .project-group-title:first-of-type {
@@ -868,11 +906,7 @@
             /* --- END: Improved spacing for mobile --- */
 
 
-            /* MOBILE RESPONSIVE FOR SKILLS GRID */
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
+            /* MOBILE RESPONSIVE FOR SKILLS GRID - Handled by the rules above @media (max-width: 768px) */
             
             .skill-card {
                 min-height: 80px; /* Ensure mobile height is also updated */
@@ -886,11 +920,7 @@
         }
 
         @media (max-width: 480px) {
-            /* UPDATED: Mobile skill grid */
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr); /* Changed from 1fr to 2fr for better use of space */
-                gap: 1rem;
-            }
+            /* MOBILE RESPONSIVE FOR SKILLS GRID - Handled by the rules above @media (max-width: 480px) */
             
             .tab-nav {
                 border-radius: 12px; /* <-- MODIFIED FROM 25px */
@@ -954,7 +984,7 @@
 
     <a href="mailto:delvinsalman19@gmail.com" aria-label="Email Me">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0 1.1.9-2 2-2z"></path>
             <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
     </a>
@@ -990,285 +1020,153 @@
             </div>
         </section>
         <section id="skills" class="section">
-            <div class="container">
-                <h2 class="section-title reveal-on-scroll">Technical Skills</h2>
-                <div class="skill-category reveal-on-scroll">
-                    <h3>Languages & Frameworks</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Python</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Python Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">JavaScript</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">HTML</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Other-html-5-icon.png" alt="HTML Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">CSS</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://icon.icepanel.io/Technology/svg/CSS3.svg" alt="CSS Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Java</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" alt="Java Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">C#</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Logo_C_sharp.svg/1067px-Logo_C_sharp.svg.png" alt="C# Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">C++</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png" alt="C++ Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Scripting</div>
-                                <div class="skill-item skill-back">
-                                    <img src="Images/BluepringScripting.png" alt="Scripting Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">React</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="React Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Node.js</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png" alt="Node.js Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">SQL</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Sql_data_base_with_logo.svg/1200px-Sql_data_base_with_logo.svg.png" alt="SQL Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Django</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://1000logos.net/wp-content/uploads/2020/08/Django-Logo.png" alt="Django Logo">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="container">
+        <h2 class="section-title reveal-on-scroll">Technical Skills</h2>
+        
+        <div class="skill-category reveal-on-scroll">
+            <h3>Languages & Frameworks</h3>
+            <div class="skills-grid">
+                <div class="skill-logo-card" data-skill-name="Python">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Python Logo">
                 </div>
-
-                <div class="skill-category reveal-on-scroll">
-                    <h3>Game Development</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Unreal Engine</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://img.icons8.com/ios_filled/512/unreal-engine.png" alt="Unreal Engine Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Unity</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/unity-game-engine-icon.png" alt="Unity Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">C++</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png" alt="C++ Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">C#</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Logo_C_sharp.svg" alt="C# Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Scripting</div>
-                                <div class="skill-item skill-back">
-                                    <img src="Images/BluepringScripting.png" alt="Scripting Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Godot</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://avatars.githubusercontent.com/u/6318500?s=280&v=4" alt="Godot Logo">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="skill-logo-card" data-skill-name="JavaScript">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo">
                 </div>
-                
-                <div class="skill-category reveal-on-scroll">
-                    <h3>Software & Technical Tools</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">VS Code</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" alt="VS Code Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Git</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://avatars.githubusercontent.com/u/18133?s=200&v=4" alt="Git Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Eclipse</div>
-                                <div class="skill-item skill-back">
-                                    <img src="Images/Eclipse.avif" alt="Eclipse Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Sublime</div>
-                                <div class="skill-item skill-back">
-                                    <img src="Images/Sublime.png" alt="Sublime Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">p5.js</div>
-                                <div class="skill-item skill-back">
-                                    <img src="Images/p5.js.png" alt="Jupyter Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Processing</div>
-                                <div class="skill-item skill-back">
-                                    <img src="httpshttps://upload.wikimedia.org/wikipedia/commons/c/cb/Processing_2021_logo.svg" alt="PyCharm Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Adobe Suite</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Adobe_Creative_Cloud_rainbow_icon.svg/1200px-Adobe_Creative_Cloud_rainbow_icon.svg.png" alt="IntelliJ Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Maya</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/autodesk-maya-icon.png" alt="Visual Studio Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Blender</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Blender_logo_no_text.svg/2503px-Blender_logo_no_text.svg.png" alt="Visual Studio Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Microsoft</div>
-                                <div class="skill-item skill-back">
-                                    <img src="Images/Microsoft.png" alt="Visual Studio Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">TouchDesigner</div>
-                                <div class="skill-item skill-back">
-                                    <img src="https://patchstorage.com/wp-content/uploads/2021/02/TouchDesigner_logo.png" alt="Visual Studio Logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-card-inner">
-                                <div class="skill-item skill-front">Canva</div>
-                                <div class="skill-item skill-back">
-                                    <img src="Images/Canva.png" alt="Visual Studio Logo">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="skill-logo-card" data-skill-name="HTML">
+                    <img src="https://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Other-html-5-icon.png" alt="HTML Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="CSS">
+                    <img src="https://icon.icepanel.io/Technology/svg/CSS3.svg" alt="CSS Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Java">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" alt="Java Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="C#">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Logo_C_sharp.svg/1067px-Logo_C_sharp.svg.png" alt="C# Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="C++">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png" alt="C++ Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Scripting">
+                    <img src="Images/BluepringScripting.png" alt="GDScript Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="React">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png" alt="Godot Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Node.js">
+                    <img src="Images/Nodejs.png" alt="Unreal Engine Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="SQL">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" alt="Blueprint Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Django">
+                    <img src="https://static.djangoproject.com/img/logos/django-logo-negative.1d528e2cb5fb.png" alt="Flask Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Flask">
+                    <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/flask-qvsfwhwywucb6zv0d7ce.png/flask-1byb2jlw6nwim4nx2248xg.png?_a=DATAg1AAZAA0" alt="Flask Logo">
+                </div>
+                 <div class="skill-logo-card" data-skill-name="TensorFlow">
+                    <img src="https://avatars.githubusercontent.com/u/16359713?v=4" alt="Flask Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Bootstrap">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/2560px-Bootstrap_logo.svg.png" alt="Flask Logo">
                 </div>
             </div>
-        </section>
+        </div>
+ <div class="skill-category reveal-on-scroll">
+            <h3>Game Development</h3>
+            <div class="skills-grid">
+                <div class="skill-logo-card" data-skill-name="Unreal Engine">
+                    <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/video-games/unreal-engine-qdh1c46xy8c1nedruo2v5.png/unreal-engine-xwo7bd8vu6fzpnkcifgtu.png?_a=DATAg1AAZAA0" alt="VS Code Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Unity">
+                    <img src="https://engine.needle.tools/docs/imgs/unity-logo.webp" alt="Git Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="C++">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1067px-ISO_C%2B%2B_Logo.svg.png" alt="Eclipse Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="C#">
+                    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/csharp.svg" alt="Sublime Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Scripting">
+                    <img src="Images/BluepringScripting.png" alt="p5.js Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Godot">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Godot_icon.svg/2048px-Godot_icon.svg.png" alt="Processing Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Game Maker">
+                    <img src="https://www.svgrepo.com/show/373617/gamemaker.svg" alt="Processing Logo">
+                </div>
+                
+                 </div>
+        </div>
+        
+        <div class="skill-category reveal-on-scroll">
+            <h3>Software & Technical Tools</h3>
+            <div class="skills-grid">
+                <div class="skill-logo-card" data-skill-name="VS Code">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" alt="VS Code Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Git">
+                    <img src="https://avatars.githubusercontent.com/u/18133?s=200&v=4" alt="Git Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Eclipse">
+                    <img src="Images/Eclipse.avif" alt="Eclipse Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Sublime">
+                    <img src="Images/Sublime.png" alt="Sublime Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="p5.js">
+                    <img src="Images/p5.js.png" alt="p5.js Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Processing">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Processing_2021_logo.svg" alt="Processing Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Adobe Suite">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Adobe_Creative_Cloud_rainbow_icon.svg/1200px-Adobe_Creative_Cloud_rainbow_icon.svg.png" alt="Adobe Suite Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Microsoft Office">
+                    <img src="https://img.icons8.com/color/480/microsoft-office-2019.png" alt="Microsoft Office Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="GitHub">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Logo">
+                </div>
+                 <div class="skill-logo-card" data-skill-name="Maya">
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/autodesk-maya-icon.png" alt="GitHub Logo">
+                </div>
+                 <div class="skill-logo-card" data-skill-name="Blender">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Blender_logo_no_text.svg/2503px-Blender_logo_no_text.svg.png" alt="GitHub Logo">
+                </div>
+                 <div class="skill-logo-card" data-skill-name="TouchDesigner">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ-yuoufJf3TtwP3MOuUrl1Nwum2ihXPAbAA&s" alt="GitHub Logo">
+                </div>
+                <div class="skill-logo-card" data-skill-name="Canva">
+                    <img src="Images/Canva.png" alt="GitHub Logo">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <section id="projects" class="section section-alt">
             <div class="container">
                 <h2 class="section-title reveal-on-scroll">Projects</h2>
+                
                 <div class="tab-nav reveal-on-scroll">
-                    <button class="tab-btn active" data-filter="game-dev">Game Development</button> <button class="tab-btn" data-filter="software-dev">Software</button>
+                    <button class="tab-btn active" data-filter="game-dev">Game Development</button>
+                    <button class="tab-btn" data-filter="software-dev">Software</button>
                     <button class="tab-btn" data-filter="web-dev">Web Development</button>
                     <button class="tab-btn" data-filter="data-creative">Data & Creative</button>
                 </div>
-
                 <div class="project-list">
+                    
                     <h3 class="project-group-title" data-category="game-dev">Game Development</h3>
 
                     <div class="project-entry reveal-on-scroll" data-category="game-dev">
                         <div class="project-text">
                             <h3>Cattleman's Crossing</h3>
                             <p>
-                               Led level design and development for Cattleman's Crossing, a 3D open-world narrative game inspired by Canadian landscapes. Built the main map, interactive systems, and supported core gameplay.
+                                Led level design and development for Cattleman's Crossing, a 3D open-world narrative game inspired by Canadian landscapes. Built the main map, interactive systems, and supported core gameplay.
                             </p>
                             <div class="project-footer">
                                 <div class="project-tags">
@@ -1386,7 +1284,7 @@
                             </div>
                         </div>
                         <div class="project-image">
-                            <img src="https://delvinsalman.github.io/DelvinSalmanPortfolio.github.io/Images/Chatbot.png" alt="AI Chatbot Screenshot">
+                            <img src="Images/Chatbot.png" alt="AI Chatbot Screenshot">
                         </div>
                     </div>
 
@@ -1615,10 +1513,10 @@
             });
         });
         
-        // --- UPDATED PROJECT FILTERING LOGIC ---
+        // --- EDITED: Updated Project Filtering Logic ---
         const tabBtns = document.querySelectorAll('.tab-btn');
-        const projectEntries = document.querySelectorAll('.project-entry'); // <-- This selector is still correct
-        // We no longer need to select projectTitles since they are hidden by CSS
+        const projectEntries = document.querySelectorAll('.project-entry');
+        const projectTitles = document.querySelectorAll('.project-group-title'); // Titles are hidden by CSS
         
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -1629,24 +1527,28 @@
                 
                 const filter = btn.getAttribute('data-filter');
                 
+                // Hide all category titles (they are already hidden by CSS, this is just for JS logic)
+                projectTitles.forEach(title => title.classList.add('hidden'));
+                
                 // Filter project entries
                 projectEntries.forEach(entry => { 
-                    // Simplified logic: show entry if its category matches the filter
                     if (entry.getAttribute('data-category') === filter) { 
                         entry.classList.remove('hidden'); 
                     } else {
                         entry.classList.add('hidden'); 
                     }
                 });
-                
-                // The JavaScript logic for hiding/showing titles is no longer needed.
             });
         });
 
-        // --- NEW: Set initial filter state on page load ---
+        // --- EDITED: Set initial filter state to 'game-dev' on page load ---
         document.addEventListener('DOMContentLoaded', () => {
-            const initialFilter = 'game-dev'; // Corresponds to the 'active' button
+            const initialFilter = 'game-dev'; // CHANGED from 'all'
             
+            // Hide titles
+            projectTitles.forEach(title => title.classList.add('hidden'));
+            
+            // Filter projects
             projectEntries.forEach(entry => { 
                 if (entry.getAttribute('data-category') === initialFilter) { 
                     entry.classList.remove('hidden'); 
