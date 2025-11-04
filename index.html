@@ -258,16 +258,10 @@
             border-bottom: none;
         }
 
-        /* FADING GRADIENT FOR ALTERNATING SECTIONS */
+        /* FADING GRADIENT FOR ALTERNATING SECTIONS - REMOVED FOR DARK MODE */
         .section-alt {
             position: relative;
-            background: linear-gradient(
-                to bottom,
-                var(--bg-color) 0%,
-                var(--section-bg) 15%,
-                var(--section-bg) 85%,
-                var(--bg-color) 100%
-            );
+            background: var(--bg-color); /* Changed from gradient to solid color */
             padding: 6rem 0; /* Reduced padding */
             margin: 3rem 0; /* Reduced margin */
         }
@@ -307,13 +301,14 @@
         }
         /* --- END NEW RULE --- */
         
-        /* --- EDITED: Remove underline from Projects title --- */
+        /* --- NEW RULE FOR PROJECTS TITLE --- */
         #projects .section-title {
-    border-bottom: 3px solid var(--primary-color); /* ADD THIS */
-    /* border-bottom: none; */ /* REMOVE THIS */
-}
-        /* --- END EDIT --- */
-
+            text-align: left;
+            margin-left: 0;
+            margin-right: auto; /* Overrides the centering */
+            border-bottom: 3px solid var(--primary-color);
+        }
+        /* --- END NEW RULE --- */
 
         #home {
             padding-top: 4rem;
@@ -484,16 +479,16 @@
         /* --- UPDATED PROJECT FILTER BAR STYLING --- */
         .tab-nav {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* CHANGED: Align to left */
             gap: 0;
             margin-bottom: 2rem; /* Reduced margin */
             background-color: transparent;
             backdrop-filter: none;
             -webkit-backdrop-filter: none;
             padding: 0.5rem;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
+            width: 100%; /* CHANGED: Full width */
+            margin-left: -30px; /* CHANGED: Remove auto margin */
+            margin-right: 0; /* CHANGED: Remove auto margin */
             border: none;
             transition: all 0.4s ease-in-out;
             z-index: 99;
@@ -983,7 +978,7 @@
 
     <a href="mailto:delvinsalman19@gmail.com" aria-label="Email Me">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0 1.1.9-2 2-2z"></path>
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
             <polyline points="22,6 12,13 2,6"></polyline>
         </svg>
     </a>
@@ -1239,7 +1234,7 @@
                                     <span class="project-tag">2D Game Development</span>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://example.com/space-toast" target="_blank" aria-label="View Live Demo">
+                                    <a href="https://delyy.itch.io/space-toast" target="_blank" aria-label="View Live Demo">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                                     </a>
                                 </div>
@@ -1372,7 +1367,7 @@
                                     <span class="project-tag">Pexels API</span>
                                 </div>
                                 <div class="project-links">
-                                    <a href="httpshttps://delvinsalman.github.io/SearchEngine/" target="_blank" aria-label="View Live Demo">
+                                    <a href="https://delvinsalman.github.io/SearchEngine/" target="_blank" aria-label="View Live Demo">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                                     </a>
                                     <a href="https://github.com/delvinsalman/SearchEngine" target="_blank" aria-label="View on GitHub">
@@ -1429,7 +1424,7 @@
                                     <span class="project-tag">Dat.GUI</span>
                                 </div>
                                 <div class="project-links">
-                                    <a href="httpshttps://editor.p5js.org/Delvin/full/7vD8Lushj" target="_blank" aria-label="View Live Demo">
+                                    <a href="https://editor.p5js.org/Delvin/full/7vD8Lushj" target="_blank" aria-label="View Live Demo">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                                     </a>
                                 </div>
