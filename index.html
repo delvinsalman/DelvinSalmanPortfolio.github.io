@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="Images/Logo.png">
 
-    <title>Delvin Salman┃Portfolio</title>
+    <title>Delvin Salman—Portfolio</title>
     <style>
         :root {
             --bg-color: #f8f8f8;
@@ -94,9 +94,8 @@
         /* --- On-Scroll Reveal Animation --- */
         .reveal-on-scroll {
             opacity: 0;
-            transform: translateY(20px); /* Subtle slide up */
+            transform: translateY(20px);
             transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
-            /* Will be toggled by JS */
         }
 
         .reveal-on-scroll.is-visible {
@@ -135,8 +134,8 @@
             margin: 2rem auto 0 auto;
             
             /* --- NEW: Added Animation --- */
-            opacity: 0; /* Start hidden */
-            animation: fadeInSlideDown 0.6s ease-out 0.1s forwards; /* 0.1s delay */
+            opacity: 0;
+            animation: fadeInSlideDown 0.6s ease-out 0.1s forwards;
             /* --- END NEW --- */
         }
 
@@ -258,30 +257,23 @@
             border-bottom: none;
         }
 
-        /* FADING GRADIENT FOR ALTERNATING SECTIONS - REMOVED FOR DARK MODE */
         .section-alt {
             position: relative;
-            background: var(--bg-color); /* Changed from gradient to solid color */
-            padding: 6rem 0; /* Reduced padding */
-            margin: 3rem 0; /* Reduced margin */
+            background: var(--bg-color);
+            padding: 6rem 0;
+            margin: 3rem 0;
         }
 
-        /* --- THIS IS THE MODIFIED RULE --- */
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
             text-align: center;
-            
-            /* --- MODIFICATIONS FOR UNDERLINE --- */
-            width: fit-content; /* Make block only as wide as its text */
-            padding-bottom: 0.5rem; /* Space between text and line */
-            border-bottom: 3px solid var(--primary-color); /* The underline */
-            
-            /* Keep original margin-bottom, but add auto left/right for centering */
-            margin-bottom: 2rem; /* Reduced margin */
+            width: fit-content;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary-color);
+            margin-bottom: 2rem;
             margin-left: auto;
             margin-right: auto;
-            /* --- END MODIFICATIONS --- */
         }
 
         #about .section-title {
@@ -289,26 +281,20 @@
             padding-bottom: 0.5rem;
             display: inline-block;
             margin-bottom: 2rem; 
-            /* This rule overrides the centering styles above, */
-            /* but INHERITS the border-bottom, which is what we want. */
         }
 
-        /* --- NEW RULE FOR SKILLS TITLE --- */
         #skills .section-title {
             text-align: left;
             margin-left: 0;
-            margin-right: auto; /* Overrides the centering */
+            margin-right: auto;
         }
-        /* --- END NEW RULE --- */
         
-        /* --- NEW RULE FOR PROJECTS TITLE --- */
         #projects .section-title {
             text-align: left;
             margin-left: 0;
-            margin-right: auto; /* Overrides the centering */
+            margin-right: auto;
             border-bottom: 3px solid var(--primary-color);
         }
-        /* --- END NEW RULE --- */
 
         #home {
             padding-top: 4rem;
@@ -381,19 +367,15 @@
         #home .subtitle,
         #home .intro-text,
         #home .social-links {
-            /* Set initial state for animation */
             opacity: 0;
             animation: fadeInSlideUp 0.6s ease-out forwards;
         }
 
-        /* Staggered delay */
         #home h1 { animation-delay: 0.1s; }
         #home .subtitle { animation-delay: 0.2s; }
         #home .intro-text { animation-delay: 0.3s; }
         #home .social-links { animation-delay: 0.4s; }
-        /* --- END NEW ANIMATION --- */
 
-        /* ORIGINAL SOCIAL LINKS STYLING */
         .social-links {
             margin-top: 2rem;
             display: flex;
@@ -421,17 +403,15 @@
             stroke-width: 2;
         }
 
-        /* --- THIS IS THE MODIFIED RULE --- */
         .about-content {
             display: grid;
-            grid-template-columns: 3fr 2fr; /* UPDATED: Made image column wider */
+            grid-template-columns: 3fr 2fr;
             gap: 4rem;
-            align-items: center; /* UPDATED: Vertically centered content */
+            align-items: center;
         }
         
-        /* --- NEW STYLES FOR CLEANER ABOUT SECTION (Re-added) --- */
         .about-text .about-subheader {
-            font-size: 1.3rem; /* A bit smaller than the main section title */
+            font-size: 1.3rem;
             font-weight: 600;
             color: var(--primary-color);
             margin-top: 2rem;
@@ -448,13 +428,13 @@
             font-size: 17px;
             line-height: 1.47059;
             position: relative;
-            padding-left: 30px; /* Space for the icon */
+            padding-left: 30px;
             margin-bottom: 0.75rem;
             color: var(--secondary-color);
         }
         
         .about-list li::before {
-            content: '✓'; /* Switched to a checkmark */
+            content: '✓';
             position: absolute;
             left: 0;
             top: 2px;
@@ -462,7 +442,6 @@
             font-weight: 700;
             font-size: 1.1rem;
         }
-        /* --- END NEW STYLES --- */
         
         .about-image img {
             width: 100%;
@@ -476,19 +455,18 @@
             transform: scale(1.02);
         }
         
-        /* --- UPDATED PROJECT FILTER BAR STYLING --- */
         .tab-nav {
             display: flex;
-            justify-content: flex-start; /* CHANGED: Align to left */
+            justify-content: flex-start;
             gap: 0;
-            margin-bottom: 2rem; /* Reduced margin */
+            margin-bottom: 2rem;
             background-color: transparent;
             backdrop-filter: none;
             -webkit-backdrop-filter: none;
             padding: 0.5rem;
-            width: 100%; /* CHANGED: Full width */
-            margin-left: -30px; /* CHANGED: Remove auto margin */
-            margin-right: 0; /* CHANGED: Remove auto margin */
+            width: 100%;
+            margin-left: -30px;
+            margin-right: 0;
             border: none;
             transition: all 0.4s ease-in-out;
             z-index: 99;
@@ -504,7 +482,6 @@
             color: var(--filter-text);
             border-radius: 0;
             transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-            /* Removed the position: relative and ::after for underline */
         }
 
         .tab-btn:hover {
@@ -517,39 +494,35 @@
             box-shadow: none;
             font-weight: 700;
         }
-        /* --- ADD PROJECT DIVIDERS --- */
+
         .project-entry {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
-            padding: 2rem 0; /* Reduced padding */
-            position: relative; /* For centered divider */
+            padding: 2rem 0;
+            position: relative;
         }
 
-        /* --- EDITED: Make divider full-width --- */
         .project-entry:not(:last-of-type)::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0; /* CHANGED from 10% */
-            width: 100%; /* CHANGED from 80% */
+            left: 0;
+            width: 100%;
             height: 1px;
             background-color: var(--border-color);
-            margin: 0; /* CHANGED from 0 auto */
+            margin: 0;
         }
-        /* --- END EDIT --- */
 
-        /* ALL PROJECTS SAME LAYOUT - TEXT LEFT, IMAGE RIGHT */
         .project-entry {
             grid-template-areas: "text image";
         }
       
-       /* --- MODIFIED SKILL GRID --- */
        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(8, 1fr); /* CHANGED */
-            gap: 1rem; /* CHANGED */
+            grid-template-columns: repeat(8, 1fr);
+            gap: 1rem;
         }
 
         .skill-category {
@@ -565,24 +538,20 @@
         }
 
         .skill-logo-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    
-    /* CHANGES HERE */
-    aspect-ratio: 1 / 1;  /* ADD this line */
-    /* height: 80px; */   /* REMOVE or comment out this line */
-    
-    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-    position: relative; /* For the tooltip */
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
 
         .skill-logo-card:hover {
             transform: scale(1.05);
@@ -592,19 +561,18 @@
         }
 
        .skill-logo-card img {
-    width: 45px; /* CHANGED from 40px */
-    height: 45px; /* CHANGED from 40px */
-    object-fit: contain;
-}
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
 
-        /* --- NEW: Tooltip on hover --- */
         .skill-logo-card::before {
-            content: attr(data-skill-name); /* Get text from data-attribute */
+            content: attr(data-skill-name);
             position: absolute;
-            bottom: 100%; /* Position above the card */
+            bottom: 100%;
             left: 50%;
             transform: translateX(-50%);
-            margin-bottom: 10px; /* Space between card and tooltip */
+            margin-bottom: 10px;
             
             background-color: var(--text-color);
             color: var(--bg-color);
@@ -614,118 +582,115 @@
             font-weight: 600;
             white-space: nowrap;
             
-            /* Hidden by default */
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.2s ease, visibility 0.2s ease;
             z-index: 20;
         }
 
-        /* Arrow for the tooltip */
         .skill-logo-card::after {
             content: '';
             position: absolute;
             bottom: 100%;
             left: 50%;
             transform: translateX(-50%);
-            margin-bottom: 5px; /* Position it between card and text box */
+            margin-bottom: 5px;
             
             border-width: 5px;
             border-style: solid;
             border-color: var(--text-color) transparent transparent transparent;
 
-            /* Hidden by default */
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.2s ease, visibility 0.2s ease;
             z-index: 19;
         }
 
-        /* Show tooltip on hover */
         .skill-logo-card:hover::before,
         .skill-logo-card:hover::after {
             opacity: 1;
             visibility: visible;
         }
-        /* --- END NEW Tooltip --- */
 
-        /* --- END SKILL SECTION MODIFICATIONS --- */
+        /* --- NEW: Specific icon color overrides for Unreal Engine, Flask, and GitHub --- */
+        body.dark-mode .skill-logo-card[data-skill-name="Unreal Engine"] img,
+        body.dark-mode .skill-logo-card[data-skill-name="Flask"] img,
+        body.dark-mode .skill-logo-card[data-skill-name="GitHub"] img {
+            filter: brightness(0) invert(1);
+        }
+        
+        body.light-mode .skill-logo-card[data-skill-name="Unreal Engine"] img,
+        body.light-mode .skill-logo-card[data-skill-name="Flask"] img,
+        body.light-mode .skill-logo-card[data-skill-name="GitHub"] img {
+            filter: brightness(0);
+        }
+        /* --- END icon color overrides --- */
 
-        /* --- MODIFIED MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
             .skills-grid {
-                grid-template-columns: repeat(4, 1fr); /* CHANGED */
+                grid-template-columns: repeat(4, 1fr);
                 gap: 1rem;
             }
         }
 
         @media (max-width: 480px) {
             .skills-grid {
-                grid-template-columns: repeat(3, 1fr); /* CHANGED */
+                grid-template-columns: repeat(3, 1fr);
                 gap: 1rem;
             }
         }
 
-
-        /* --- NEW: PROJECT LAYOUT --- */
         .project-list {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem; /* Reduced gap between project entries */
+            gap: 1.5rem;
         }
         
         .project-entry {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 50/50 split */
+            grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
-            padding: 2rem 0; /* Reduced padding */
+            padding: 2rem 0;
         }
         
-        /* ALL PROJECTS SAME LAYOUT - TEXT LEFT, IMAGE RIGHT */
         .project-entry {
             grid-template-areas: "text image";
         }
 
-
-        /* --- IMPROVED: Project text content centering --- */
         .project-text {
             grid-area: text;
             display: flex;
             flex-direction: column;
             height: 100%;
             color: var(--secondary-color);
-            justify-content: center; /* NEW: Center content vertically */
-            padding: 1rem 0; /* NEW: Add some vertical padding */
+            justify-content: center;
+            padding: 1rem 0;
         }
 
         .project-text p {
-            margin-bottom: 1.5rem; /* CHANGED: Added space after paragraph */
+            margin-bottom: 1.5rem;
         }
 
-        /* --- IMPROVED: Bigger project titles --- */
         .project-text h3 {
-            font-size: 2rem; /* CHANGED: Increased from 1.6rem */
-            font-weight: 700; /* CHANGED: Made bolder */
+            font-size: 2rem;
+            font-weight: 700;
             color: var(--text-color);
-            margin-bottom: 1rem; /* CHANGED: Slightly increased spacing */
+            margin-bottom: 1rem;
         }
 
-        /* --- IMPROVED: Better alignment for project footer --- */
         .project-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 1rem; /* CHANGED: Added space above footer */
+            margin-top: 1rem;
         }
 
-
-        /* --- MODIFIED: Request 2 --- */
         .project-image {
             grid-area: image;
-            aspect-ratio: 16 / 9; /* NEW: Enforce a 16:9 aspect ratio */
-            border-radius: 12px; /* NEW: Moved border-radius to container */
-            overflow: hidden; /* NEW: Clip the image inside */
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             transition: box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
@@ -736,23 +701,21 @@
 
         .project-image img {
             width: 100%;
-            height: 100%; /* NEW: Make image fill container */
-            object-fit: cover; /* NEW: Fill space, crop if necessary */
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
         .project-image:hover img {
-            transform: scale(1.05); /* Only scale the image, not the container */
+            transform: scale(1.05);
         }
-        /* --- END: Request 2 --- */
-
         
         .project-entry.hidden {
             display: none;
         }
 
         .project-tags {
-            margin-bottom: 0; /* Remove old margin */
+            margin-bottom: 0;
         }
         
         .project-tag {
@@ -768,8 +731,8 @@
         }
 
         .project-links {
-            margin-top: 0; /* Remove old margin */
-            flex-shrink: 0; /* Stop links from shrinking if tags wrap */
+            margin-top: 0;
+            flex-shrink: 0;
         }
         
         .project-links a {
@@ -791,37 +754,31 @@
             stroke-width: 2;
         }
 
-        /* --- EDITED: Hide category titles --- */
         .project-group-title {
-            grid-column: 1 / -1; /* Makes the title span the full grid width */
-            margin-top: 2rem; /* Reduced margin */
-            margin-bottom: 0.5rem; /* Reduced margin */
-            padding-bottom: 0.5rem; /* Reduced padding */
+            grid-column: 1 / -1;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--border-color);
             font-size: 1.8rem;
             font-weight: 600;
             color: var(--text-color);
             transition: border-color 0.3s ease;
-            display: none; /* <-- CHANGED from 'block' */
+            display: none;
         }
-        /* --- END EDIT --- */
         
-        /* Adds a bit of space so the first title isn't jammed against the tabs */
         .project-group-title:first-of-type {
-            margin-top: 1rem; /* Reduced margin */
+            margin-top: 1rem;
         }
-        /* --- END OF STYLES --- */
         
-        /* --- UPDATED FOOTER STYLE --- */
         .main-footer {
-            padding: 1.5rem 0; /* Reduced padding from 3rem */
+            padding: 1.5rem 0;
             text-align: center;
             color: var(--secondary-color);
             font-size: 0.9rem;
             border-top: 1px solid var(--border-color);
             transition: border-color 0.3s ease;
         }
-        /* --- END OF CHANGE --- */
         
         @media (max-width: 768px) {
             .main-nav {
@@ -831,7 +788,7 @@
             .about-content {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
-                align-items: center; /* Revert to center on mobile, or keep 'end' if preferred */
+                align-items: center;
             }
             .about-image {
                 order: -1;
@@ -866,47 +823,39 @@
             .tab-nav {
                 flex-wrap: wrap;
                 width: 100%;
-                /* Removed top positioning */
             }
             
-            /* --- Responsive Project Layout --- */
             .project-entry,
             .project-entry:nth-of-type(odd),
             .project-entry:nth-of-type(even) {
                 grid-template-columns: 1fr;
                 grid-template-areas: 
                     "image"
-                    "text"; /* Always stack on mobile */
-                gap: 1.5rem; /* Reduced gap for mobile */
-                padding: 1.5rem 0; /* Reduced padding for mobile */
+                    "text";
+                gap: 1.5rem;
+                padding: 1.5rem 0;
             }
 
             .project-text {
                 grid-area: text; 
-                height: auto; /* Allow height to be natural on mobile */
+                height: auto;
             }
 
             .project-image {
                 grid-area: image;
             }
             
-            /* --- MODIFIED: Improved spacing for mobile --- */
             .project-footer {
-                flex-direction: column; /* Stack tags and links */
-                align-items: flex-start; /* Align both to the left */
-                gap: 0.8rem; /* Reduced space between tags and links */
-                margin-top: 0.8rem; /* Slightly more space on mobile */
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+                margin-top: 0.8rem;
             }
-            /* --- END: Improved spacing for mobile --- */
 
-
-            /* MOBILE RESPONSIVE FOR SKILLS GRID - Handled by the rules above @media (max-width: 768px) */
-            
             .skill-card {
-                min-height: 80px; /* Ensure mobile height is also updated */
+                min-height: 80px;
             }
 
-            /* MOBILE STYLE FOR PROJECT SUB-LABELS */
             .project-group-title {
                 font-size: 1.5rem;
                 margin-top: 1.5rem;
@@ -914,10 +863,8 @@
         }
 
         @media (max-width: 480px) {
-            /* MOBILE RESPONSIVE FOR SKILLS GRID - Handled by the rules above @media (max-width: 480px) */
-            
             .tab-nav {
-                border-radius: 12px; /* <-- MODIFIED FROM 25px */
+                border-radius: 12px;
             }
             
             .tab-btn {
@@ -962,27 +909,27 @@
                     Motivated by challenges, I am dedicated to continuous learning.
                 </p>
                 <div class="social-links">
-    <a href="https://www.linkedin.com/in/delvin-salman-405218266/" target="_blank" aria-label="LinkedIn Profile">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-            <rect x="2" y="9" width="4" height="12"></rect>
-            <circle cx="4" cy="4" r="2"></circle>
-        </svg>
-    </a>
+                    <a href="https://www.linkedin.com/in/delvin-salman-405218266/" target="_blank" aria-label="LinkedIn Profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
 
-    <a href="https://github.com/delvinsalman" target="_blank" aria-label="GitHub Profile">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-        </svg>
-    </a>
+                    <a href="https://github.com/delvinsalman" target="_blank" aria-label="GitHub Profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                    </a>
 
-    <a href="mailto:delvinsalman19@gmail.com" aria-label="Email Me">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-        </svg>
-    </a>
-</div>
+                    <a href="mailto:delvinsalman19@gmail.com" aria-label="Email Me">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                </div>
 
             </div>
         </section>
@@ -1013,149 +960,150 @@
                 </div>
             </div>
         </section>
+
         <section id="skills" class="section">
-    <div class="container">
-        <h2 class="section-title reveal-on-scroll">Technical Skills</h2>
-        
-        <div class="skill-category reveal-on-scroll">
-            <h3>Languages & Frameworks</h3>
-            <div class="skills-grid">
-                <div class="skill-logo-card" data-skill-name="Python">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Python Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="JavaScript">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="HTML">
-                    <img src="https://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Other-html-5-icon.png" alt="HTML Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="CSS">
-                    <img src="https://icon.icepanel.io/Technology/svg/CSS3.svg" alt="CSS Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Java">
-                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" alt="Java Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="C#">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Logo_C_sharp.svg/1067px-Logo_C_sharp.svg.png" alt="C# Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="C++">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png" alt="C++ Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Scripting">
-                    <img src="Images/BluepringScripting.png" alt="GDScript Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="React">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png" alt="Godot Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Node.js">
-                    <img src="Images/Nodejs.png" alt="Unreal Engine Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="SQL">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" alt="Blueprint Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Django">
-                    <img src="https://static.djangoproject.com/img/logos/django-logo-negative.1d528e2cb5fb.png" alt="Flask Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Flask">
-                    <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/flask-qvsfwhwywucb6zv0d7ce.png/flask-1byb2jlw6nwim4nx2248xg.png?_a=DATAg1AAZAA0" alt="Flask Logo">
-                </div>
-                 <div class="skill-logo-card" data-skill-name="TensorFlow">
-                    <img src="https://avatars.githubusercontent.com/u/16359713?v=4" alt="Flask Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="PyTorch">
-                    <img src="https://www.sorint.com/wp-content/uploads/2021/11/pytorch_workshop.png" alt="Flask Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Bootstrap">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/2560px-Bootstrap_logo.svg.png" alt="Flask Logo">
-                </div>
-            </div>
-        </div>
- <div class="skill-category reveal-on-scroll">
-            <h3>Game Development</h3>
-            <div class="skills-grid">
-                <div class="skill-logo-card" data-skill-name="Unreal Engine">
-                    <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/video-games/unreal-engine-qdh1c46xy8c1nedruo2v5.png/unreal-engine-xwo7bd8vu6fzpnkcifgtu.png?_a=DATAg1AAZAA0" alt="VS Code Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Unity">
-                    <img src="https://engine.needle.tools/docs/imgs/unity-logo.webp" alt="Git Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="C++">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1067px-ISO_C%2B%2B_Logo.svg.png" alt="Eclipse Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="C#">
-                    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/csharp.svg" alt="Sublime Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Scripting">
-                    <img src="Images/BluepringScripting.png" alt="p5.js Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Godot">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Godot_icon.svg/2048px-Godot_icon.svg.png" alt="Processing Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Game Maker">
-                    <img src="https://www.svgrepo.com/show/373617/gamemaker.svg" alt="Processing Logo">
-                </div>
-                 <div class="skill-logo-card" data-skill-name="Roblox Studio">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Roblox_Studio_logo_-_2022.svg/1200px-Roblox_Studio_logo_-_2022.svg.png" alt="Processing Logo">
-                </div>
+            <div class="container">
+                <h2 class="section-title reveal-on-scroll">Technical Skills</h2>
                 
-                 </div>
-        </div>
+                <div class="skill-category reveal-on-scroll">
+                    <h3>Languages & Frameworks</h3>
+                    <div class="skills-grid">
+                        <div class="skill-logo-card" data-skill-name="Python">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Python Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="JavaScript">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="HTML">
+                            <img src="https://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Other-html-5-icon.png" alt="HTML Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="CSS">
+                            <img src="https://icon.icepanel.io/Technology/svg/CSS3.svg" alt="CSS Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Java">
+                            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" alt="Java Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="C#">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Logo_C_sharp.svg/1067px-Logo_C_sharp.svg.png" alt="C# Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="C++">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png" alt="C++ Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Scripting">
+                            <img src="Images/BluepringScripting.png" alt="GDScript Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="React">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png" alt="Godot Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Node.js">
+                            <img src="Images/Nodejs.png" alt="Unreal Engine Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="SQL">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" alt="Blueprint Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Django">
+                            <img src="https://static.djangoproject.com/img/logos/django-logo-negative.1d528e2cb5fb.png" alt="Flask Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Flask">
+                            <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/flask-qvsfwhwywucb6zv0d7ce.png/flask-1byb2jlw6nwim4nx2248xg.png?_a=DATAg1AAZAA0" alt="Flask Logo">
+                        </div>
+                         <div class="skill-logo-card" data-skill-name="TensorFlow">
+                            <img src="https://avatars.githubusercontent.com/u/16359713?v=4" alt="Flask Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="PyTorch">
+                            <img src="https://www.sorint.com/wp-content/uploads/2021/11/pytorch_workshop.png" alt="Flask Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Bootstrap">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/2560px-Bootstrap_logo.svg.png" alt="Flask Logo">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal-on-scroll">
+                    <h3>Game Development</h3>
+                    <div class="skills-grid">
+                        <div class="skill-logo-card" data-skill-name="Unreal Engine">
+                            <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/video-games/unreal-engine-qdh1c46xy8c1nedruo2v5.png/unreal-engine-xwo7bd8vu6fzpnkcifgtu.png?_a=DATAg1AAZAA0" alt="VS Code Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Unity">
+                            <img src="https://engine.needle.tools/docs/imgs/unity-logo.webp" alt="Git Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="C++">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1067px-ISO_C%2B%2B_Logo.svg.png" alt="Eclipse Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="C#">
+                            <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/csharp.svg" alt="Sublime Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Scripting">
+                            <img src="Images/BluepringScripting.png" alt="p5.js Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Godot">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Godot_icon.svg/2048px-Godot_icon.svg.png" alt="Processing Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Game Maker">
+                            <img src="https://www.svgrepo.com/show/373617/gamemaker.svg" alt="Processing Logo">
+                        </div>
+                         <div class="skill-logo-card" data-skill-name="Roblox Studio">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Roblox_Studio_logo_-_2022.svg/1200px-Roblox_Studio_logo_-_2022.svg.png" alt="Processing Logo">
+                        </div>
+                    </div>
+                </div>
         
-        <div class="skill-category reveal-on-scroll">
-            <h3>Software & Technical Tools</h3>
-            <div class="skills-grid">
-                <div class="skill-logo-card" data-skill-name="VS Code">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" alt="VS Code Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Git">
-                    <img src="https://avatars.githubusercontent.com/u/18133?s=200&v=4" alt="Git Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Eclipse">
-                    <img src="Images/Eclipse.avif" alt="Eclipse Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Sublime">
-                    <img src="Images/Sublime.png" alt="Sublime Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="p5.js">
-                    <img src="Images/p5.js.png" alt="p5.js Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Processing">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Processing_2021_logo.svg" alt="Processing Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Adobe Suite">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Adobe_Creative_Cloud_rainbow_icon.svg/1200px-Adobe_Creative_Cloud_rainbow_icon.svg.png" alt="Adobe Suite Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Microsoft Office">
-                    <img src="https://img.icons8.com/color/480/microsoft-office-2019.png" alt="Microsoft Office Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="GitHub">
-                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Logo">
-                </div>
-                 <div class="skill-logo-card" data-skill-name="Maya">
-                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/autodesk-maya-icon.png" alt="GitHub Logo">
-                </div>
-                 <div class="skill-logo-card" data-skill-name="Blender">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Blender_logo_no_text.svg/2503px-Blender_logo_no_text.svg.png" alt="GitHub Logo">
-                </div>
-                 <div class="skill-logo-card" data-skill-name="TouchDesigner">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ-yuoufJf3TtwP3MOuUrl1Nwum2ihXPAbAA&s" alt="GitHub Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Canva">
-                    <img src="Images/Canva.png" alt="GitHub Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Davinci Resolve">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" alt="GitHub Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Lens Studio">
-                    <img src="https://support.lensstudio.snapchat.com/hc/theming_assets/01HZPG14DR16WSMEBFMX7GGWD6" alt="GitHub Logo">
-                </div>
-                <div class="skill-logo-card" data-skill-name="Intellij ">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/IntelliJ_IDEA_Icon.svg/2048px-IntelliJ_IDEA_Icon.svg.png" alt="GitHub Logo">
+                <div class="skill-category reveal-on-scroll">
+                    <h3>Software & Technical Tools</h3>
+                    <div class="skills-grid">
+                        <div class="skill-logo-card" data-skill-name="VS Code">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" alt="VS Code Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Git">
+                            <img src="https://avatars.githubusercontent.com/u/18133?s=200&v=4" alt="Git Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Eclipse">
+                            <img src="Images/Eclipse.avif" alt="Eclipse Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Sublime">
+                            <img src="Images/Sublime.png" alt="Sublime Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="p5.js">
+                            <img src="Images/p5.js.png" alt="p5.js Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Processing">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Processing_2021_logo.svg" alt="Processing Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Adobe Suite">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Adobe_Creative_Cloud_rainbow_icon.svg/1200px-Adobe_Creative_Cloud_rainbow_icon.svg.png" alt="Adobe Suite Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Microsoft Office">
+                            <img src="https://img.icons8.com/color/480/microsoft-office-2019.png" alt="Microsoft Office Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="GitHub">
+                            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Logo">
+                        </div>
+                         <div class="skill-logo-card" data-skill-name="Maya">
+                            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/autodesk-maya-icon.png" alt="GitHub Logo">
+                        </div>
+                         <div class="skill-logo-card" data-skill-name="Blender">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Blender_logo_no_text.svg/2503px-Blender_logo_no_text.svg.png" alt="GitHub Logo">
+                        </div>
+                         <div class="skill-logo-card" data-skill-name="TouchDesigner">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ-yuoufJf3TtwP3MOuUrl1Nwum2ihXPAbAA&s" alt="GitHub Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Canva">
+                            <img src="Images/Canva.png" alt="GitHub Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Davinci Resolve">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" alt="GitHub Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Lens Studio">
+                            <img src="https://support.lensstudio.snapchat.com/hc/theming_assets/01HZPG14DR16WSMEBFMX7GGWD6" alt="GitHub Logo">
+                        </div>
+                        <div class="skill-logo-card" data-skill-name="Intellij ">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/IntelliJ_IDEA_Icon.svg/2048px-IntelliJ_IDEA_Icon.svg.png" alt="GitHub Logo">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
         <section id="projects" class="section section-alt">
             <div class="container">
