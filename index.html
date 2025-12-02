@@ -103,7 +103,7 @@
             transform: translateY(0);
         }
         
-        /* --- NEW: Header Load-in Animation --- */
+        /* --- Header Load-in Animation --- */
         @keyframes fadeInSlideDown {
             from {
                 opacity: 0;
@@ -114,10 +114,7 @@
                 transform: translateY(0);
             }
         }
-        /* --- END NEW ANIMATION --- */
 
-
-        /* YOUR ORIGINAL HEADER DESIGN */
         .main-header {
             padding: 0.5rem 2rem;
             border: 1px solid var(--border-color);
@@ -133,10 +130,8 @@
             -webkit-backdrop-filter: blur(10px);
             margin: 2rem auto 0 auto;
             
-            /* --- NEW: Added Animation --- */
             opacity: 0;
             animation: fadeInSlideDown 0.6s ease-out 0.1s forwards;
-            /* --- END NEW --- */
         }
 
         .main-header.header-scrolled {
@@ -455,45 +450,50 @@
             transform: scale(1.02);
         }
         
+        /* --- UPDATED: New Clean Menu Design --- */
         .tab-nav {
             display: flex;
             justify-content: flex-start;
-            gap: 0;
+            flex-wrap: wrap;
+            gap: 1rem; /* Added gap for breathing room */
             margin-bottom: 2rem;
             background-color: transparent;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            padding: 0.5rem;
+            padding: 0;
             width: 100%;
-            margin-left: -30px;
-            margin-right: 0;
             border: none;
-            transition: all 0.4s ease-in-out;
             z-index: 99;
         }
 
         .tab-btn {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 500;
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1.25rem;
             cursor: pointer;
-            background: none;
-            border: none;
+            background: transparent;
+            
+            /* Clean Border Style */
+            border: 1px solid var(--border-color);
+            border-radius: 50px; /* Pill shape */
+            
             color: var(--filter-text);
-            border-radius: 0;
             transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
         .tab-btn:hover {
             color: var(--text-color);
+            border-color: var(--primary-color);
+            background-color: var(--bg-color-transparent);
         }
 
         .tab-btn.active {
-            color: var(--filter-active);
-            background-color: transparent;
-            box-shadow: none;
-            font-weight: 700;
+            /* Active state: Outline style instead of solid fill */
+            color: var(--primary-color);
+            background-color: transparent; 
+            border-color: var(--primary-color);
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
         }
+        /* --- END UPDATED MENU --- */
 
         .project-entry {
             display: grid;
@@ -612,7 +612,6 @@
             visibility: visible;
         }
 
-        /* --- NEW: Specific icon color overrides for Unreal Engine, Flask, GitHub, and Node.js --- */
         body.dark-mode .skill-logo-card[data-skill-name="Unreal Engine"] img,
         body.dark-mode .skill-logo-card[data-skill-name="Flask"] img,
         body.dark-mode .skill-logo-card[data-skill-name="GitHub"] img,
@@ -626,7 +625,6 @@
         body.light-mode .skill-logo-card[data-skill-name="Node.js"] img {
             filter: brightness(0);
         }
-        /* --- END icon color overrides --- */
 
         @media (max-width: 768px) {
             .skills-grid {
@@ -724,9 +722,9 @@
             display: inline-block;
             background-color: var(--border-color);
             color: var(--secondary-color);
-            font-size: 0.7rem; /* MODIFIED: Smaller font size */
+            font-size: 0.7rem; 
             font-weight: 500;
-            padding: 0.40rem 0.8rem; /* MODIFIED: Smaller padding */
+            padding: 0.40rem 0.8rem; 
             border-radius: 20px;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
@@ -751,8 +749,8 @@
         }
         
         .project-icon {
-            width: 20px; /* MODIFIED: Smaller icon size */
-            height: 20px; /* MODIFIED: Smaller icon size */
+            width: 20px; 
+            height: 20px; 
             stroke-width: 2;
         }
 
@@ -823,7 +821,6 @@
             }
             
             .tab-nav {
-                flex-wrap: wrap;
                 width: 100%;
             }
             
@@ -1472,7 +1469,7 @@
             });
         });
         
-        // --- EDITED: Updated Project Filtering Logic ---
+        // --- Updated Project Filtering Logic ---
         const tabBtns = document.querySelectorAll('.tab-btn');
         const projectEntries = document.querySelectorAll('.project-entry');
         const projectTitles = document.querySelectorAll('.project-group-title'); // Titles are hidden by CSS
@@ -1500,9 +1497,9 @@
             });
         });
 
-        // --- EDITED: Set initial filter state to 'game-dev' on page load ---
+        // --- Set initial filter state to 'game-dev' on page load ---
         document.addEventListener('DOMContentLoaded', () => {
-            const initialFilter = 'game-dev'; // CHANGED from 'all'
+            const initialFilter = 'game-dev'; 
             
             // Hide titles
             projectTitles.forEach(title => title.classList.add('hidden'));
@@ -1517,7 +1514,7 @@
             });
         });
         
-        // --- NEW: Intersection Observer for On-Scroll Animations ---
+        // --- Intersection Observer for On-Scroll Animations ---
         const revealElements = document.querySelectorAll('.reveal-on-scroll');
         
         const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -1536,7 +1533,6 @@
         revealElements.forEach(element => {
             revealObserver.observe(element);
         });
-        // --- END NEW ANIMATION LOGIC ---
 
         // Set active nav link based on scroll position
         const sections = document.querySelectorAll('section');
