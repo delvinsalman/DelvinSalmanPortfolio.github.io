@@ -3,1561 +3,1503 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delvin Salman | Portfolio</title>
     <link rel="icon" type="image/png" href="Images/Logo.png">
-
-    <title>Delvin Salman┃Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <style>
         :root {
-            --bg-color: #f8f8f8;
-            --bg-color-transparent: rgba(248, 248, 248, 0.85);
-            --text-color: #222222;
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --border-color: #e7e7e7;
-            --card-bg: #ffffff;
-            --section-bg: #f0f0f0;
-            --filter-bg: rgba(255, 255, 255, 0.9);
-            --filter-border: #e0e0e0;
-            --filter-text: #666;
-            --filter-active: #007bff;
+            --bg: #111113;
+            --surface: #1A1A1D;
+            --surface-highlight: #252529;
+            --text-main: #EDEDED;
+            --text-muted: #9CA3AF;
+            --accent: #4A90E2;
+            --accent-glow: rgba(74, 144, 226, 0.25);
+            --dock-bg: rgba(26, 26, 29, 0.75);
+            --border: rgba(255, 255, 255, 0.06);
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+            --modal-z: 2000;
+            --card-img-opacity: 0.1;
+            --card-img-hover: 0.2;
         }
 
-        body.dark-mode {
-            --bg-color: #121212;
-            --bg-color-transparent: rgba(18, 18, 18, 0.85);
-            --text-color: #f0f0f0;
-            --primary-color: #4dabf7;
-            --secondary-color: #adb5bd;
-            --border-color: #333333;
-            --card-bg: #1e1e1e;
-            --section-bg: #1a1a1a;
-            --filter-bg: rgba(30, 30, 30, 0.9);
-            --filter-border: #444;
-            --filter-text: #adb5bd;
-            --filter-active: #4dabf7;
+        body.light-mode {
+            --bg: #f2f2f7;
+            --surface: #ffffff;
+            --surface-highlight: #e5e5ea;
+            --text-main: #000000;
+            --text-muted: #666666;
+            --accent: #007AFF;
+            --accent-glow: rgba(0, 122, 255, 0.3);
+            --dock-bg: rgba(255, 255, 255, 0.6);
+            --border: rgba(0, 0, 0, 0.08);
+            --card-img-opacity: 0.15;
+            --card-img-hover: 0.3;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.47059;
-            font-weight: 400;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), color 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
-            overflow-x: hidden;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
-        .container {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 0 22px;
+        .ambient-light {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vw;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+            opacity: 0.15;
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            margin-bottom: 0.8em;
-            line-height: 1.1;
-            font-weight: 600;
-        }
-
-        p {
-            margin-bottom: 1.2em;
-            font-size: 17px;
-            line-height: 1.47059;
-        }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-
-        a:hover {
-            opacity: 0.8;
-            text-decoration: none;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        /* --- On-Scroll Reveal Animation --- */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-
-        .reveal-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* --- NEW: Header Load-in Animation --- */
-        @keyframes fadeInSlideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        /* --- END NEW ANIMATION --- */
-
-
-        /* YOUR ORIGINAL HEADER DESIGN */
-        .main-header {
-            padding: 0.5rem 2rem;
-            border: 1px solid var(--border-color);
-            transition: all 0.4s ease-in-out;
-            position: sticky;
-            top: 2rem;
-            width: 95%;
-            max-width: 1020px;
-            border-radius: 50px;
-            z-index: 100;
-            background-color: var(--bg-color-transparent);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            margin: 2rem auto 0 auto;
-            
-            /* --- NEW: Added Animation --- */
-            opacity: 0;
-            animation: fadeInSlideDown 0.6s ease-out 0.1s forwards;
-            /* --- END NEW --- */
-        }
-
-        .main-header.header-scrolled {
+        header {
+            position: fixed;
             top: 0;
-            margin-top: 0;
+            left: 0;
             width: 100%;
-            max-width: 100%;
-            border-radius: 0;
-            border-top: none;
-            border-left: none;
-            border-right: none;
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-
-        .main-header .container {
+            padding: 30px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
+            z-index: 100;
         }
 
-        .logo {
-            text-decoration: none;
-            display: block;
-        }
-        
-        .logo:hover {
-            text-decoration: none;
+        .brand {
+            font-weight: 700;
+            font-size: 1.2rem;
             opacity: 0.9;
-        }
-        
-        .logo img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            transition: all 0.3s ease;
-            vertical-align: middle;
-            border-radius: 0;
-        }
-        
-        .logo:hover img {
-            transform: none;
-        }
-
-        .header-controls {
             display: flex;
             align-items: center;
-            gap: 2rem;
-        }
-
-        .main-nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        .main-nav a {
-            font-weight: 500;
-            font-size: 1rem;
-            color: var(--text-color);
-            text-decoration: none;
-            padding: 0.5rem 0;
-        }
-
-        .main-nav a:hover {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .main-nav a.active {
-            font-weight: 700;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-        }
-
-        #theme-toggle {
-            background: none;
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
+            gap: 10px;
             cursor: pointer;
-            padding: 0;
+            transition: opacity 0.2s;
+        }
+
+        .brand:hover {
+            opacity: 1;
+        }
+
+        .brand-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 0;
+            object-fit: contain;
+            border: none;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .live-status {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            line-height: 1.3;
+            text-align: right;
+            transition: opacity 0.3s ease;
+        }
+
+        .location-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .live-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #22c55e;
             border-radius: 50%;
+            box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        .time-display {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.02em;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
             width: 40px;
             height: 40px;
+            border-radius: 12px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: 0.2s;
+            font-size: 1.2rem;
         }
 
-        #theme-toggle:hover {
-            background-color: var(--border-color);
+        .toggle-btn:hover {
+            background: var(--surface-highlight);
+            transform: scale(1.1);
         }
 
-        #theme-toggle svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .light-mode .icon-moon { display: block; }
-        .light-mode .icon-sun { display: none; }
-        .dark-mode .icon-moon { display: none; }
-        .dark-mode .icon-sun { display: block; }
-
-        main,
-        .main-footer {
+        main {
             position: relative;
-        }
-        
-        .section {
-            padding: 6rem 0;
-            border-bottom: 1px solid var(--border-color);
-            transition: border-color 0.3s ease;
-        }
-        
-        .section:last-of-type {
-            border-bottom: none;
+            height: 100vh;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .section-alt {
-            position: relative;
-            background: var(--bg-color);
-            padding: 6rem 0;
-            margin: 3rem 0;
+        .view-section {
+            position: absolute;
+            width: 100%;
+            padding: 0 40px;
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.95) translateY(20px);
+            transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-height: 80vh;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+
+        .view-section::-webkit-scrollbar {
+            display: none;
+        }
+
+        .view-section.active {
+            opacity: 1;
+            pointer-events: all;
+            transform: scale(1) translateY(0);
         }
 
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            width: fit-content;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid var(--primary-color);
-            margin-bottom: 2rem;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #about .section-title {
-            text-align: left;
-            padding-bottom: 0.5rem;
-            display: inline-block;
-            margin-bottom: 2rem; 
-        }
-
-        #skills .section-title {
-            text-align: left;
-            margin-left: 0;
-            margin-right: auto;
-        }
-        
-        #projects .section-title {
-            text-align: left;
-            margin-left: 0;
-            margin-right: auto;
-            border-bottom: 3px solid var(--primary-color);
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            background: linear-gradient(to bottom right, var(--text-main), var(--text-muted));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         #home {
-            padding-top: 4rem;
-            padding-bottom: 6rem;
-            min-height: 90vh;
+            text-align: center;
+            align-items: center;
+        }
+
+        h1.hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom right, var(--text-main), var(--text-muted));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.hero-desc {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .home-socials {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .home-socials a {
+            color: var(--text-muted);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            border-bottom: 1px solid var(--border-color);
+            justify-content: center;
+            text-decoration: none;
         }
-        
-        #home .container {
+
+        .home-socials a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .about-split-container {
+            display: flex;
+            flex-direction: row;
+            gap: 0;
             width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+
+        .about-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 0 40px;
+        }
+
+        .about-col:first-child {
+            padding-left: 0;
+        }
+
+        .about-col:last-child {
+            padding-right: 0;
+        }
+
+        .about-divider {
+            width: 1px;
+            background: var(--border);
+            margin: 10px 0;
+            flex-shrink: 0;
+        }
+
+        .awards-divider {
+            height: 1px;
+            background: var(--border);
+            width: calc(100% + 40px);
+            margin-left: -40px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .education-block {
+            width: 100%;
+        }
+
+        .edu-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .edu-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 8px;
+        }
+
+        .edu-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .edu-degree {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .edu-year {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .edu-details p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .awards-simple-text {
+            margin-top: 5px;
+        }
+
+        .awards-simple-text p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .awards-simple-text i {
+            width: 22px;
+            text-align: center;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 850px) {
+            .about-split-container {
+                flex-direction: column;
+            }
+
+            .about-col {
+                padding: 0;
+            }
+
+            .about-divider {
+                width: 100%;
+                height: 1px;
+                margin: 30px 0;
+            }
+
+            .awards-divider {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+
+        .skills-text-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 10px;
+        }
+
+        .skill-text-group h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            font-weight: 400;
+            opacity: 0.9;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            width: 100%;
+        }
+
+        .skill-text-group p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .projects-line-separator {
+            width: 100%;
+            height: 1px;
+            background: var(--border);
+            margin-bottom: 25px;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 20px;
+            width: 100%;
+            padding: 10px 5px 20px 5px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+            align-items: stretch;
+        }
+
+        .projects-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scroll-hint {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            opacity: 0.6;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .scroll-hint i {
+            animation: bounceRight 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounceRight {
+            0%, 100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.3s var(--ease);
             position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 250px;
+            z-index: 1;
+            min-width: 300px;
+            max-width: 325px;
+            flex: 0 0 auto;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: var(--card-img-opacity);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            filter: grayscale(100%);
+            background-image: var(--card-img);
+        }
+
+        .project-card:hover::before {
+            opacity: var(--card-img-hover);
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-cat {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .card-icon {
+            font-size: 1.7rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .card-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .card-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .card-arrow {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: 0.3s;
+        }
+
+        .project-card:hover .card-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(17, 17, 19, 0.85);
+            backdrop-filter: blur(15px);
+            z-index: var(--modal-z);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-window {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            border-radius: 24px;
+            transform: scale(0.9);
+            transition: transform 0.3s var(--ease);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+        }
+
+        .modal-overlay.open .modal-window {
+            transform: scale(1);
+        }
+
+        .modal-left {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-y: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-right {
+            flex: 1;
+            background: var(--bg);
+            position: relative;
+            overflow: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-right::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to right, var(--bg) 0%, transparent 100%);
+            pointer-events: none;
             z-index: 2;
         }
 
-        #home h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        #home .subtitle {
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-        }
-        
-        #role-cycler {
-            transition: opacity 0.3s ease-in-out;
-            opacity: 1;
-            font-weight: 400;
-            color: var(--primary-color);
-        }
-        #role-cycler.fading {
-            opacity: 0;
-        }
-
-        #home .intro-text {
-            font-size: 1.3rem;
-            max-width: 600px;
-            color: var(--secondary-color);
-            margin-bottom: 2.5rem;
-        }
-        
-        #home .pre-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-        
-        /* --- Home Page Load-in Animation --- */
-        @keyframes fadeInSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        #home .pre-title,
-        #home h1,
-        #home .subtitle,
-        #home .intro-text,
-        #home .social-links {
-            opacity: 0;
-            animation: fadeInSlideUp 0.6s ease-out forwards;
-        }
-
-        #home h1 { animation-delay: 0.1s; }
-        #home .subtitle { animation-delay: 0.2s; }
-        #home .intro-text { animation-delay: 0.3s; }
-        #home .social-links { animation-delay: 0.4s; }
-
-        .social-links {
-            margin-top: 2rem;
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .social-links a {
-            font-weight: 600;
-            margin-right: 0;
-            color: var(--text-color);
-            opacity: 0.7;
-            transition: opacity 0.2s ease, transform 0.2s ease;
-        }
-
-        .social-links a:hover {
-            opacity: 1;
-            color: var(--primary-color);
-            transform: translateY(-2px);
-            text-decoration: none;
-        }
-        
-        .social-icon {
-            width: 28px;
-            height: 28px;
-            stroke-width: 2;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .about-text .about-subheader {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .about-list {
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 1.2em;
-        }
-        
-        .about-list li {
-            font-size: 17px;
-            line-height: 1.47059;
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 0.75rem;
-            color: var(--secondary-color);
-        }
-        
-        .about-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            top: 2px;
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-        
-        .about-image:hover img {
-            transform: scale(1.02);
-        }
-        
-        .tab-nav {
-            display: flex;
-            justify-content: flex-start;
-            gap: 0;
-            margin-bottom: 2rem;
-            background-color: transparent;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            padding: 0.5rem;
-            width: 100%;
-            margin-left: -30px;
-            margin-right: 0;
-            border: none;
-            transition: all 0.4s ease-in-out;
-            z-index: 99;
-        }
-
-        .tab-btn {
-            font-size: 1rem;
-            font-weight: 500;
-            padding: 0.75rem 1.5rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: var(--filter-text);
-            border-radius: 0;
-            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-
-        .tab-btn:hover {
-            color: var(--text-color);
-        }
-
-        .tab-btn.active {
-            color: var(--filter-active);
-            background-color: transparent;
-            box-shadow: none;
-            font-weight: 700;
-        }
-
-        .project-entry {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            padding: 2rem 0;
-            position: relative;
-        }
-
-        .project-entry:not(:last-of-type)::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background-color: var(--border-color);
-            margin: 0;
-        }
-
-        .project-entry {
-            grid-template-areas: "text image";
-        }
-      
-       .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            gap: 1rem;
-        }
-
-        .skill-category {
-            margin-bottom: 3rem;
-        }
-        .skill-category h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--text-color);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .skill-logo-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-            position: relative;
-            cursor: pointer;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-logo-card:hover {
-            transform: scale(1.05);
-            border-color: var(--primary-color);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-        }
-
-       .skill-logo-card img {
-            width: 45px;
-            height: 45px;
-            object-fit: contain;
-        }
-
-        .skill-logo-card::before {
-            content: attr(data-skill-name);
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-bottom: 10px;
-            
-            background-color: var(--text-color);
-            color: var(--bg-color);
-            padding: 0.3rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            white-space: nowrap;
-            
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s ease, visibility 0.2s ease;
-            z-index: 20;
-        }
-
-        .skill-logo-card::after {
-            content: '';
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-bottom: 5px;
-            
-            border-width: 5px;
-            border-style: solid;
-            border-color: var(--text-color) transparent transparent transparent;
-
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s ease, visibility 0.2s ease;
-            z-index: 19;
-        }
-
-        .skill-logo-card:hover::before,
-        .skill-logo-card:hover::after {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* --- NEW: Specific icon color overrides for Unreal Engine, Flask, GitHub, and Node.js --- */
-        body.dark-mode .skill-logo-card[data-skill-name="Unreal Engine"] img,
-        body.dark-mode .skill-logo-card[data-skill-name="Flask"] img,
-        body.dark-mode .skill-logo-card[data-skill-name="GitHub"] img,
-        body.dark-mode .skill-logo-card[data-skill-name="Node.js"] img {
-            filter: brightness(0) invert(1);
-        }
-        
-        body.light-mode .skill-logo-card[data-skill-name="Unreal Engine"] img,
-        body.light-mode .skill-logo-card[data-skill-name="Flask"] img,
-        body.light-mode .skill-logo-card[data-skill-name="GitHub"] img,
-        body.light-mode .skill-logo-card[data-skill-name="Node.js"] img {
-            filter: brightness(0);
-        }
-        /* --- END icon color overrides --- */
-
-        @media (max-width: 768px) {
-            .skills-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .skills-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
-            }
-        }
-
-        .project-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .project-entry {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            padding: 2rem 0;
-        }
-        
-        .project-entry {
-            grid-template-areas: "text image";
-        }
-
-        .project-text {
-            grid-area: text;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            color: var(--secondary-color);
-            justify-content: center;
-            padding: 1rem 0;
-        }
-
-        .project-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .project-text h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-color);
-            margin-bottom: 1rem;
-        }
-
-        .project-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 1rem;
-        }
-
-        .project-image {
-            grid-area: image;
-            aspect-ratio: 16 / 9;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            transition: box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-
-        .project-image:hover {
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-image img {
+        .modal-right img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-
-        .project-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        .project-entry.hidden {
-            display: none;
-        }
-
-        .project-tags {
-            margin-bottom: 0;
-        }
-        
-        .project-tag {
-            display: inline-block;
-            background-color: var(--border-color);
-            color: var(--secondary-color);
-            font-size: 0.7rem; /* MODIFIED: Smaller font size */
-            font-weight: 500;
-            padding: 0.40rem 0.8rem; /* MODIFIED: Smaller padding */
-            border-radius: 20px;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-links {
-            margin-top: 0;
-            flex-shrink: 0;
-        }
-        
-        .project-links a {
-            color: var(--text-color);
-            opacity: 0.7;
-            transition: opacity 0.2s ease, transform 0.2s ease;
-        }
-
-        .project-links a:hover {
             opacity: 1;
-            color: var(--primary-color);
-            transform: translateY(-2px);
-            text-decoration: none;
-        }
-        
-        .project-icon {
-            width: 20px; /* MODIFIED: Smaller icon size */
-            height: 20px; /* MODIFIED: Smaller icon size */
-            stroke-width: 2;
+            transition: transform 10s ease;
         }
 
-        .project-group-title {
-            grid-column: 1 / -1;
-            margin-top: 2rem;
-            margin-bottom: 0.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--text-color);
-            transition: border-color 0.3s ease;
+        .modal-window:hover .modal-right img {
+            transform: scale(1.1);
+        }
+
+        .expand-gallery-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            cursor: pointer;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .expand-gallery-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            width: 32px;
+            height: 32px;
+            border-radius: 12px;
+            cursor: pointer;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .close-modal:hover {
+            background: var(--surface-highlight);
+        }
+
+        .modal-gallery-view {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            z-index: 40;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-gallery-view.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .gallery-track {
+            display: flex;
+            flex-direction: row;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            height: 100%;
+            width: 100%;
+            scrollbar-width: none;
+        }
+
+        .gallery-track::-webkit-scrollbar {
             display: none;
         }
-        
-        .project-group-title:first-of-type {
-            margin-top: 1rem;
+
+        .gallery-item {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            scroll-snap-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 60px 0;
+            box-sizing: border-box;
         }
-        
-        .main-footer {
-            padding: 1.5rem 0;
-            text-align: center;
-            color: var(--secondary-color);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
-            transition: border-color 0.3s ease;
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            display: block;
         }
-        
+
+        .gallery-back-btn {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            cursor: pointer;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-back-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .gallery-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            pointer-events: none;
+            letter-spacing: 0.05em;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            background: linear-gradient(to bottom right, var(--text-main), var(--text-muted));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal-desc {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .modal-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .tech-pill {
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            background: var(--surface-highlight);
+            border-radius: 6px;
+            color: var(--text-muted);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 20px;
+            margin-top: auto;
+            align-items: center;
+        }
+
+        .modal-btn-icon {
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.2s var(--ease);
+            background: transparent;
+            border: none;
+        }
+
+        .modal-btn-icon:hover {
+            color: var(--text-main);
+            transform: scale(1.1);
+        }
+
+        .dock-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+
+        .dock {
+            background: var(--dock-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 10px 14px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .dock-item {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            transition: all 0.3s var(--ease);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .dock-item:hover {
+            color: var(--text-main);
+            transform: translateY(-5px);
+        }
+
+        .dock-item.active {
+            color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .dock-item::after {
+            content: attr(data-label);
+            position: absolute;
+            top: -40px;
+            font-size: 0.75rem;
+            background: var(--surface);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 6px;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.2s;
+            font-weight: 500;
+            white-space: nowrap;
+            transform: translateY(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .dock-item:hover::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media (max-width: 768px) {
-            .main-nav {
-                display: none;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-                align-items: center;
-            }
-            .about-image {
-                order: -1;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-
-            .main-header {
-                width: 95%;
-                top: 1rem;
-                margin-top: 1rem;
-                padding: 0.5rem 1.5rem;
-            }
-
-            .main-header.header-scrolled {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
+            h1.hero-title {
+                font-size: 3rem;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
-            
-            #home h1 {
-                font-size: 2.5rem;
-            }
-            
-            #home .subtitle {
-                font-size: 1.5rem;
-            }
-            
-            .tab-nav {
-                flex-wrap: wrap;
-                width: 100%;
-            }
-            
-            .project-entry,
-            .project-entry:nth-of-type(odd),
-            .project-entry:nth-of-type(even) {
+
+            .projects-grid {
                 grid-template-columns: 1fr;
-                grid-template-areas: 
-                    "image"
-                    "text";
-                gap: 1.5rem;
-                padding: 1.5rem 0;
             }
 
-            .project-text {
-                grid-area: text; 
+            .modal-window {
+                flex-direction: column-reverse;
                 height: auto;
+                max-height: 90vh;
             }
 
-            .project-image {
-                grid-area: image;
-            }
-            
-            .project-footer {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.8rem;
-                margin-top: 0.8rem;
+            .modal-left {
+                overflow-y: auto;
             }
 
-            .skill-card {
-                min-height: 80px;
+            .modal-right {
+                height: 250px;
+                flex: none;
             }
 
-            .project-group-title {
-                font-size: 1.5rem;
-                margin-top: 1.5rem;
+            main {
+                padding-bottom: 100px;
             }
-        }
 
-        @media (max-width: 480px) {
-            .tab-nav {
-                border-radius: 12px;
-            }
-            
-            .tab-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
+            .live-status {
+                display: none;
             }
         }
     </style>
 </head>
 
-<body class="dark-mode">
-    <header class="main-header">
-        <div class="container">
-            <a href="#home" class="logo">
-                <img src="Images/Logo.png" alt="Profile Logo">
-            </a>
-            <div class="header-controls">
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="#home" class="nav-link">Home</a></li>
-                        <li><a href="#about" class="nav-link">About</a></li>
-                        <li><a href="#skills" class="nav-link">Skills</a></li>
-                        <li><a href="#projects" class="nav-link">Projects</a></li>
-                    </ul>
-                </nav>
-                <button id="theme-toggle" aria-label="Toggle theme">
-                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                </button>
+<body>
+    <div class="ambient-light"></div>
+
+    <header>
+        <div class="brand" onclick="switchTab('home')">
+            <img src="Images/Logo.png" alt="Profile" class="brand-img">
+        </div>
+
+        <div class="header-right">
+            <div class="live-status" id="live-status-widget">
+                <div class="location-row">
+                    <div class="live-dot"></div>
+                    Toronto, ON
+                </div>
+                <div class="time-display" id="clock-display">--:-- --</div>
             </div>
+
+            <button class="toggle-btn" onclick="toggleTheme()">
+                <i class="fa-solid fa-moon"></i>
+            </button>
         </div>
     </header>
 
     <main>
-        <section id="home">
-            <div class="container">
-                <p class="pre-title">Hello I'm,</p>
-                <h1>Delvin Salman</h1>
-                <p class="subtitle">I am passionate about <span id="role-cycler">Game Development</span>.</p>
-                <p class="intro-text">
-                    I am a Student Developer passionate about exploring diverse domains and expanding my skills through hands-on experiences. 
-                    Motivated by challenges, I am dedicated to continuous learning.
-                </p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/delvin-salman-405218266/" target="_blank" aria-label="LinkedIn Profile">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                    </a>
+        <section id="home" class="view-section active">
+            <h1 class="hero-title">Hi, I'm Delvin.</h1>
+            <p class="hero-desc">A multidisciplinary student developer crafting digital experiences with focus, clarity, and precision.</p>
 
-                    <a href="https://github.com/delvinsalman" target="_blank" aria-label="GitHub Profile">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                        </svg>
-                    </a>
-
-                    <a href="mailto:delvinsalman19@gmail.com" aria-label="Email Me">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                    </a>
-                </div>
-
+            <div class="home-socials">
+                <a href="https://www.linkedin.com/in/delvin-salman-405218266/" target="_blank" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/delvinsalman" target="_blank" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="mailto:delvinsalman19@gmail.com" title="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
             </div>
         </section>
 
-        <section id="about" class="section section-alt">
-            <div class="container reveal-on-scroll">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-content">
+        <section id="about" class="view-section">
+            <div class="about-split-container">
+                <div class="about-col">
+                    <h2 class="section-title">About Me</h2>
                     <div class="about-text">
-                        <p>
-                            I'm a Digital Media student at York University specializing in Game Development. My studies have given me a strong foundation in game development, computer science, software development and AI.
-                        </p>
-                        <p>
-                            I am a goal-driven developer, motivated by creativity and problem-solving. I'm passionate about turning complex ideas into innovative solutions and am always eager to embrace new challenges.
-                        </p>
-                        
-                        <h3 class="about-subheader">My Approach</h3>
-                        <ul class="about-list">
-                         <li>Creating engaging and meaningful experiences.</li>
-                         <li>Approaching challenges with practical problem-solving.</li>
-                         <li>Continuously learning and expanding my skill set.</li>
-                        </ul>
-
+                        <p>I am a student at York University with a strong and well-developed interest in game development, computer science, software engineering, design, and AI. I have built these skills and passions through hands-on experience, academic work, and tackling challenging projects.</p>
+                        <p>I am an extremely goal-driven and passionate developer, fueled by creativity and problem-solving. I thrive on turning complex ideas into innovative, impactful solutions and am always eager to take on new challenges and push my skills further in a varity of domains.</p>
                     </div>
-                    <div class="about-image">
-                        <img src="https://i.redd.it/1d11s820dgm91.gif" alt="Pixel art animation of a person at a computer">
+                </div>
+
+                <div class="about-divider"></div>
+
+                <div class="about-col">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-block">
+                        <div class="edu-item">
+                            <div class="edu-header-row">
+                                <span class="edu-title">York University</span>
+                                <span class="edu-year">2021 — Present</span>
+                            </div>
+                            <span class="edu-degree">B.A., Spec. Hons. Digital Media (Game Arts)</span>
+                            <div class="edu-details" style="margin-top: 10px;">
+                                <p>Specialized in Game Development and Computer Science.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="awards-divider"></div>
+
+                    <h2 class="section-title" style="margin-top: 0;">Awards</h2>
+                    <div class="awards-simple-text">
+                        <p><i class="fa-solid fa-trophy"></i> Dean's Honour Roll (3× over the last 3 years)</p>
+                        <p><i class="fa-solid fa-medal"></i> Best Student Project – Level Up Showcase 2024 & 2025</p>
+                        <p><i class="fa-solid fa-certificate"></i> York University Continuing Student Scholarship</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="section">
-            <div class="container">
-                <h2 class="section-title reveal-on-scroll">Technical Skills</h2>
-                
-                <div class="skill-category reveal-on-scroll">
+        <section id="skills" class="view-section">
+            <h2 class="section-title">Technical Skills</h2>
+
+            <div class="skills-text-container">
+                <div class="skill-text-group">
                     <h3>Languages & Frameworks</h3>
-                    <div class="skills-grid">
-                        <div class="skill-logo-card" data-skill-name="Python">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Python Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="JavaScript">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="HTML">
-                            <img src="https://icons.iconarchive.com/icons/cornmanthe3rd/plex/512/Other-html-5-icon.png" alt="HTML Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="CSS">
-                            <img src="https://icon.icepanel.io/Technology/svg/CSS3.svg" alt="CSS Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Java">
-                            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" alt="Java Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="C#">
-                            <img src="Images/C.png" alt="C# Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="C++">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png" alt="C++ Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Scripting">
-                            <img src="Images/BluepringScripting.png" alt="GDScript Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="React">
-                            <img src="Images/React.png" alt="Godot Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Node.js">
-                            <img src="Images/Nodejs.png" alt="Unreal Engine Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="SQL">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" alt="Blueprint Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Django">
-                            <img src="https://static.djangoproject.com/img/logos/django-logo-negative.1d528e2cb5fb.png" alt="Flask Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Flask">
-                            <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/flask-qvsfwhwywucb6zv0d7ce.png/flask-1byb2jlw6nwim4nx2248xg.png?_a=DATAg1AAZAA0" alt="Flask Logo">
-                        </div>
-                         <div class="skill-logo-card" data-skill-name="TensorFlow">
-                            <img src="https://avatars.githubusercontent.com/u/16359713?v=4" alt="Flask Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="PyTorch">
-                            <img src="https://www.sorint.com/wp-content/uploads/2021/11/pytorch_workshop.png" alt="Flask Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Bootstrap">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/2560px-Bootstrap_logo.svg.png" alt="Flask Logo">
-                        </div>
-                    </div>
+                    <p>Python, Javascript, HTML, CSS, Java, C#, C++, React, Flask, TensorFlow, PyTorch, SQL, Bootstrap</p>
                 </div>
 
-                <div class="skill-category reveal-on-scroll">
+                <div class="skill-text-group">
                     <h3>Game Development</h3>
-                    <div class="skills-grid">
-                        <div class="skill-logo-card" data-skill-name="Unreal Engine">
-                            <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/video-games/unreal-engine-qdh1c46xy8c1nedruo2v5.png/unreal-engine-xwo7bd8vu6fzpnkcifgtu.png?_a=DATAg1AAZAA0" alt="VS Code Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Unity">
-                            <img src="https://engine.needle.tools/docs/imgs/unity-logo.webp" alt="Git Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="C++">
-                            <img src="Images/CC.png" alt="Eclipse Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="C#">
-                            <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/csharp.svg" alt="Sublime Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Scripting">
-                            <img src="Images/BluepringScripting.png" alt="p5.js Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Godot">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Godot_icon.svg/2048px-Godot_icon.svg.png" alt="Processing Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Game Maker">
-                            <img src="https://www.svgrepo.com/show/373617/gamemaker.svg" alt="Processing Logo">
-                        </div>
-                         <div class="skill-logo-card" data-skill-name="Roblox Studio">
-                            <img src="Images/Roblox.png" alt="Processing Logo">
-                        </div>
-                    </div>
+                    <p>Unreal Engine, Unity, Blueprint Scripting, Godot, GameMaker, Roblox Studio</p>
                 </div>
-        
-                <div class="skill-category reveal-on-scroll">
+
+                <div class="skill-text-group">
                     <h3>Software & Technical Tools</h3>
-                    <div class="skills-grid">
-                        <div class="skill-logo-card" data-skill-name="VS Code">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" alt="VS Code Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Git">
-                            <img src="https://avatars.githubusercontent.com/u/18133?s=200&v=4" alt="Git Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Eclipse">
-                            <img src="Images/Eclipse.avif" alt="Eclipse Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Sublime">
-                            <img src="Images/Sublime.png" alt="Sublime Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="p5.js">
-                            <img src="Images/p5.js.png" alt="p5.js Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Processing">
-                            <img src="Images/Processing.png" alt="Processing Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Adobe Suite">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Adobe_Creative_Cloud_rainbow_icon.svg/1200px-Adobe_Creative_Cloud_rainbow_icon.svg.png" alt="Adobe Suite Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Microsoft Office">
-                            <img src="https://img.icons8.com/color/480/microsoft-office-2019.png" alt="Microsoft Office Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="GitHub">
-                            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Logo">
-                        </div>
-                         <div class="skill-logo-card" data-skill-name="Maya">
-                            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/autodesk-maya-icon.png" alt="GitHub Logo">
-                        </div>
-                         <div class="skill-logo-card" data-skill-name="Blender">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Blender_logo_no_text.svg/2503px-Blender_logo_no_text.svg.png" alt="GitHub Logo">
-                        </div>
-                         <div class="skill-logo-card" data-skill-name="TouchDesigner">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ-yuoufJf3TtwP3MOuUrl1Nwum2ihXPAbAA&s" alt="GitHub Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Canva">
-                            <img src="Images/Canva.png" alt="GitHub Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Davinci Resolve">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" alt="GitHub Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Lens Studio">
-                            <img src="https://support.lensstudio.snapchat.com/hc/theming_assets/01HZPG14DR16WSMEBFMX7GGWD6" alt="GitHub Logo">
-                        </div>
-                        <div class="skill-logo-card" data-skill-name="Intellij ">
-                            <img src="Images/Intellij.png" alt="GitHub Logo">
-                        </div>
-                    </div>
+                    <p>VS Code, Git, Eclipse, Sublime, p5.js, Processing, Adobe Suite, MS Office, GitHub, Maya, Blender, TouchDesigner</p>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="section section-alt">
-            <div class="container">
-                <h2 class="section-title reveal-on-scroll">Projects</h2>
-                
-                <div class="tab-nav reveal-on-scroll">
-                    <button class="tab-btn active" data-filter="game-dev">Game Development</button>
-                    <button class="tab-btn" data-filter="software-dev">Software</button>
-                    <button class="tab-btn" data-filter="web-dev">Web Development</button>
-                    <button class="tab-btn" data-filter="data-creative">Data & Creative</button>
+        <section id="projects" class="view-section">
+            <h2 class="section-title">Projects</h2>
+
+            <div class="projects-line-separator"></div>
+
+            <div class="projects-grid">
+                <div class="project-card p1" onclick="openProject(0)">
+                    <div class="card-icon"><i class="fa-solid fa-hat-cowboy"></i></div>
+                    <div class="card-content">
+                        <span class="project-cat">Game Development</span>
+                        <h3>Cattleman's Crossing</h3>
+                        <p>A 3D open-world narrative game inspired by Canadian landscapes.</p>
+                    </div>
+                    <div class="card-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
                 </div>
-                <div class="project-list">
-                    
-                    <h3 class="project-group-title" data-category="game-dev">Game Development</h3>
 
-                    <div class="project-entry reveal-on-scroll" data-category="game-dev">
-                        <div class="project-text">
-                            <h3>Cattleman's Crossing</h3>
-                            <p>
-                                Led level design and development for Cattleman's Crossing, a 3D open-world narrative game inspired by Canadian landscapes. Built the main map, interactive systems, and supported core gameplay.
-                            </p>
-                            <div class="project-footer">
-                                <div class="project-tags">
-                                    <span class="project-tag">Unreal Engine</span>
-                                    <span class="project-tag">C++</span>
-                                    <span class="project-tag">Blueprint Scripting</span>
-                                    <span class="project-tag">Blender</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://riordan-palmer.itch.io/cattlemans-crossing" target="_blank" aria-label="View Live Demo">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="https://img.itch.zone/aW1hZ2UvMzMyNDUwNi8yMDQwODIxMi5wbmc=/original/4b1UIK.png" alt="Cattleman's Crossing Screenshot">
-                        </div>
+                <div class="project-card p2" onclick="openProject(1)">
+                    <div class="card-icon"><i class="fa-solid fa-dungeon"></i></div>
+                    <div class="card-content">
+                        <span class="project-cat">Game Development</span>
+                        <h3>Ash</h3>
+                        <p>A 3D, triple open-world stylized adventure/narrative game.</p>
                     </div>
-
-                    <div class="project-entry reveal-on-scroll" data-category="game-dev">
-                        <div class="project-text">
-                            <h3>Ash</h3>
-                            <p>
-                               Developed a stylized 3D open-world exploration game with gliding, dynamic traversal, puzzles, interactive environments and ability progression. Showcased at the 2024 Level Up Showcase as a top student project.
-                            </p>
-                            <div class="project-footer">
-                                <div class="project-tags">
-                                    <span class="project-tag">Unreal Engine</span>
-                                    <span class="project-tag">Blueprint Scripting</span>
-                                    <span class="project-tag">C++</span>
-                                    <span class="project-tag">Blender</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://rajusivanantham.itch.io/ash" target="_blank" aria-label="View Live Demo">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkyOTc2My5wbmc=/original/DDFFAu.png" alt="Ash Screenshot">
-                        </div>
-                    </div>
-
-                    <div class="project-entry reveal-on-scroll" data-category="game-dev">
-                        <div class="project-text">
-                            <h3>Space Toast</h3>
-                            <p>
-                                Developed a 2D top-down shooter featuring wave-based combat, projectile + damage systems, dynamic pickups, and refined character movement. Built core gameplay with C# and polished UI, visuals, and level layout.
-                            </p>
-                            <div class="project-footer">
-                                <div class="project-tags">
-                                    <span class="project-tag">Unity</span>
-                                    <span class="project-tag">C#</span>
-                                    <span class="project-tag">2D Game Development</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://delyy.itch.io/space-toast" target="_blank" aria-label="View Live Demo">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="https://img.itch.zone/aW1hZ2UvMjYwOTAzMC8xNjE3NjQ2Ni5wbmc=/original/9YwVr1.png" alt="Space Toast Screenshot">
-                        </div>
-                    </div>
-
-                    <div class="project-entry reveal-on-scroll" data-category="game-dev">
-                        <div class="project-text">
-                            <h3>Grave Digger</h3>
-                            <p>
-                                Developed a 3D boss-rush game in Unreal Engine that progressively simplifies gameplay. Led level design, UI, and core systems—including mechanics, controls, pickups, and physics—using Blueprint scripting.
-                            </p>
-                            <div class="project-footer">
-                                <div class="project-tags">
-                                    <span class="project-tag">Unreal Engine</span>
-                                    <span class="project-tag">Blueprint Scripting</span>
-                                    <span class="project-tag">Maya</span>
-                                    <span class="project-tag">Git</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://delyy.itch.io/graverunner" target="_blank" aria-label="View Live Demo">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="https://img.itch.zone/aW1nLzE4NzcwNDQ1LnBuZw==/original/eg7ZAD.png" alt="Grave Digger Screenshot">
-                        </div>
-                    </div>
-
-                    <h3 class="project-group-title" data-category="software-dev">Software</h3>
-
-                    <div class="project-entry reveal-on-scroll" data-category="software-dev">
-                        <div class="project-text">
-                            <h3>AI Chatbot</h3>
-                            <p>
-                                Full-stack AI chatbot with a modern UI, persistent chat history, multi-file analysis, image generation, and customizable model settings. Built for high accuracy, realism, and an engaging human-like experience.
-                            </p>
-                            <div class="project-footer">
-                                <div class="project-tags">
-                                    <span class="project-tag">Python</span>
-                                    <span class="project-tag">Flask</span>
-                                    <span class="project-tag">JavaScript</span>
-                                    <span class="project-tag">Hugging Face</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/delvinsalman/Chatbot" target="_blank" aria-label="View on GitHub">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="Images/Chatbot.png" alt="AI Chatbot Screenshot">
-                        </div>
-                    </div>
-
-                    <div class="project-entry reveal-on-scroll" data-category="software-dev">
-                        <div class="project-text">
-                            <h3>QR Code Generator</h3>
-                            <p>
-                                An advanced QR code generator with customizable logos, color themes, and unique styles. Supports multiple data types including URLs, contact info, text, and Wi-Fi, with fast processing and seamless interaction.
-                            </p>
-                            <div class="project-footer">
-                                <div class="project-tags">
-                                    <span class="project-tag">JavaScript</span>
-                                    <span class="project-tag">HTML/CSS</span>
-                                    <span class="project-tag">QRCode.js</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://delvinsalman.github.io/QRGenerator/" target="_blank" aria-label="View Live Demo">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    </a>
-                                    <a href="https://github.com/delvinsalman/QRGenerator" target="_blank" aria-label="View on GitHub">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="https://www.billit.eu/media/n5cmyll2/blog-qr-codes.png" alt="QR Code Generator Screenshot">
-                        </div>
-                    </div>
-
-                    <h3 class="project-group-title" data-category="web-dev">Web Development</h3>
-
-                    <div class="project-entry reveal-on-scroll" data-category="web-dev">
-                        <div class="project-text">
-                            <h3>Weather Application</h3>
-                            <p>
-                                An interactive weather app with real-time global forecasts powered by OpenWeatherMap. Includes dynamic updates, an interactive Leaflet.js map, detailed climate data, saved locations, and a responsive UI.
-                            </p>
-                            <div class="project-footer">
-                                <div class="project-tags">
-                                    <span class="project-tag">JavaScript</span>
-                                    <span class="project-tag">API</span>
-                                    <span class="project-tag">Leaflet.js</span>
-                                    <span class="project-tag">HTML/CSS</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://delvinsalman.github.io/WeatherApplication/" target="_blank" aria-label="View Live Demo">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    </a>
-                                    <a href="https://github.com/delvinsalman/WeatherApplication" target="_blank" aria-label="View on GitHub">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="./Images/Weather.png" alt="Weather Application Screenshot">
-                        </div>
-                    </div>
-
-                    <div class="project-entry reveal-on-scroll" data-category="web-dev">
-                        <div class="project-text">
-                            <h3>Captures.io</h3>
-                            <p>
-                                Developed a user-friendly image and video search engine with real-time access to high-quality visuals using JavaScript and the Pexels API. Designed for fast browsing, smooth downloads, and an intuitive UI.
-                            </p>
-                            <div class="project-footer">
-                                <div class="project-tags">
-                                    <span class="project-tag">JavaScript</span>
-                                    <span class="project-tag">HTML/CSS</span>
-                                    <span class="project-tag">Pexels API</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://delvinsalman.github.io/SearchEngine/" target="_blank" aria-label="View Live Demo">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    </a>
-                                    <a href="https://github.com/delvinsalman/SearchEngine" target="_blank" aria-label="View on GitHub">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="./Images/SearchEngine.png" alt="Captures.io Screenshot">
-                        </div>
-                    </div>
-
-                    <h3 class="project-group-title" data-category="data-creative">Data & Creative</h3>
-
-                    <div class="project-entry reveal-on-scroll" data-category="data-creative">
-                        <div class="project-text">
-                            <h3>Smells Fishy</h3>
-                            <p>
-                                Developed an interactive data visualization with a boid simulation mimicking an aquatic ecosystem. Users explore responsive, dynamic visuals with color-coded clarity, enhanced by integrated JavaScript libraries.
-                            </p>
-                            <div class="project-footer">
-                                <div class="project-tags">
-                                    <span class="project-tag">JavaScript</span>
-                                    <span class="project-tag">p5.js</span>
-                                    <span class="project-tag">p5.sound</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://editor.p5js.org/Delvin/full/bG7XyZZw2" target="_blank" aria-label="View Live Demo">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    </a>
-                                    <a href="https://github.com/delvinsalman/SmellsFishy" target="_blank" aria-label="View on GitHub">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="./Images/Fish.png" alt="Smells Fishy Screenshot">
-                        </div>
-                    </div>
-
-                    <div class="project-entry reveal-on-scroll" data-category="data-creative">
-                        <div class="project-text">
-                            <h3>Visual Touch</h3>
-                            <p>
-                                Developed an interactive JavaScript data visualization featuring a boid simulation that mimics an aquatic ecosystem. Users explore dynamic, color-coded visuals with responsive movement, through integrated libraries.
-                            </p>
-                            <div class="project-footer">
-                                <div class="project-tags">
-                                    <span class="project-tag">JavaScript</span>
-                                    <span class="project-tag">p5.js</span>
-                                    <span class="project-tag">p5.sound</span>
-                                    <span class="project-tag">Dat.GUI</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://editor.p5js.org/Delvin/full/7vD8Lushj" target="_blank" aria-label="View Live Demo">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-image">
-                            <img src="Images/VisualTouch.png" alt="Visual Touch Screenshot">
-                        </div>
-                    </div>
+                    <div class="card-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
                 </div>
+
+                <div class="project-card p3" onclick="openProject(2)">
+                    <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                    <div class="card-content">
+                        <span class="project-cat">Game Development</span>
+                        <h3>Space Toast</h3>
+                        <p>A 2D top down, endless bullet hell shooter game.</p>
+                    </div>
+                    <div class="card-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                </div>
+
+                <div class="project-card p4" onclick="openProject(3)">
+                    <div class="card-icon"><i class="fa-solid fa-user-secret"></i></div>
+                    <div class="card-content">
+                        <span class="project-cat">Game Development</span>
+                        <h3>Grave Runner</h3>
+                        <p>A top-down stealth puzzle game with reactive enemy AI.</p>
+                    </div>
+                    <div class="card-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                </div>
+
+                <div class="project-card p5" onclick="openProject(4)">
+                    <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+                    <div class="card-content">
+                        <span class="project-cat">Software</span>
+                        <h3>AI Chat Interface</h3>
+                        <p>Full-stack AI chatbot with persistent memory and multimodal support.</p>
+                    </div>
+                    <div class="card-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                </div>
+
+                <div class="project-card p6" onclick="openProject(5)">
+                    <div class="card-icon"> <i class="fa-solid fa-qrcode"></i> </div>
+                    <div class="card-content">
+                        <span class="project-cat">Software</span>
+                        <h3>QR Code Generator</h3>
+                        <p>Customizable QR code generator supporting multiple data types.</p>
+                    </div>
+                    <div class="card-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                </div>
+
+                <div class="project-card p7" onclick="openProject(6)">
+                    <div class="card-icon"><i class="fa-solid fa-camera-retro"></i></div>
+                    <div class="card-content">
+                        <span class="project-cat">Web Development</span>
+                        <h3>Captures.io</h3>
+                        <p>Developed a fast, user-friendly image and video search engine using JavaScript.</p>
+                    </div>
+                    <div class="card-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                </div>
+
+                <div class="project-card p8" onclick="openProject(7)">
+                    <div class="card-icon"><i class="fa-solid fa-cloud-sun-rain"></i></div>
+                    <div class="card-content">
+                        <span class="project-cat">Web Development</span>
+                        <h3>Weather Application</h3>
+                        <p>Interactive weather app with real-time global forecasts.</p>
+                    </div>
+                    <div class="card-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                </div>
+
+                <div class="project-card p9" onclick="openProject(8)">
+                    <div class="card-icon"><i class="fa-solid fa-fish-fins"></i></div>
+                    <div class="card-content">
+                        <span class="project-cat">Data & Creative Coding</span>
+                        <h3>Smells Fishy</h3>
+                        <p>A visual data project on seafood consumption.</p>
+                    </div>
+                    <div class="card-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                </div>
+
+                <div class="project-card p10" onclick="openProject(9)">
+                    <div class="card-icon"><i class="fa-solid fa-fingerprint"></i></div>
+                    <div class="card-content">
+                        <span class="project-cat">Creative Coding</span>
+                        <h3>Visual Touch</h3>
+                        <p>Interactive art generator using algorithmic patterns.</p>
+                    </div>
+                    <div class="card-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+                </div>
+            </div>
+
+            <div class="scroll-hint" id="scrollHint">
+                Scroll for more <i class="fa-solid fa-arrow-right-long"></i>
             </div>
         </section>
     </main>
 
-    <footer class="main-footer reveal-on-scroll">
-        <div class="container">
-            <p>&copy; 2025 Delvin Salman. All rights reserved.</p>
+    <div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
+        <div class="modal-window">
+            <button class="close-modal" onclick="closeModal(null)"><i class="fa-solid fa-xmark"></i></button>
+
+            <div class="modal-left">
+                <h3 class="modal-title" id="m-title">Project Title</h3>
+                <div class="modal-tech-stack" id="m-tech"></div>
+                <p class="modal-desc" id="m-desc">Description goes here.</p>
+                <div class="modal-actions" id="m-actions"></div>
+            </div>
+
+            <div class="modal-right">
+                <img id="m-image" src="" alt="Project Preview">
+                <button class="expand-gallery-btn" onclick="toggleGallery(true)" title="View Gallery">
+                    <i class="fa-solid fa-expand"></i>
+                </button>
+            </div>
+
+            <div class="modal-gallery-view" id="gallery-view">
+                <button class="gallery-back-btn" onclick="toggleGallery(false)" title="Back to Info">
+                    <i class="fa-solid fa-arrow-left-long"></i>
+                </button>
+
+                <div class="gallery-track" id="gallery-track">
+                </div>
+
+                <div class="gallery-indicator">Scroll for more</div>
+            </div>
         </div>
-    </footer>
+    </div>
+
+    <div class="dock-container">
+        <div class="dock">
+            <div class="dock-item active" onclick="switchTab('home', this)" data-label="Home">
+                <i class="fa-solid fa-house-chimney"></i>
+            </div>
+            <div class="dock-item" onclick="switchTab('about', this)" data-label="About">
+                <i class="fa-solid fa-user-astronaut"></i>
+            </div>
+            <div class="dock-item" onclick="switchTab('skills', this)" data-label="Skills">
+                <i class="fa-solid fa-microchip"></i>
+            </div>
+            <div class="dock-item" onclick="switchTab('projects', this)" data-label="Projects">
+                <i class="fa-solid fa-layer-group"></i>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
-        
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            body.classList.toggle('light-mode');
-        });
-        
-        // Header scroll effect
-        const header = document.querySelector('.main-header');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) { 
-                header.classList.add('header-scrolled');
+        const projectData = [{
+                title: "Cattleman's Crossing",
+                desc: "Led level design and development for Cattleman’s Crossing, a 3D open-world narrative game inspired by Canadian landscapes. Built the main map with varied biomes, terrain features, and environmental storytelling, implemented interactive systems and gameplay triggers, and supported core gameplay mechanics such as quests, NPC interactions, and world navigation, while optimizing layout for pacing, exploration, and player engagement.",
+                tech: ["Unreal", "C++", "Blueprint Scripting", "Blender"],
+                img: "https://img.itch.zone/aW1hZ2UvMzMyNDUwNi8yMDQwODIxMy5wbmc=/original/vODp15.png",
+                images: [
+                    "https://img.itch.zone/aW1hZ2UvMzMyNDUwNi8yMDQwODIxMy5wbmc=/original/vODp15.png",
+                    "https://img.itch.zone/aW1hZ2UvMzMyNDUwNi8yMDQwODIxMi5wbmc=/original/4b1UIK.png",
+                    "https://img.itch.zone/aW1hZ2UvMzMyNDUwNi8yMDQwODIxNS5wbmc=/original/dWQFC3.png"
+                ],
+                live: "https://riordan-palmer.itch.io/cattlemans-crossing",
+                github: null
+            },
+            {
+                title: "Ash",
+                desc: "Developed a stylized 3D open-world exploration game featuring gliding, dynamic traversal, environmental puzzles, interactive systems, and player ability progression. Designed the world layout, traversal mechanics, and gameplay flow to encourage exploration and discovery. Showcased at the 2024 Level Up Showcase as a top student project.",
+                tech: ["Unreal", "Blueprint Scripting", "C++", "Blender"],
+                img: "https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkyOTc2My5wbmc=/original/DDFFAu.png",
+                images: [
+                    "https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkyOTc2My5wbmc=/original/DDFFAu.png",
+                    "https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkyOTc1Ny5wbmc=/original/3txxPY.png",
+                    "https://img.itch.zone/aW1hZ2UvMjU4MTY0Ni8xNTkyOTc2NC5wbmc=/original/qD1ReC.png"
+                ],
+                live: "https://rajusivanantham.itch.io/ash",
+                github: null
+            },
+            {
+                title: "Space Toast",
+                desc: "Developed a 2D top-down shooter featuring wave-based combat, projectile and damage systems, dynamic pickups, and refined character movement. Implemented enemy behaviors, combat feedback, and progression-driven difficulty scaling. Built core gameplay systems in C# and polished UI, visuals, and level layout to support fast-paced, readable combat.",
+                tech: ["Unity", "C#", "2D Game Development", "Animation"],
+                img: "Images/Space1.png",
+                images: [
+                    "Images/Space1.png",
+                    "Images/Space2.png",
+                    "Images/Space3.png"
+                ],
+                live: "https://delyy.itch.io/space-toast",
+                github: null
+            },
+            {
+                title: "Grave Runner",
+                desc: "Developed a 3D boss-rush game in Unreal Engine that progressively simplifies gameplay to challenge player adaptation. Led level design, UI, and core systems, implementing mechanics, controls, pickups, physics interactions, and boss behaviors using Blueprint scripting. Focused on responsive movement, balanced difficulty progression, and compact arena encounters to emphasize clarity, pacing, and player mastery.",
+                tech: ["Unreal", "Blueprint Scripting", "Maya", "Git"],
+                img: "https://img.itch.zone/aW1nLzE4NzcwNDQ1LnBuZw==/original/eg7ZAD.png",
+                images: [
+                    "https://img.itch.zone/aW1nLzE4NzcwNDQ1LnBuZw==/original/eg7ZAD.png",
+                    "https://img.itch.zone/aW1nLzE4NzcwNDIxLnBuZw==/original/4U1cJk.png",
+                    "https://img.itch.zone/aW1nLzE4NzcwNDI4LnBuZw==/original/q29p%2B3.png"
+                ],
+                live: "https://delyy.itch.io/graverunner",
+                github: null
+            },
+            {
+                title: "AI Chat Interface",
+                desc: "Developed a full-stack AI chatbot featuring a modern, responsive UI, persistent chat history, multi-file analysis, and AI image generation. Supports customizable model settings to tailor responses and behavior. Engineered for high accuracy, contextual awareness, and realistic, human-like interactions, with a scalable architecture designed for future feature expansion.",
+                tech: ["Python", "Flask", "JavaScript", "Hugging Face"],
+                img: "Images/Chatbot1.png",
+                images: [
+                    "Images/Chatbot1.png",
+                    "Images/Chatbot2.png",
+                    "Images/Chatbot3.png"
+                ],
+                live: null,
+                github: null
+            },
+            {
+                title: "QR Code Generator",
+                desc: "An advanced QR code generator with customizable logos, color themes, and unique visual styles. Supports multiple data types including URLs, contact information, plain text, and Wi-Fi credentials. Designed for speed and ease of use, it features real-time QR generation, high-resolution exports, instant previews, and a clean, intuitive interface for smooth and seamless user interaction.",
+                tech: ["JavaScript", "HTML/CSS", "QRCode.js"],
+                img: "https://www.billit.eu/media/n5cmyll2/blog-qr-codes.png",
+                images: [
+                    "https://www.billit.eu/media/n5cmyll2/blog-qr-codes.png",
+                    "Images/QR1.png",
+                    "Images/QR2.png"
+                ],
+                live: "https://delvinsalman.github.io/QRGenerator/",
+                github: "https://github.com/delvinsalman/QRGenerator"
+            },
+            {
+                title: "Captures.io",
+                desc: "Developed a user-friendly image and video search engine using JavaScript and the Pexels API, providing real-time access to high-quality visuals. Features fast search performance, smooth downloads, responsive design, and an intuitive UI for seamless browsing. Includes efficient API handling, and optimized user interactions for an improved search experience.",
+                tech: ["JavaScript", "HTML/CSS", "Pexels API"],
+                img: "SearchEngine1.png",
+                images: [
+                    "Images/SearchEngine1.png",
+                    "Images/SearchEngine2.png",
+                    "Images/SearchEngine3.png"
+                ],
+                live: "https://delvinsalman.github.io/SearchEngine/",
+                github: "https://github.com/delvinsalman/SearchEngine"
+            },
+            {
+                title: "Weather Application",
+                desc: "An interactive weather application with real-time global forecasts powered by the OpenWeatherMap API. Features dynamic data updates, an interactive Leaflet.js map, detailed climate metrics (temperature, humidity, wind, and conditions), saved locations, and a fully responsive UI optimized for desktop and mobile. Built with a focus on performance, usability, and clear data visualization.",
+                tech: ["JavaScript", "API", "Leaflet.js", "HTML/CSS"],
+                img: "Images/Weather1.png",
+                images: [
+                    "Images/Weather1.png",
+                    "Images/Weather2.png",
+                    "Images/Weather3.png"
+                ],
+                live: "https://delvinsalman.github.io/WeatherApplication/",
+                github: "https://github.com/delvinsalman/WeatherApplication"
+            },
+            {
+                title: "Smells Fishy",
+                desc: "Developed an interactive data visualization featuring a boid simulation that mimics an aquatic ecosystem. Enables users to explore responsive, dynamic visuals with color-coded elements for clarity, enhanced through integrated JavaScript libraries and real-time interaction.",
+                tech: ["JavaScript", "p5.js", "Data Programming"],
+                img: "Images/Fish1.png",
+                images: [
+                    "Images/Fish1.png",
+                    "Images/Fish2.png",
+                    "Images/Fish3.png"
+                ],
+                live: "https://editor.p5js.org/Delvin/full/bG7XyZZw2",
+                github: "https://github.com/delvinsalman/SmellsFishy"
+            },
+            {
+                title: "Visual Touch",
+                desc: "Developed an interactive JavaScript data visualization featuring a boid simulation that mimics an aquatic ecosystem. Users explore dynamic, color-coded visuals with responsive, emergent movement, driven by real-time interaction and integrated creative-coding libraries to highlight behavioral patterns and flow.",
+                tech: ["p5.js", "JavaScript", "p5.sound", "Dat.GUI"],
+                img: "Images/Art1.png",
+                images: [
+                    "Images/Art1.png",
+                    "Images/Art1.png",
+                    "Images/Art1.png"
+                ],
+                live: "https://editor.p5js.org/Delvin/full/7vD8Lushj",
+                github: null
+            }
+        ];
+
+        function switchTab(tabId, element) {
+            document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+
+            document.querySelectorAll('.dock-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('onclick').includes(`'${tabId}'`)) {
+                    item.classList.add('active');
+                }
+            });
+
+            document.getElementById(tabId).classList.add('active');
+            if (element) element.classList.add('active');
+
+            const liveWidget = document.getElementById('live-status-widget');
+            if (tabId === 'home') {
+                liveWidget.style.display = 'flex';
             } else {
-                header.classList.remove('header-scrolled');
+                liveWidget.style.display = 'none';
+            }
+        }
+
+        const modal = document.getElementById('projectModal');
+        const mTitle = document.getElementById('m-title');
+        const mDesc = document.getElementById('m-desc');
+        const mTech = document.getElementById('m-tech');
+        const mImage = document.getElementById('m-image');
+        const mActions = document.getElementById('m-actions');
+
+        const galleryView = document.getElementById('gallery-view');
+        const galleryTrack = document.getElementById('gallery-track');
+
+        function openProject(index) {
+            const data = projectData[index];
+            mTitle.innerText = data.title;
+            mDesc.innerText = data.desc;
+            mImage.src = data.img;
+            mTech.innerHTML = data.tech.map(t => `<span class="tech-pill">${t}</span>`).join('');
+
+            let buttonsHtml = `
+                <a href="${data.live}" target="_blank" class="modal-btn-icon" title="Live View">
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                </a>
+            `;
+
+            if (data.github) {
+                buttonsHtml += `
+                    <a href="${data.github}" target="_blank" class="modal-btn-icon" title="View Code">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                `;
+            }
+            mActions.innerHTML = buttonsHtml;
+
+            const imagesToShow = data.images || [data.img, data.img, data.img];
+
+            galleryTrack.innerHTML = imagesToShow.map(imgSrc => `
+                <div class="gallery-item">
+                    <img src="${imgSrc}" alt="Gallery Image">
+                </div>
+            `).join('');
+
+            galleryView.classList.remove('active');
+
+            modal.classList.add('open');
+        }
+
+        function toggleGallery(show) {
+            if (show) {
+                galleryView.classList.add('active');
+            } else {
+                galleryView.classList.remove('active');
+            }
+        }
+
+        function closeModal(e) {
+            if (e === null || e.target === modal) {
+                modal.classList.remove('open');
+                setTimeout(() => galleryView.classList.remove('active'), 300);
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const icon = document.querySelector('.toggle-btn i');
+
+            if (icon.classList.contains('fa-moon')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        function updateTorontoTime() {
+            const timeDisplay = document.getElementById('clock-display');
+            const now = new Date();
+            const options = {
+                timeZone: 'America/Toronto',
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true
+            };
+            const formatter = new Intl.DateTimeFormat('en-US', options);
+            timeDisplay.textContent = formatter.format(now);
+        }
+        updateTorontoTime();
+        setInterval(updateTorontoTime, 1000);
+
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach((card, index) => {
+            if (projectData[index] && projectData[index].img) {
+                card.style.setProperty('--card-img', `url('${projectData[index].img}')`);
             }
         });
-        
-        // Role cycler
-        const roleCycler = document.getElementById('role-cycler');
-        const roles = ["Game Development",
-            "Software Dev",
-            "Programming",
-            "UI/UX",
-            "Designing",
-            "3D Modeling",
-            "Animation",
-            "Web Development",
-            "Technology",
-            "Systems",
-            "AI",
-            "Machine Learning",
-            "Data",
-            "Virtual Reality",
-            "Creative Coding",
-            "Digital Media",
-            "Technical Art",
-            "Level Design",
-            "Learning",
-            "Creating",
-            "Innovation",
-            "Developing"];
-        let currentRoleIndex = 0;
-        
-        function cycleRoles() {
-            roleCycler.classList.add('fading');
-            
-            setTimeout(() => {
-                currentRoleIndex = (currentRoleIndex + 1) % roles.length;
-                roleCycler.textContent = roles[currentRoleIndex];
-                roleCycler.classList.remove('fading');
-            }, 500);
-        }
-        
-        setInterval(cycleRoles, 3000);
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+
+        const scrollGrids = document.querySelectorAll('.projects-grid');
+        const scrollHint = document.getElementById('scrollHint');
+
+        scrollGrids.forEach(container => {
+            container.addEventListener('wheel', (evt) => {
+                if (Math.abs(evt.deltaX) > Math.abs(evt.deltaY)) {
+                    return;
+                }
+                if (evt.deltaY !== 0) {
+                    evt.preventDefault();
+                    container.scrollLeft += evt.deltaY * 3;
                 }
             });
-        });
-        
-        // --- EDITED: Updated Project Filtering Logic ---
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const projectEntries = document.querySelectorAll('.project-entry');
-        const projectTitles = document.querySelectorAll('.project-group-title'); // Titles are hidden by CSS
-        
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                tabBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
-                
-                const filter = btn.getAttribute('data-filter');
-                
-                // Hide all category titles (they are already hidden by CSS, this is just for JS logic)
-                projectTitles.forEach(title => title.classList.add('hidden'));
-                
-                // Filter project entries
-                projectEntries.forEach(entry => { 
-                    if (entry.getAttribute('data-category') === filter) { 
-                        entry.classList.remove('hidden'); 
-                    } else {
-                        entry.classList.add('hidden'); 
-                    }
-                });
-            });
-        });
 
-        // --- EDITED: Set initial filter state to 'game-dev' on page load ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const initialFilter = 'game-dev'; // CHANGED from 'all'
-            
-            // Hide titles
-            projectTitles.forEach(title => title.classList.add('hidden'));
-            
-            // Filter projects
-            projectEntries.forEach(entry => { 
-                if (entry.getAttribute('data-category') === initialFilter) { 
-                    entry.classList.remove('hidden'); 
+            container.addEventListener('scroll', () => {
+                if (container.scrollLeft > 20) {
+                    scrollHint.style.opacity = '0';
                 } else {
-                    entry.classList.add('hidden'); 
-                }
-            });
-        });
-        
-        // --- NEW: Intersection Observer for On-Scroll Animations ---
-        const revealElements = document.querySelectorAll('.reveal-on-scroll');
-        
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // Stop observing once it's visible
-                }
-            });
-        }, {
-            root: null, // relative to the viewport
-            rootMargin: '0px',
-            threshold: 0.1 // 10% of the element must be visible
-        });
-        
-        revealElements.forEach(element => {
-            revealObserver.observe(element);
-        });
-        // --- END NEW ANIMATION LOGIC ---
-
-        // Set active nav link based on scroll position
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= sectionTop - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
+                    scrollHint.style.opacity = '0.6';
                 }
             });
         });
