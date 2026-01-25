@@ -22,8 +22,8 @@
             --border: rgba(255, 255, 255, 0.06);
             --ease: cubic-bezier(0.16, 1, 0.3, 1);
             --modal-z: 2000;
-            --card-img-opacity: 0.1;
-            --card-img-hover: 0.2;
+            --card-img-opacity: 0.4;
+            --card-img-hover: 0.15;
         }
 
         body.light-mode {
@@ -36,8 +36,8 @@
             --accent-glow: rgba(0, 122, 255, 0.3);
             --dock-bg: rgba(255, 255, 255, 0.6);
             --border: rgba(0, 0, 0, 0.08);
-            --card-img-opacity: 0.15;
-            --card-img-hover: 0.3;
+            --card-img-opacity: 0.35;
+            --card-img-hover: 0.15;
         }
 
         * {
@@ -143,23 +143,13 @@
             color: var(--text-muted);
             font-variant-numeric: tabular-nums;
             letter-spacing: 0.02em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         @keyframes pulse {
-            0% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.5;
-                transform: scale(0.9);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         .toggle-btn {
@@ -220,6 +210,7 @@
         }
 
         .section-title {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 2rem;
             font-weight: 800;
             letter-spacing: -0.03em;
@@ -237,6 +228,7 @@
         }
 
         h1.hero-title {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 4.5rem;
             font-weight: 800;
             letter-spacing: -0.04em;
@@ -345,6 +337,7 @@
         }
 
         .edu-title {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 1.2rem;
             font-weight: 600;
             color: var(--text-main);
@@ -396,17 +389,14 @@
             .about-split-container {
                 flex-direction: column;
             }
-
             .about-col {
                 padding: 0;
             }
-
             .about-divider {
                 width: 100%;
                 height: 1px;
                 margin: 30px 0;
             }
-
             .awards-divider {
                 width: 100%;
                 margin-left: 0;
@@ -426,7 +416,7 @@
             font-size: 1.1rem;
             color: var(--text-main);
             margin-bottom: 12px;
-            font-weight: 400;
+            font-weight: normal;
             opacity: 0.9;
             border-bottom: 1px solid var(--border);
             padding-bottom: 8px;
@@ -477,6 +467,7 @@
             opacity: 0.6;
             transition: opacity 0.4s ease;
             pointer-events: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .scroll-hint i {
@@ -484,13 +475,8 @@
         }
 
         @keyframes bounceRight {
-            0%, 100% {
-                transform: translateX(0);
-            }
-
-            50% {
-                transform: translateX(5px);
-            }
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
         }
 
         .project-card {
@@ -523,42 +509,45 @@
             background-position: center;
             opacity: var(--card-img-opacity);
             z-index: -1;
-            transition: opacity 0.3s ease;
-            filter: grayscale(100%);
+            transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
+            filter: blur(4px);
             background-image: var(--card-img);
         }
 
         .project-card:hover::before {
             opacity: var(--card-img-hover);
-            filter: grayscale(0%);
+            filter: blur(4px);
             transform: scale(1.05);
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent);
+            border-color: var(--text-main);
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
         }
 
         .project-cat {
             font-size: 0.75rem;
-            color: var(--accent);
+            color: var(--text-main);
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 6px;
             display: block;
             font-weight: 600;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .card-icon {
             font-size: 1.7rem;
-            color: var(--accent);
+            color: var(--text-main);
             margin-bottom: 15px;
         }
 
         .card-content h3 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 1.2rem;
             margin-bottom: 8px;
+            font-weight: 700;
         }
 
         .card-content p {
@@ -624,33 +613,33 @@
         }
 
         .modal-left {
+            position: relative;
+            z-index: 10;
             flex: 1;
             padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             overflow-y: auto;
-            transition: opacity 0.3s ease;
+            max-width: 55%;
+            text-shadow: 0 2px 20px var(--bg);
         }
 
         .modal-right {
-            flex: 1;
-            background: var(--bg);
-            position: relative;
-            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 75%;
+            height: 100%;
+            z-index: 1;
             transition: opacity 0.3s ease;
+            pointer-events: none;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 80%);
+            mask-image: linear-gradient(to right, transparent 0%, black 80%);
         }
 
         .modal-right::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to right, var(--bg) 0%, transparent 100%);
-            pointer-events: none;
-            z-index: 2;
+            display: none;
         }
 
         .modal-right img {
@@ -677,7 +666,8 @@
             height: 36px;
             border-radius: 12px;
             cursor: pointer;
-            z-index: 5;
+            z-index: 20;
+            pointer-events: all;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -803,9 +793,11 @@
             font-size: 0.85rem;
             pointer-events: none;
             letter-spacing: 0.05em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .modal-title {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 1.8rem;
             font-weight: 800;
             letter-spacing: -0.03em;
@@ -837,6 +829,8 @@
             background: var(--surface-highlight);
             border-radius: 6px;
             color: var(--text-muted);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: 1px solid var(--border);
         }
 
         .modal-actions {
@@ -924,6 +918,7 @@
             white-space: nowrap;
             transform: translateY(10px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .dock-item:hover::after {
@@ -932,17 +927,9 @@
         }
 
         @media (max-width: 768px) {
-            h1.hero-title {
-                font-size: 3rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
+            h1.hero-title { font-size: 3rem; }
+            .section-title { font-size: 1.8rem; }
+            .projects-grid { grid-template-columns: 1fr; }
 
             .modal-window {
                 flex-direction: column-reverse;
@@ -951,21 +938,22 @@
             }
 
             .modal-left {
+                max-width: 100%;
                 overflow-y: auto;
+                padding-top: 60px;
             }
 
             .modal-right {
-                height: 250px;
-                flex: none;
+                width: 100%;
+                height: 50%;
+                top: 0;
+                right: auto;
+                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 70%);
+                mask-image: linear-gradient(to bottom, transparent 0%, black 70%);
             }
 
-            main {
-                padding-bottom: 100px;
-            }
-
-            .live-status {
-                display: none;
-            }
+            main { padding-bottom: 100px; }
+            .live-status { display: none; }
         }
     </style>
 </head>
@@ -1108,7 +1096,7 @@
                 </div>
 
                 <div class="project-card p4" onclick="openProject(3)">
-                    <div class="card-icon"><i class="fa-solid fa-user-secret"></i></div>
+                    <div class="card-icon"><i class="fa-solid fa-skull"></i></div>
                     <div class="card-content">
                         <span class="project-cat">Game Development</span>
                         <h3>Grave Runner</h3>
@@ -1296,11 +1284,11 @@
                     "Images/Chatbot3.png"
                 ],
                 live: null,
-                github: null
+                github: "https://github.com/delvinsalman/Chatbot"
             },
             {
                 title: "QR Code Generator",
-                desc: "An advanced QR code generator with customizable logos, color themes, and unique visual styles. Supports multiple data types including URLs, contact information, plain text, and Wi-Fi credentials. Designed for speed and ease of use, it features real-time QR generation, high-resolution exports, instant previews, and a clean, intuitive interface for smooth and seamless user interaction.",
+                desc: "An advanced QR code generator with customizable logos, color themes, and unique visual styles. Supports multiple data types including URLs, contact information, plain text, and Wi-Fi credentials. Designed for speed and ease of use, it features real-time QR generation, high-resolution exports, instant previews, and a clean, intuitive interface for seamless user interaction.",
                 tech: ["JavaScript", "HTML/CSS", "QRCode.js"],
                 img: "https://www.billit.eu/media/n5cmyll2/blog-qr-codes.png",
                 images: [
@@ -1403,11 +1391,15 @@
             mImage.src = data.img;
             mTech.innerHTML = data.tech.map(t => `<span class="tech-pill">${t}</span>`).join('');
 
-            let buttonsHtml = `
-                <a href="${data.live}" target="_blank" class="modal-btn-icon" title="Live View">
-                    <i class="fa-solid fa-up-right-from-square"></i>
-                </a>
-            `;
+            let buttonsHtml = '';
+
+            if (data.live) {
+                buttonsHtml += `
+                    <a href="${data.live}" target="_blank" class="modal-btn-icon" title="Live View">
+                        <i class="fa-solid fa-up-right-from-square"></i>
+                    </a>
+                `;
+            }
 
             if (data.github) {
                 buttonsHtml += `
