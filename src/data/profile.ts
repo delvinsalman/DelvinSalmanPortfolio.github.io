@@ -1,0 +1,132 @@
+export const profile = {
+  firstName: "Delvin",
+  lastName: "Salman",
+  title: "Student Developer",
+  tagline: "Building thoughtful digital experiences with precision and care.",
+  homeDescription:
+    "A multidisciplinary student developer crafting digital experiences with focus, clarity, and precision in Game Development, AI, Computer Science and Digital Media.",
+  aboutParagraphs: [
+    "I'm a student developer working across Game Development, Computer Science, AI and Digital Media and a variety of other domains and skills in my learning and experiences.",
+    "I like building things that feel polished and intentional — whether that's an open-world 3D game, a AI web tool, or an interactive visual piece all with the common goal of learning and creating.",
+  ],
+  email: "hello@delvinsalman.com",
+  location: "San Francisco, CA",
+  social: {
+    github: "https://github.com/delvinsalman",
+    linkedin: "https://linkedin.com",
+    twitter: "https://twitter.com",
+  },
+};
+
+export const education = [
+  {
+    program: "B.A., Spec. Hons. Digital Media (Game Arts)",
+    institution: "York University, Lassonde School of Engineering",
+    period: "2021 — Present",
+    description:
+      "Specialized in Game Development and Computer Science.",
+  },
+];
+
+export const skills = [
+  {
+    id: "languages",
+    category: "Languages & Frameworks",
+    items: [
+      "Python",
+      "Javascript",
+      "HTML",
+      "CSS",
+      "Java",
+      "C#",
+      "C++",
+      "React",
+      "Flask",
+      "TensorFlow",
+      "PyTorch",
+      "SQL",
+      "Bootstrap",
+    ],
+  },
+  {
+    id: "game-dev",
+    category: "Game Development",
+    items: [
+      "Unreal Engine",
+      "Unity",
+      "Blueprint Scripting",
+      "Godot",
+      "GameMaker",
+      "Roblox Studio",
+    ],
+  },
+  {
+    id: "software",
+    category: "Software & Technical Tools",
+    items: [
+      "VS Code",
+      "Git",
+      "p5.js",
+      "Eclipse",
+      "Sublime",
+      "GitHub",
+      "MS Office",
+    ],
+  },
+  {
+    id: "creative",
+    category: "Creative & Design Tools",
+    items: [
+      "Adobe Suite",
+      "Processing",
+      "Maya",
+      "Blender",
+      "TouchDesigner",
+      "Canva",
+      "Figma",
+      "Lens Studio",
+      "Max",
+      "DaVinci Resolve",
+    ],
+  },
+];
+
+/** Optional proficiency label shown on filtered skill rows */
+export const skillProficiency: Record<string, string> = {
+  Javascript: "Highly Understood",
+  HTML: "Highly Understood",
+  CSS: "Highly Understood",
+  "C#": "Highly Understood",
+  Python: "Understanding / Learning",
+  Java: "Understanding / Learning",
+  "C++": "Understanding / Learning",
+  React: "Understanding / Learning",
+  Flask: "Understanding / Learning",
+  TensorFlow: "Understanding / Learning",
+  PyTorch: "Understanding / Learning",
+  SQL: "Understanding / Learning",
+  Bootstrap: "Understanding / Learning",
+  "Unreal Engine": "Highly Understood",
+  Unity: "Highly Understood",
+  "Blueprint Scripting": "Understanding / Learning",
+  Godot: "Understanding / Learning",
+  GameMaker: "Understanding / Learning",
+  "Roblox Studio": "Understanding / Learning",
+  "VS Code": "Highly Understood",
+  Git: "Highly Understood",
+  GitHub: "Highly Understood",
+  "MS Office": "Expert",
+  "p5.js": "Expert",
+  Eclipse: "Understanding / Learning",
+  Sublime: "Understanding / Learning",
+  "Adobe Suite": "Highly Understood",
+  Maya: "Highly Understood",
+  "Lens Studio": "Highly Understood",
+  Processing: "Understanding / Learning",
+  Blender: "Understanding / Learning",
+  TouchDesigner: "Understanding / Learning",
+  Canva: "Understanding / Learning",
+  Figma: "Understanding / Learning",
+  Max: "Understanding / Learning",
+  "DaVinci Resolve": "Understanding / Learning",
+};
