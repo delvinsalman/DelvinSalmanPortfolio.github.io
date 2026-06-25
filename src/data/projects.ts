@@ -221,7 +221,7 @@ export const projects: Project[] = [
     stars: 222,
     forks: 93,
     projectType: "team",
-    teamMembers: ["Jaylen Lie", "Riordan Palmer", "Shana Isaac", "Raju Sivanantham"],
+    teamMembers: ["Jaylen Lie", "Riordan Palmer", "Shana Isaac", "Raju Sivanantham", "Tarek Jrab"],
     facts: [
       "Endless runner with boss-fight encounters",
       "Skull-themed arcade visual identity",
