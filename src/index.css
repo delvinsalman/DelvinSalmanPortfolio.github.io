@@ -1,0 +1,264 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --apple-bg: #fbfbfd;
+  --apple-surface: #ffffff;
+  --apple-muted: #f5f5f7;
+  --apple-text: #1d1d1f;
+  --apple-secondary: #86868b;
+  --apple-tertiary: #6e6e73;
+  --apple-border: rgba(0, 0, 0, 0.08);
+  --apple-glass: rgba(255, 255, 255, 0.72);
+  --apple-divider: rgba(0, 0, 0, 0.06);
+  --apple-gradient-from: #1d1d1f;
+  --apple-gradient-to: #424245;
+}
+
+.dark {
+  --apple-bg: #18181a;
+  --apple-surface: #242426;
+  --apple-muted: #303032;
+  --apple-text: #f5f5f7;
+  --apple-secondary: #98989d;
+  --apple-tertiary: #aeaeb2;
+  --apple-border: rgba(255, 255, 255, 0.1);
+  --apple-glass: rgba(36, 36, 38, 0.78);
+  --apple-divider: rgba(255, 255, 255, 0.08);
+  --apple-gradient-from: #f5f5f7;
+  --apple-gradient-to: #aeaeb2;
+}
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Helvetica Neue", system-ui, sans-serif;
+  --color-apple-bg: var(--apple-bg);
+  --color-apple-surface: var(--apple-surface);
+  --color-apple-muted: var(--apple-muted);
+  --color-apple-text: var(--apple-text);
+  --color-apple-secondary: var(--apple-secondary);
+  --color-apple-tertiary: var(--apple-tertiary);
+  --color-apple-blue: #0071e3;
+  --color-apple-blue-hover: #0077ed;
+  --color-apple-border: var(--apple-border);
+  --color-apple-glass: var(--apple-glass);
+  --color-apple-divider: var(--apple-divider);
+  --shadow-apple-sm: 0 2px 16px rgba(0, 0, 0, 0.06);
+  --shadow-apple-md: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-apple-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+.dark {
+  --shadow-apple-sm: 0 2px 16px rgba(0, 0, 0, 0.4);
+  --shadow-apple-md: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-apple-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.dark .project-page {
+  --apple-border: rgba(255, 255, 255, 0.22);
+  --apple-divider: rgba(255, 255, 255, 0.18);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--apple-bg);
+  color: var(--apple-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: rgba(0, 113, 227, 0.2);
+}
+
+.glass-nav {
+  background: var(--apple-glass);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.apple-gradient-text {
+  background: linear-gradient(135deg, var(--apple-gradient-from) 0%, var(--apple-gradient-to) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.home-marker-name {
+  display: inline;
+  font: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
+
+.home-marker-name-text {
+  display: inline;
+  font: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  background: linear-gradient(
+    100deg,
+    #0071e3 0%,
+    #5ac8fa 18%,
+    #64d2ff 32%,
+    #bf5af2 50%,
+    #7c6bff 68%,
+    #0077ed 84%,
+    #5ac8fa 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 18px rgba(0, 113, 227, 0.22));
+  clip-path: inset(0 100% 0 0);
+  animation:
+    marker-write 1.05s cubic-bezier(0.16, 1, 0.3, 1) 0.42s forwards,
+    marker-gradient 7s ease-in-out infinite 1.35s;
+}
+
+.dark .home-marker-name-text {
+  background: linear-gradient(
+    100deg,
+    #64b5ff 0%,
+    #a78bfa 20%,
+    #5eead4 38%,
+    #c084fc 55%,
+    #38bdf8 72%,
+    #818cf8 88%,
+    #64b5ff 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 22px rgba(100, 181, 255, 0.35));
+}
+
+@keyframes marker-write {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.75;
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes marker-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-marker-name-text {
+    clip-path: inset(0 0 0 0);
+    animation: none;
+    background-position: 0% 50%;
+  }
+}
+
+.home-pin-name {
+  font-size: clamp(3rem, 12vw, 6.75rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--apple-text);
+  letter-spacing: -0.045em;
+}
+
+.home-meta-time {
+  color: var(--apple-secondary);
+}
+
+.home-meta-link {
+  color: var(--apple-secondary);
+  transition: color 0.25s ease;
+}
+
+.home-meta-link:hover {
+  color: var(--apple-text);
+}
+
+.home-glow-blue {
+  background: radial-gradient(
+    circle at center,
+    rgba(186, 214, 255, 0.14) 0%,
+    rgba(186, 214, 255, 0.06) 38%,
+    rgba(186, 214, 255, 0.02) 58%,
+    transparent 88%
+  );
+}
+
+.home-glow-purple {
+  background: radial-gradient(
+    circle at center,
+    rgba(221, 196, 255, 0.12) 0%,
+    rgba(221, 196, 255, 0.05) 38%,
+    rgba(221, 196, 255, 0.015) 58%,
+    transparent 88%
+  );
+}
+
+.dark .home-glow-blue {
+  background: radial-gradient(
+    circle at center,
+    rgba(147, 197, 253, 0.1) 0%,
+    rgba(96, 165, 250, 0.045) 42%,
+    rgba(59, 130, 246, 0.015) 62%,
+    transparent 90%
+  );
+}
+
+.dark .home-glow-purple {
+  background: radial-gradient(
+    circle at center,
+    rgba(216, 180, 254, 0.09) 0%,
+    rgba(192, 132, 252, 0.04) 42%,
+    rgba(168, 85, 247, 0.012) 62%,
+    transparent 90%
+  );
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
