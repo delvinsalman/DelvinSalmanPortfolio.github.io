@@ -1,37 +1,14 @@
-# Delvin Salman — Personal Portfolio
+# Delvin Salman — Portfolio
 
-A state-of-the-art personal portfolio with an Apple-inspired design language, featuring a project archive layout inspired by [ashimrudrapaul.com/projects](https://ashimrudrapaul.com/projects).
+Personal portfolio site showcasing my work in game development, software, AI, and digital media.
 
-## Sections
+**Live site:** [delvinsalman.github.io/DelvinSalmanPortfolio.github.io](https://delvinsalman.github.io/DelvinSalmanPortfolio.github.io/)
 
-- **Home** — Hero with large typography and CTAs
-- **About** — Bio, location, and stats
-- **Skills** — Categorized tech stack
-- **Projects** — Archive list with filter + detail page (carousel, tabs, sidebar)
+## What's on the site
 
-## Design
+- **Home** — Introduction and overview
+- **About** — Background and education
+- **Skills** — Tools and technologies I use
+- **Projects** — Portfolio of games, apps, and creative work
 
-- SF Pro / system font stack
-- Glassmorphism navigation with backdrop blur
-- Apple color palette with dark mode
-- Soft shadows, generous spacing, smooth Framer Motion animations
-
-## Getting Started
-
-```bash
-npm install
-npm run dev
-```
-
-Open [http://localhost:5173](http://localhost:5173).
-
-## Customize
-
-Edit your info in `src/data/profile.ts` and projects in `src/data/projects.ts`.
-
-## Build
-
-```bash
-npm run build
-npm run preview
-```
+Built with React, TypeScript, Tailwind CSS, and Vite.
